@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { RegisterClient } from "./RegisterClient";
-import { RegisterCar } from "./RegisterCar";
 
 export const ClientsList = () => {
   const [clients, setClients] = useState([]);
@@ -17,7 +16,7 @@ export const ClientsList = () => {
   return (
     <div>
       <RegisterClient />
-      <RegisterCar />
+
       <ul>
         {clients.map((client) => (
           <li key={client._id}>{client.lastName}</li>
