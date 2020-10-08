@@ -17,8 +17,8 @@ export const CarsList = () => {
     <div>
       <RegisterCar />
       <ul>
-        {cars.map((cars) => (
-          <li key={cars._id}>{cars.carModel}</li>
+        {cars.map((car) => (
+          <li key={car._id}>{car.carModel}</li>
         ))}
       </ul>
     </div>

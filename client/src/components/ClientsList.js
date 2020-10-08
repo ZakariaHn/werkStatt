@@ -16,7 +16,6 @@ export const ClientsList = () => {
   return (
     <div>
       <RegisterClient />
-
       <ul>
         {clients.map((client) => (
           <li key={client._id}>{client.lastName}</li>
