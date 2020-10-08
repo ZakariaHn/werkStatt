@@ -12,7 +12,6 @@ const CarSchema = new mongoose.Schema({
     },
     carModelType: {
         type: String,
-        required: true,
         max: 30
     },
     chassyNr: {

@@ -28,7 +28,7 @@ exports.getCarByChassyNr = async (req, res, next) => {
 };
 
 exports.addCar = async (req, res, next) => {
-  console.log(req.body);
+  console.log('add car route');
   try {
     const car = new CarModel(req.body);
     await car.save();
@@ -37,3 +37,29 @@ exports.addCar = async (req, res, next) => {
     console.log(error);
   }
 };
+
+exports.deleteCar = async (req, res, next) => {
+  console.log('delete route');
+  try {
+    const car = await CarModel.findOneAndRemove({
+      chassyNr: req.params.chassyNr,
+    });
+    return res.status(200).json(car);
+  } catch (error) {
+    res.status(404).send("Car was not found.");
+  }
+};
+
+// exports.updateCar = async (req, res, next) => {
+//   try {
+//     const car = await CarModel.findOneAndUpdate(req.params.chassyNr, {
+//       owner: req.body.owner,
+//       carModel: req.body.carModel,
+//       chassyNr: req.body.chassyNr,
+//       plateNr: req.body.plateNr,
+//     });
+//     return res.status(200).json(car);
+//   } catch (error) {
+//     res.status(404).send("Car was not found.");
+//   }
+// };

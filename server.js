@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const cors = require("cors");
 
 // Use middleware
 app.use(express.json());
@@ -10,19 +10,26 @@ app.use(cors());
 dotenv.config();
 
 // Import Routes
-const clientsRoute = require('./routes/clients');
-const carsRoute = require('./routes/cars');
+const clientsRoute = require("./routes/clients");
+const carsRoute = require("./routes/cars");
+const operationsRoute = require("./routes/operations");
 
 // Connect to DB
-const envconfig = require('./config/config');
+const envconfig = require("./config/config");
 mongoose
-    .connect(process.env.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
-    .then(() => console.log('Connected to DB !'))
-    .catch(err => console.log(err));
+  .connect(process.env.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log("Connected to DB !"))
+  .catch((err) => console.log(err));
 
 // Set Routes
-app.use('/api/clients', clientsRoute);
-app.use('/api/cars', carsRoute);
+app.use("/api/clients", clientsRoute);
+app.use("/api/cars", carsRoute);
+app.use("/api/operations", operationsRoute);
 
 //App port
 const port = envconfig.PORT || 5000;

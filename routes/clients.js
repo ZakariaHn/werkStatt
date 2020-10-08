@@ -5,5 +5,6 @@ const { addClient, getClients, getClient } = require('../controllers/clientsCont
 router.route('/').get(getClients);
 router.route('/:id').get(getClient);
 router.route('/add').post(addClient);
+// router.route('/delete').delete(deleteClient);
 
 module.exports = router;
