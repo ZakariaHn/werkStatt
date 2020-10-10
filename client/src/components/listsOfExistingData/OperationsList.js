@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { RegisterOperation } from "./RegisterOperation";
 
 export const OperationsList = () => {
   const [operations, setOperations] = useState([]);
@@ -14,11 +13,10 @@ export const OperationsList = () => {
   }, []);
 
   return (
-    <div>
-      <RegisterOperation />
+    <div className="operationsList">
       <ul>
         {operations.map((operation) => (
-          <li key={operation._id}>{operation.carModel}</li>
+          <li key={operation._id}>{operation.name}</li>
         ))}
       </ul>
     </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { RegisterCar } from "./RegisterCar";
 
 export const CarsList = () => {
   const [cars, setCars] = useState([]);
@@ -14,8 +13,7 @@ export const CarsList = () => {
   }, []);
 
   return (
-    <div>
-      <RegisterCar />
+    <div className="carsList">
       <ul>
         {cars.map((car) => (
           <li key={car._id}>{car.carModel}</li>
