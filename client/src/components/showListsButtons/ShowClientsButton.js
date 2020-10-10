@@ -1,8 +1,7 @@
 import React from "react";
 
 const ShowClientsButton = () => {
-  const displayList = () => {};
-  return <div onClick={displayList()}>Clients</div>;
+  return <div>Clients</div>;
 };
 
 export default ShowClientsButton;
