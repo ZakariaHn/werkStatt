@@ -9,8 +9,8 @@ const {
 } = require("../controllers/clientsController");
 
 router.route("/").get(getClients);
-router.route("/:id").get(getClient);
 router.route("/add").post(addClient);
+router.route("/:lastName").get(getClient);
 router.route("/:lastName").delete(deleteClient);
 router.route("/:lastName").put(updateClient);
 

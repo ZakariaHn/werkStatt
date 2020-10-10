@@ -1,37 +1,39 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const operationSchema = new mongoose.Schema({
+const operationSchema = new mongoose.Schema(
+  {
     name: {
-        type: String,
-        required: true,
-        max: 40,
-        min: 8
+      type: String,
+      required: true,
+      max: 40,
+      min: 8,
     },
     description: {
-        type: String,
-        required: true,
-        max: 80,
-        min: 8
+      type: String,
+      required: true,
+      max: 80,
+      min: 8,
     },
-    car_id: {
-        type: Number,
-        required: true
+    carId: {
+      type: Number,
+      required: true,
     },
     parts: {
-        type: Array
+      type: Array,
     },
     cost: {
-        type: Number
-    }
-},
-    {
-        toJSON: {
-            transform: function (doc, ret) {
-                delete ret.__v;
-            }
-        }
-    });
+      type: Number,
+    },
+  },
+  {
+    toJSON: {
+      transform: function (doc, ret) {
+        delete ret.__v;
+      },
+    },
+  }
+);
 
-const OperationModel = mongoose.model('Operation', operationSchema);
+const OperationModel = mongoose.model("Operation", operationSchema);
 
 module.exports = OperationModel;
