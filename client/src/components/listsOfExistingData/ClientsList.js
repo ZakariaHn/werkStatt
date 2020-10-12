@@ -10,23 +10,20 @@ export const ClientsList = (props) => {
       const res = await axios.get("http://localhost:5000/api/clients");
       setClients(res.data);
     };
-
     fetchdata();
   }, []);
 
   const renderLists = () => {
     return clients.map((client) => (
-      <li key={client._id}>
-        <Link
-          value={JSON.stringify(client)}
-          onClick={(e) => {
-            props.getSelectedClient(client);
-          }}
-          to="clientInfos"
-        >
-          {client.lastName}
-        </Link>
-      </li>
+      <Link
+        to="clientInfos"
+        key={client._id}
+        onClick={() => {
+          props.getSelectedClient(client);
+        }}
+      >
+        <li>{client.lastName}</li>
+      </Link>
     ));
   };
 
