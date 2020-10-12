@@ -10,8 +10,8 @@ const {
 
 router.route("/").get(getCars);
 router.route("/add").post(addCar);
-router.route("/:chassyNr").get(getCarByChassyNr);
-router.route("/:owner").get(getCarByOwner);
+router.route("/chassynr/:chassyNr").get(getCarByChassyNr);
+router.route("/owner/:owner").get(getCarByOwner);
 router.route("/:chassyNr").delete(deleteCar);
 router.route("/:chassyNr").put(updateCar);
 
