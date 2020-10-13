@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ClientsInformations = (props) => {
-  const { lastName, firstName, birthdate, address, email } = props.infos;
+  const { lastName, firstName, birthdate, address, email } = props.clientInfos;
   return (
     <ul>
       <li>{`First name: ${firstName}`}</li>

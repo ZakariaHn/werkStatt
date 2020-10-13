@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export const OperationsList = () => {
+export const OperationsList = (props) => {
   const [operations, setOperations] = useState([]);
 
   useEffect(() => {
@@ -12,13 +13,23 @@ export const OperationsList = () => {
     fetchdata();
   }, []);
 
+  const renderLists = () => {
+    return operations.map((operation) => (
+      <Link
+        to="operationInfos"
+        key={operation._id}
+        onClick={() => {
+          props.getSelectedOperation(operation);
+        }}
+      >
+        <li>{operation.name}</li>
+      </Link>
+    ));
+  };
+
   return (
-    <div className="operationsList">
-      <ul>
-        {operations.map((operation) => (
-          <li key={operation._id}>{operation.name}</li>
-        ))}
-      </ul>
+    <div className="operationInfos">
+      <ul>{renderLists()}</ul>
     </div>
   );
 };

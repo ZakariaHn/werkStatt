@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export const CarsList = () => {
+export const CarsList = (props) => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
@@ -12,13 +13,22 @@ export const CarsList = () => {
     fetchdata();
   }, []);
 
+  const renderLists = () => {
+    return cars.map((car) => (
+      <Link
+        to="carInfos"
+        key={car._id}
+        onClick={() => {
+          props.getSelectedCar(car);
+        }}
+      >
+        <li>{car.carModel}</li>
+      </Link>
+    ));
+  };
   return (
     <div className="carsList">
-      <ul>
-        {cars.map((car) => (
-          <li key={car._id}>{car.carModel}</li>
-        ))}
-      </ul>
+      <ul>{renderLists()}</ul>
     </div>
   );
 };
