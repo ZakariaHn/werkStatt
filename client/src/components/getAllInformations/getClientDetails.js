@@ -1,9 +1,9 @@
 import React from "react";
 
-export const ClientsInformations = (props) => {
+export const GetClientDetails = (props) => {
   const { lastName, firstName, birthdate, address, email } = props.clientInfos;
   return (
-    <ul>
+    <ul className="clientsInfos">
       <li>{`First name: ${firstName}`}</li>
       <li>{`Last name: ${lastName}`}</li>
       <li>{`Date of birth: ${birthdate}`}</li>

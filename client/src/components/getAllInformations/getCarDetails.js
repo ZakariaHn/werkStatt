@@ -1,6 +1,6 @@
 import React from "react";
 
-export const CarsInformations = (props) => {
+export const GetCarDetails = (props) => {
   const {
     owner,
     carModel,
@@ -12,7 +12,7 @@ export const CarsInformations = (props) => {
     ops,
   } = props.carInfos;
   return (
-    <ul>
+    <ul className="carsInfos">
       <li>{`owner: ${owner}`}</li>
       <li>{`Car model: ${carModel}`}</li>
       <li>{`Car model type: ${carModelType}`}</li>

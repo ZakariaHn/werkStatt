@@ -18,3 +18,13 @@ body,
   justify-content: center;
   align-items: center;
 }
+
+.operationsInfos,
+.carsInfos,
+.clientsInfos {
+  li {
+    letter-spacing: 2px;
+    line-height: 2rem;
+    list-style: none;
+  }
+}

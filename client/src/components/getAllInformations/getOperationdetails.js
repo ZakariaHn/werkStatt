@@ -1,9 +1,9 @@
 import React from "react";
 
-export const OperationsInformations = (props) => {
+export const GetOperationDetails = (props) => {
   const { name, description, carId, parts, cost } = props.operationInfos;
   return (
-    <ul>
+    <ul className="operationsInfos">
       <li>{`Name: ${name}`}</li>
       <li>{`Description: ${description}`}</li>
       <li>{`Car Id: ${carId}`}</li>

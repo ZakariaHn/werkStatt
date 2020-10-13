@@ -7,14 +7,14 @@ import { Description } from "./description";
 import { RegisterCar } from "./registrationForms/RegisterCar";
 import { RegisterClient } from "./registrationForms/RegisterClient";
 import { RegisterOperation } from "./registrationForms/RegisterOperation";
-import { ClientsInformations } from "./getAllInformations/ClientsInformations";
-import { CarsInformations } from "./getAllInformations/CarsInformations";
-import { OperationsInformations } from "./getAllInformations/OperationsInforamations";
+import { GetClientDetails } from "./getAllInformations/getClientDetails";
+import { GetCarDetails } from "./getAllInformations/getCarDetails";
+import { GetOperationDetails } from "./getAllInformations/getOperationdetails";
 
 export const Content = () => {
-  const [ClientInfos, setClientInfos] = useState("");
-  const [CarInfos, setCarInfos] = useState("");
-  const [OperationInfos, setOperationInfos] = useState("");
+  const [clientInfos, setClientInfos] = useState("");
+  const [carInfos, setCarInfos] = useState("");
+  const [operationInfos, setOperationInfos] = useState("");
 
   const getSelectedClient = (selectedClient) => {
     setClientInfos(selectedClient);
@@ -30,7 +30,6 @@ export const Content = () => {
     <div className="content">
       <div className="lists">
         <Switch>
-          <Route exact path="/" component={Description} />
           <Route
             path="/clients"
             render={() => <ClientsList getSelectedClient={getSelectedClient} />}
@@ -48,22 +47,21 @@ export const Content = () => {
           <Route path="/registerClient" component={RegisterClient} />
           <Route path="/registerCar" component={RegisterCar} />
           <Route path="/registerOperation" component={RegisterOperation} />
+          <Route exact path="/" component={Description} />
         </Switch>
       </div>
       <div className="infos">
         <Route
           path="/clientInfos"
-          render={() => <ClientsInformations clientInfos={ClientInfos} />}
+          render={() => <GetClientDetails clientInfos={clientInfos} />}
         ></Route>
         <Route
           path="/carInfos"
-          render={() => <CarsInformations carInfos={CarInfos} />}
+          render={() => <GetCarDetails carInfos={carInfos} />}
         ></Route>
         <Route
           path="/operationInfos"
-          render={() => (
-            <OperationsInformations operationInfos={OperationInfos} />
-          )}
+          render={() => <GetOperationDetails operationInfos={operationInfos} />}
         ></Route>
       </div>
     </div>
