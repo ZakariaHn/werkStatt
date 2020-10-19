@@ -16,11 +16,11 @@ export const Content = () => {
   const [carInfos, setCarInfos] = useState("");
   const [operationInfos, setOperationInfos] = useState("");
 
-  const getSelectedClient = (selectedClient) => {
-    setClientInfos(selectedClient);
-  };
   const getSelectedCar = (selectedCar) => {
     setCarInfos(selectedCar);
+  };
+  const getSelectedClient = (selectedClient) => {
+    setClientInfos(selectedClient);
   };
   const getSelectedOperation = (selectedOperation) => {
     setOperationInfos(selectedOperation);
@@ -50,7 +50,7 @@ export const Content = () => {
           <Route exact path="/" component={Description} />
         </Switch>
       </div>
-      <div className="infos">
+      <div className="detailedInfos">
         <Route
           path="/clientInfos"
           render={() => <GetClientDetails clientInfos={clientInfos} />}
