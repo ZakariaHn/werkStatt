@@ -1,13 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export const GetClientDetails = (props) => {
-  console.log("selectenClient", props.client);
-  // console.log("myClients: ", myClients);
-  // const targetClient = myClients.filter((client) => client._id === sl._id);
-  // console.log("target:", targetClient);
-  const { lastName, firstName, birthdate, address, email } = props.clientInfos;
-
+export const GetClientDetails = () => {
+  const client = useSelector((state) => state.clients.client);
+  const { firstName, lastName, birthdate, address, email } = client;
   return (
     <ul className="clientsInfos">
       <li>{`First name: ${firstName}`}</li>

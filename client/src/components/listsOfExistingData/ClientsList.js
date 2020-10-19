@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
-import { GetClientDetails } from "../getAllInformations/getClientDetails";
+import { SET_CLIENT } from "../../store/actions/types";
 
-export const ClientsList = (props) => {
-  const [clientInfos, setClientInfos] = useState({});
-
+export const ClientsList = () => {
   // const [clients, setClients] = useState([]);
   // const [userInput, setUserInput] = useState("");
   // const [filteredData, setFilteredData] = useState([]);
@@ -17,8 +15,7 @@ export const ClientsList = (props) => {
 
   useEffect(() => {
     dispatch(fetchClientsAction());
-    console.log("component: ", myClients);
-  }, []);
+  }, [dispatch]);
 
   const renderLists = () => {
     return myClients.map((client) => (
@@ -26,8 +23,7 @@ export const ClientsList = (props) => {
         to="clientInfos"
         key={client._id}
         onClick={() => {
-          props.getSelectedClient(client);
-          // return <GetClientDetails clientInfos={client} />;
+          dispatch({ type: SET_CLIENT, payload: client });
         }}
       >
         <li>{client.lastName}</li>

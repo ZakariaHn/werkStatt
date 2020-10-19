@@ -1,6 +1,6 @@
-import { GET_CLIENTS } from "../actions/types";
+import { GET_CLIENTS, SET_CLIENT } from "../actions/types";
 
-const initialState = { clientsArray: [] };
+const initialState = { clientsArray: [], client: {} };
 
 const clientsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -9,6 +9,11 @@ const clientsReducer = (state = initialState, action) => {
       return {
         ...state,
         clientsArray: action.payload,
+      };
+    case SET_CLIENT:
+      return {
+        ...state,
+        client: action.payload,
       };
     default:
       return state;
