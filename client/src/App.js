@@ -1,10 +1,10 @@
 import React from "react";
+import { NavBar } from "./components/NavBar";
+import { ToggleLists } from "./components/ToggleLists";
+import { Content } from "./components/Content";
+import { AddingDataButtons } from "./components/AddingDataButtons";
 
-import { NavBar } from "./components/navBar";
-import { ToggleLists } from "./components/toggleLists";
-import { Content } from "./components/content";
-import { AddingDataButtons } from "./components/addingDataButtons";
-function App() {
+const App = () => {
   return (
     <div className="container">
       <NavBar />
@@ -13,6 +13,6 @@ function App() {
       <AddingDataButtons />
     </div>
   );
-}
+};
 
 export default App;
