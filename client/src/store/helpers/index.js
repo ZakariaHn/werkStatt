@@ -7,4 +7,4 @@ export const helpFetchCars = async () =>
   await Axios.get("http://localhost:5000/api/cars");
 
 export const helpFetchOperations = async () =>
-  await Axios.get("http://localhost:5000/api/Operations");
+  await Axios.get("http://localhost:5000/api/operations");

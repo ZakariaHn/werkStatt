@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export const GetCarDetails = (props) => {
+export const GetCarDetails = () => {
+  const selectedCar = useSelector((state) => state.cars.car);
   const {
     owner,
     carModel,
@@ -10,7 +12,7 @@ export const GetCarDetails = (props) => {
     plateNr,
     huau,
     ops,
-  } = props.carInfos;
+  } = selectedCar;
   return (
     <ul className="carsInfos">
       <li>{`owner: ${owner}`}</li>

@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 
-export const OperationsList = (props) => {
-  const [operations, setOperations] = useState([]);
+import { Link } from "react-router-dom";
+import { fetchOperationsAction } from "../../store/actions/operationAction";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_OPERATION } from "../../store/actions/types";
+
+export const OperationsList = () => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchdata = async () => {
-      const res = await axios.get("http://localhost:5000/api/operations");
-      setOperations(res.data);
-    };
-    fetchdata();
-  }, []);
+    dispatch(fetchOperationsAction());
+  }, [dispatch]);
 
-  const renderLists = () => {
-    return operations.map((operation) => (
+  const allOperations = useSelector(
+    (state) => state.operations.operationsArray
+  );
+  const renderList = () => {
+    return allOperations.map((operation) => (
       <Link
         to="operationInfos"
         key={operation._id}
         onClick={() => {
-          props.getSelectedOperation(operation);
+          dispatch({ type: SET_OPERATION, payload: operation });
         }}
       >
         <li>{operation.name}</li>
@@ -29,7 +31,7 @@ export const OperationsList = (props) => {
 
   return (
     <div className="operationInfos">
-      <ul>{renderLists()}</ul>
+      <ul>{renderList()}</ul>
     </div>
   );
 };

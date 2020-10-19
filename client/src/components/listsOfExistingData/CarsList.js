@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCarsAction } from "../../store/actions/carsActions";
+import { SET_CAR } from "../../store/actions/types";
 
 export const CarsList = (props) => {
-  const [cars, setCars] = useState([]);
+  const dispatch = useDispatch();
+
+  const AllCars = useSelector((state) => state.cars.carsArray);
 
   useEffect(() => {
-    const fetchdata = async () => {
-      const res = await axios.get("http://localhost:5000/api/cars");
-      setCars(res.data);
-    };
-    fetchdata();
-  }, []);
+    dispatch(fetchCarsAction());
+  }, [dispatch]);
 
   const renderLists = () => {
-    return cars.map((car) => (
+    return AllCars.map((car) => (
       <Link
         to="carInfos"
         key={car._id}
         onClick={() => {
-          props.getSelectedCar(car);
+          dispatch({ type: SET_CAR, payload: car });
         }}
       >
         <li>{car.carModel}</li>
