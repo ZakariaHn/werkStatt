@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { CarsList } from "./listsOfExistingData/CarsList";
 import { ClientsList } from "./listsOfExistingData/ClientsList";
 import { OperationsList } from "./listsOfExistingData/OperationsList";
@@ -16,14 +16,16 @@ export const Content = () => {
     <div className="content">
       <Switch>
         <Route exact path="/" component={Description} />
-        <div className="lists">
-          <Route path="/clients" component={ClientsList} />
-          <Route path="/cars" component={CarsList} />
-          <Route path="/operations" component={OperationsList} />
-          <Route path="/registerClient" component={RegisterClient} />
-          <Route path="/registerCar" component={RegisterCar} />
-          <Route path="/registerOperation" component={RegisterOperation} />
-        </div>
+        <Fragment>
+          <div className="lists">
+            <Route path="/clients" component={ClientsList} />
+            <Route path="/cars" component={CarsList} />
+            <Route path="/operations" component={OperationsList} />
+            <Route path="/registerClient" component={RegisterClient} />
+            <Route path="/registerCar" component={RegisterCar} />
+            <Route path="/registerOperation" component={RegisterOperation} />
+          </div>
+        </Fragment>
       </Switch>
       <div className="selectedItem">
         {Object.keys(target).length > 0 && <GetSelectedItem target={target} />}

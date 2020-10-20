@@ -1,11 +1,11 @@
 import React from "react";
 
-export const GetSelectedItem = ({ target }) => {
+export const GetSelectedItem = (props) => {
   const handleTargetObject = (target) => {
     let listItems = [];
     for (const [key, value] of Object.entries(target)) {
       listItems.push(
-        <li>
+        <li key={key}>
           {key}: {value}
         </li>
       );
@@ -13,5 +13,5 @@ export const GetSelectedItem = ({ target }) => {
     return listItems;
   };
 
-  return <ul className="targetsInfos">{handleTargetObject(target)}</ul>;
+  return <ul className="targetsInfos">{handleTargetObject(props.target)}</ul>;
 };
