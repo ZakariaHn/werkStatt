@@ -7,30 +7,26 @@ import { Description } from "./Description";
 import { RegisterCar } from "./registrationForms/RegisterCar";
 import { RegisterClient } from "./registrationForms/RegisterClient";
 import { RegisterOperation } from "./registrationForms/RegisterOperation";
-import { GetClientDetails } from "./getAllInformations/GetClientDetails";
-import { GetCarDetails } from "./getAllInformations/GetCarDetails";
-import { GetOperationDetails } from "./getAllInformations/GetOperationdetails";
+import { useSelector } from "react-redux";
+import { GetSelectedItem } from "./GetSelectedItem";
 
 export const Content = () => {
+  const target = useSelector((state) => state.target.item);
   return (
     <div className="content">
-      <div className="lists">
-        <Switch>
+      <Switch>
+        <Route exact path="/" component={Description} />
+        <div className="lists">
           <Route path="/clients" component={ClientsList} />
           <Route path="/cars" component={CarsList} />
           <Route path="/operations" component={OperationsList} />
           <Route path="/registerClient" component={RegisterClient} />
           <Route path="/registerCar" component={RegisterCar} />
           <Route path="/registerOperation" component={RegisterOperation} />
-          <Route exact path="/" component={Description} />
-        </Switch>
-      </div>
-      <div className="detailedInfos">
-        <Switch>
-          <Route path="/clientInfos" component={GetClientDetails} />
-          <Route path="/carInfos" component={GetCarDetails} />
-          <Route path="/operationInfos" component={GetOperationDetails} />
-        </Switch>
+        </div>
+      </Switch>
+      <div className="selectedItem">
+        {Object.keys(target).length > 0 && <GetSelectedItem target={target} />}
       </div>
     </div>
   );

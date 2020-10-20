@@ -1,29 +1,28 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
-import { SET_CAR } from "../../store/actions/types";
+import { SET_TARGET } from "../../store/actions/types";
 
-export const CarsList = (props) => {
+export const CarsList = () => {
   const dispatch = useDispatch();
 
-  const AllCars = useSelector((state) => state.cars.carsArray);
+  const allCars = useSelector((state) => state.cars.carsArray);
 
   useEffect(() => {
     dispatch(fetchCarsAction());
   }, [dispatch]);
 
   const renderLists = () => {
-    return AllCars.map((car) => (
-      <Link
+    return allCars.map((car) => (
+      <li
         to="carInfos"
         key={car._id}
         onClick={() => {
-          dispatch({ type: SET_CAR, payload: car });
+          dispatch({ type: SET_TARGET, payload: car });
         }}
       >
-        <li>{car.carModel}</li>
-      </Link>
+        {car.carModel}
+      </li>
     ));
   };
   return (
