@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const clientSchema = new mongoose.Schema(
   {
     firstName: {
+      name: "First Name: ",
       type: String,
       required: true,
       max: 30,

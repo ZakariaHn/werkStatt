@@ -15,7 +15,6 @@ export const CarsList = () => {
   const renderLists = () => {
     return allCars.map((car) => (
       <li
-        to="carInfos"
         key={car._id}
         onClick={() => {
           dispatch({ type: SET_TARGET, payload: car });

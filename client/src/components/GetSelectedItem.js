@@ -1,17 +1,16 @@
 import React from "react";
 
-export const GetSelectedItem = (props) => {
+export const GetSelectedItem = ({ target }) => {
   const handleTargetObject = (target) => {
     let listItems = [];
     for (const [key, value] of Object.entries(target)) {
       listItems.push(
         <li key={key}>
-          {key}: {value}
+          {key.split(/(?=[A-Z])/).join(" ")}: {value}
         </li>
       );
     }
     return listItems;
   };
-
-  return <ul className="targetsInfos">{handleTargetObject(props.target)}</ul>;
+  return <ul className="targetsInfos">{handleTargetObject(target)}</ul>;
 };
