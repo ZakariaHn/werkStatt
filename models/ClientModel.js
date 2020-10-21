@@ -2,18 +2,17 @@ const mongoose = require("mongoose");
 
 const clientSchema = new mongoose.Schema(
   {
-    firstName: {
-      name: "First Name: ",
+    firstname: {
       type: String,
       required: true,
       max: 30,
-      min: 5,
+      min: 2,
     },
-    lastName: {
+    lastname: {
       type: String,
       required: true,
       max: 30,
-      min: 5,
+      min: 2,
     },
     email: {
       type: String,

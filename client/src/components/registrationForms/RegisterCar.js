@@ -10,7 +10,6 @@ export const RegisterCar = () => {
   const history = useHistory();
 
   const onSubmitForm = (data) => {
-    console.log(data);
     dispatch(addCarAction(data));
     history.push("/cars");
   };
