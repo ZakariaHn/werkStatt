@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { fetchOperationsAction } from "../../store/actions/operationAction";
+import { fetchOperationsAction } from "../../store/actions/operationsAction";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_TARGET } from "../../store/actions/types";
 

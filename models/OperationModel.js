@@ -6,13 +6,13 @@ const operationSchema = new mongoose.Schema(
       type: String,
       required: true,
       max: 40,
-      min: 8,
+      min: 2,
     },
     description: {
       type: String,
       required: true,
       max: 80,
-      min: 8,
+      min: 2,
     },
     carId: {
       type: Number,

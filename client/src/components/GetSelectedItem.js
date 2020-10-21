@@ -7,7 +7,7 @@ export const GetSelectedItem = ({ target }) => {
       listItems.push(
         <li key={key}>
           {key.split(/(?=[A-Z])/).join(" ")}: {value}
-        </li>
+        </li> // splitted on Uppercase letters
       );
     }
     return listItems;

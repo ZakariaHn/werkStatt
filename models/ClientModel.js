@@ -34,7 +34,6 @@ const clientSchema = new mongoose.Schema(
     },
   },
   {
-    // removing password and __v from the returned data from api
     toJSON: {
       transform: function (doc, ret) {
         delete ret.__v;
