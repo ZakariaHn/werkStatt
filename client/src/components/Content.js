@@ -7,11 +7,9 @@ import { Description } from "./Description";
 import { RegisterCar } from "./registrationForms/RegisterCar";
 import { RegisterClient } from "./registrationForms/RegisterClient";
 import { RegisterOperation } from "./registrationForms/RegisterOperation";
-import { useSelector } from "react-redux";
-import { GetSelectedItem } from "./GetSelectedItem";
+import { Details } from "./Details";
 
 export const Content = () => {
-  const target = useSelector((state) => state.target.item);
   return (
     <div className="content">
       <Switch>
@@ -27,9 +25,7 @@ export const Content = () => {
           </div>
         </Fragment>
       </Switch>
-      <div className="selectedItem">
-        {Object.keys(target).length > 0 && <GetSelectedItem target={target} />}
-      </div>
+      <Details />
     </div>
   );
 };

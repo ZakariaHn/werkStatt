@@ -39,9 +39,34 @@
         }
       }
     }
-    .selectedItem {
+    .details {
       width: 40%;
       height: 100%;
+      background-color: rgba(0, 0, 0, 0.082);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0.8rem 1rem 0 1rem;
+        li {
+          margin-top: 3%;
+          border: 1px solid black;
+          padding: 3%;
+          height: 3%;
+        }
+      }
+      .navigateToForm {
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.082);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 3rem;
+      }
     }
   }
 

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 export const GetSelectedItem = ({ target }) => {
   const handleTargetObject = (target) => {
     let listItems = [];
+
     for (const [key, value] of Object.entries(target)) {
       listItems.push(
         <li key={key}>
@@ -12,5 +13,10 @@ export const GetSelectedItem = ({ target }) => {
     }
     return listItems;
   };
-  return <ul className="targetsInfos">{handleTargetObject(target)}</ul>;
+
+  return (
+    <Fragment>
+      <ul className="targetsInfos">{handleTargetObject(target)}</ul>
+    </Fragment>
+  );
 };
