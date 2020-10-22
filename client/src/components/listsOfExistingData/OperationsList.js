@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { fetchOperationsAction } from "../../store/actions/operationsAction";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_TARGET } from "../../store/actions/types";
-
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const OperationsList = () => {
   const dispatch = useDispatch();
 
@@ -16,14 +17,24 @@ export const OperationsList = () => {
 
   const renderList = () => {
     return allOperations.map((operation) => (
-      <li
-        key={operation._id}
-        onClick={() => {
-          dispatch({ type: SET_TARGET, payload: operation });
-        }}
-      >
-        {operation.name}
-      </li>
+      <div>
+        <li
+          key={operation._id}
+          onClick={() => {
+            dispatch({ type: SET_TARGET, payload: operation });
+          }}
+        >
+          {operation.name}
+        </li>
+        <div>
+          <button>
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </div>
+      </div>
     ));
   };
 

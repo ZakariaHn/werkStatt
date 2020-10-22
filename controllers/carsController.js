@@ -39,7 +39,7 @@ exports.addCar = async (req, res, next) => {
 };
 
 exports.deleteCar = async (req, res, next) => {
-  console.log("delete route");
+  let id = req.body.id;
   try {
     const car = await CarModel.findOneAndRemove({
       chassyNr: req.params.chassyNr,

@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
 import { SET_TARGET } from "../../store/actions/types";
-
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const CarsList = () => {
   const dispatch = useDispatch();
 
@@ -14,14 +15,24 @@ export const CarsList = () => {
 
   const renderLists = () => {
     return allCars.map((car) => (
-      <li
-        key={car._id}
-        onClick={() => {
-          dispatch({ type: SET_TARGET, payload: car });
-        }}
-      >
-        {car.carModel}
-      </li>
+      <div>
+        <li
+          key={car._id}
+          onClick={() => {
+            dispatch({ type: SET_TARGET, payload: car });
+          }}
+        >
+          {car.carModel}
+        </li>
+        <div>
+          <button>
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </div>
+      </div>
     ));
   };
   return (
