@@ -15,7 +15,7 @@ export const CarsList = () => {
 
   const renderLists = () => {
     return allCars.map((car) => (
-      <div>
+      <div className="li-buttons-wrapper">
         <li
           key={car._id}
           onClick={() => {

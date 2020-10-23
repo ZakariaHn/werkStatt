@@ -17,7 +17,7 @@ export const OperationsList = () => {
 
   const renderList = () => {
     return allOperations.map((operation) => (
-      <div>
+      <div className="li-buttons-wrapper">
         <li
           key={operation._id}
           onClick={() => {

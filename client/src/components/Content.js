@@ -19,13 +19,15 @@ export const Content = () => {
             <Route path="/clients" component={ClientsList} />
             <Route path="/cars" component={CarsList} />
             <Route path="/operations" component={OperationsList} />
-            <Route path="/registerClient" component={RegisterClient} />
-            <Route path="/registerCar" component={RegisterCar} />
-            <Route path="/registerOperation" component={RegisterOperation} />
           </div>
         </Fragment>
       </Switch>
       <Details />
+      <div className="spare">
+        <Route path="/registerClient" component={RegisterClient} />
+        <Route path="/registerCar" component={RegisterCar} />
+        <Route path="/registerOperation" component={RegisterOperation} />
+      </div>
     </div>
   );
 };

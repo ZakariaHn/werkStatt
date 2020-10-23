@@ -15,7 +15,7 @@ export const ClientsList = () => {
 
   const renderLists = () => {
     return myClients.map((client) => (
-      <div>
+      <div className="li-buttons-wrapper">
         <li
           key={client._id}
           onClick={() => {

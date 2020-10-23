@@ -1,20 +1,20 @@
+@import "mixins";
+
 .container {
-  width: 70%;
-  height: 99.7%;
-  border: 1px solid black;
+  width: 100%;
+  height: 100%;
 
   .navBar {
-    height: 4rem;
+    height: 10%;
     width: 100%;
-    border: 1px solid red;
+    background-color: #006666;
   }
 
   .content {
-    width: 99.5%;
-    height: 65%;
-    border: 4px solid rgb(190, 83, 21);
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 70%;
+    background-color: #004747;
+    @include flex-center-spaceEvenly;
 
     .description {
       padding: 4rem;
@@ -22,90 +22,80 @@
       font-size: larger;
       text-align: justify;
     }
+
     .lists {
-      width: 32.5%;
+      width: 31%;
       height: 100%;
-      border: 2px solid rgb(37, 112, 197);
       overflow: auto;
+      background: #006666;
+      position: relative;
 
       ul {
-        height: 100%;
-        background: #fff;
         margin: 0;
+        height: 100%;
+        background: #006666;
+        padding: 0 1rem 0 1.7rem;
+        color: rgb(211, 210, 210);
 
-        div {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          li {
-            margin: 1rem 0 1rem 0;
-            list-style: none;
+        .li-buttons-wrapper {
+          @include flex-row-spacebetween-center;
+          border-bottom: 1px solid #000000b9;
+
+          div {
+            @include flex-row-spacebetween-center;
           }
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          li {
+            list-style: none;
+            margin: 1rem 0 1rem 0;
+          }
+
           button {
-            height: 2rem;
+            border: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            color: rgb(66, 128, 70);
+            @include flex-center-center;
+            background-color: rgb(211, 210, 210);
+
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
     }
-    .details {
-      width: 40%;
+
+    .spare {
+      width: 31%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.082);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0 1rem 0 1rem;
-        li {
-          margin-top: 3%;
-          border: 1px solid black;
-          padding: 3%;
-        }
-      }
-      .navigateToForm {
-        position: absolute;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.082);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 3rem;
-      }
+      background-color: rgba(0, 0, 0, 0.76);
     }
   }
 
-  .toggleLists,
-  .addingDataButton {
-    height: 18%;
+  .toggleLists {
     width: 100%;
-    border: 1px solid green;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-evenly;
+    height: 20%;
+    background-color: #004747;
+    @include flex-center-spaceEvenly;
 
     * {
       width: 31%;
-      height: 80%;
-      border: 1px solid blue;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 65%;
+      color: #d3d2d2;
       font-weight: bold;
       font-size: x-large;
+      border-radius: 4px;
       text-decoration: none;
-    }
-  }
-
-  .addingDataButton {
-    align-items: flex-start;
-    height: 7%;
-
-    * {
-      border-top: none;
+      background-color: #428046;
+      @include flex-center-center;
     }
   }
 }
