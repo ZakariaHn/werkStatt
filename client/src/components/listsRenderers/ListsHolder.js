@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { CarsList } from "../listsRenderers/CarsListRenderer";
-import { ClientsList } from "../listsRenderers/ClientsListRenderer";
-import { OperationsList } from "../listsRenderers/OperationsListRenderer";
+import { CarsList } from "./CarsListRenderer";
+import { ClientsList } from "./ClientsListRenderer";
+import { OperationsList } from "./OperationsListRenderer";
 
-export const RenderedListsHolder = () => {
+export const ListsHolder = () => {
   return (
     <div className="lists">
       <Route path="/cars" component={CarsList} />

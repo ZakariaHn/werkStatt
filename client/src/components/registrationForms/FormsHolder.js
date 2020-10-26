@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { RegisterCar } from "../registrationForms/RegisterCar";
-import { RegisterClient } from "../registrationForms/RegisterClient";
-import { RegisterOperation } from "../registrationForms/RegisterOperation";
+import { RegisterCar } from "./RegisterCar";
+import { RegisterClient } from "./RegisterClient";
+import { RegisterOperation } from "./RegisterOperation";
 
-export const RegistrationsForms = () => {
+export const FormsHolder = () => {
   return (
     <div className="registrationForms">
       <Route path="/registerCar" component={RegisterCar} />

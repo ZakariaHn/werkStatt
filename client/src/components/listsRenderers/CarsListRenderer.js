@@ -4,6 +4,7 @@ import { fetchCarsAction } from "../../store/actions/carsActions";
 import { SET_TARGET } from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { helpDeleteCar } from "../../store/helpers/index";
 export const CarsList = () => {
   const dispatch = useDispatch();
 
@@ -25,11 +26,16 @@ export const CarsList = () => {
         </li>
         <div>
           <FontAwesomeIcon className="icon" icon={faEdit} />
-          <FontAwesomeIcon className="icon" icon={faTrash} />
+          <FontAwesomeIcon
+            className="icon"
+            icon={faTrash}
+            onClick={helpDeleteCar(car.chassyNr)}
+          />
         </div>
       </div>
     ));
   };
+
   return (
     <div className="carsList">
       <ul>{renderLists()}</ul>

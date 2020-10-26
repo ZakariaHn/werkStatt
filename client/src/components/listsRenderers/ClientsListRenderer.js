@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
 import { SET_TARGET } from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { helpDeleteClient } from "../../store/helpers/index";
 
 export const ClientsList = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,11 @@ export const ClientsList = () => {
         </li>
         <div>
           <FontAwesomeIcon className="icon" icon={faEdit} />
-          <FontAwesomeIcon className="icon" icon={faTrash} />
+          <FontAwesomeIcon
+            className="icon"
+            icon={faTrash}
+            onClick={helpDeleteClient(client.lastname)}
+          />
         </div>
       </div>
     ));
