@@ -1,15 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { GetSelectedItem } from "./GetSelectedItem";
 import ReactModal from "react-modal";
+import { useSelector } from "react-redux";
 import { useModal } from "react-modal-hook";
-import { RegisterClient } from "./registrationForms/RegisterClient";
-import { RegisterOperation } from "./registrationForms/RegisterOperation";
+import { GetSelectedItem } from "./GetSelectedItem";
+import { RegisterClient } from "../registrationForms/RegisterClient";
+import { RegisterOperation } from "../registrationForms/RegisterOperation";
 
-export const Details = () => {
+export const InfosOfSelectedItem = () => {
   const styles = {
     overlay: {
-      width: "31rem",
+      width: "31%",
       height: "70%",
       position: "absolute",
       left: "34.6%",
@@ -45,6 +45,7 @@ export const Details = () => {
   ));
 
   const target = useSelector((state) => state.target.item);
+  console.log("Target :", target);
 
   return (
     <div className="details">

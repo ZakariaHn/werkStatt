@@ -32,6 +32,7 @@ export const RegisterClient = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <div className="input-field">
         <label htmlFor="lastname"></label>
         <input

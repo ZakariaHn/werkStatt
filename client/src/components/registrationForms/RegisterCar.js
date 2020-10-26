@@ -32,6 +32,7 @@ export const RegisterCar = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <div className="input-field">
         <label htmlFor="carModel"></label>
         <input
@@ -48,6 +49,7 @@ export const RegisterCar = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <div className="input-field">
         <label htmlFor="carModelType"></label>
         <input
@@ -81,6 +83,7 @@ export const RegisterCar = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <div className="input-field">
         <label htmlFor="engine"></label>
         <input
@@ -114,6 +117,7 @@ export const RegisterCar = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <button type="submit">Register Car</button>
     </form>
   );

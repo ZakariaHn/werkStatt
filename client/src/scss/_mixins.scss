@@ -1,8 +1,8 @@
-@mixin flex-row-spacebetween-center {
+@mixin flex-row-center-spacebetween {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 @mixin flex-center-spaceEvenly {

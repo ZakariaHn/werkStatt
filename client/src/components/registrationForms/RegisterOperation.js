@@ -49,6 +49,7 @@ export const RegisterOperation = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <div className="input-field">
         <label htmlFor="description"></label>
         <input
@@ -99,6 +100,7 @@ export const RegisterOperation = () => {
           <p className="form-error">At least 2 characters long!</p>
         )}
       </div>
+
       <button type="submit">Register Operation</button>
     </form>
   );

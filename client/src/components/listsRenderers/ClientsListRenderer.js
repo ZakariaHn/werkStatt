@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
 import { SET_TARGET } from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+
 export const ClientsList = () => {
   const dispatch = useDispatch();
 
@@ -15,9 +16,8 @@ export const ClientsList = () => {
 
   const renderLists = () => {
     return myClients.map((client) => (
-      <div className="li-buttons-wrapper">
+      <div className="li-buttons-wrapper" key={client._id}>
         <li
-          key={client._id}
           onClick={() => {
             dispatch({ type: SET_TARGET, payload: client });
           }}
@@ -25,12 +25,8 @@ export const ClientsList = () => {
           {client.lastname}
         </li>
         <div>
-          <button>
-            <FontAwesomeIcon icon={faEdit} />
-          </button>
-          <button>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
+          <FontAwesomeIcon className="icon" icon={faEdit} />
+          <FontAwesomeIcon className="icon" icon={faTrash} />
         </div>
       </div>
     ));

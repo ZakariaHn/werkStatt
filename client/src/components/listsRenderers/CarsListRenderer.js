@@ -15,9 +15,8 @@ export const CarsList = () => {
 
   const renderLists = () => {
     return allCars.map((car) => (
-      <div className="li-buttons-wrapper">
+      <div className="li-buttons-wrapper" key={car._id}>
         <li
-          key={car._id}
           onClick={() => {
             dispatch({ type: SET_TARGET, payload: car });
           }}
@@ -25,12 +24,8 @@ export const CarsList = () => {
           {car.carModel}
         </li>
         <div>
-          <button>
-            <FontAwesomeIcon icon={faEdit} />
-          </button>
-          <button>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
+          <FontAwesomeIcon className="icon" icon={faEdit} />
+          <FontAwesomeIcon className="icon" icon={faTrash} />
         </div>
       </div>
     ));
