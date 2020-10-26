@@ -1,18 +1,16 @@
 import React from "react";
+import { NavBar } from "./components/NavBar";
+import { ToggleLists } from "./components/ToggleLists";
+import { ComponentsHolder } from "./components/content/ComponentsHolder";
 
-import { NavBar } from "./components/navBar";
-import { ToggleLists } from "./components/toggleLists";
-import { Content } from "./components/content";
-import { AddingDataButtons } from "./components/addingDataButtons";
-function App() {
+const App = () => {
   return (
     <div className="container">
       <NavBar />
-      <Content />
       <ToggleLists />
-      <AddingDataButtons />
+      <ComponentsHolder />
     </div>
   );
-}
+};
 
 export default App;

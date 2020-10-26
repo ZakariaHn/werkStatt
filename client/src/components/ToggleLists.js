@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const ToggleLists = () => {
   return (
     <div className="toggleLists">
-      {/* <Link to="/">Description</Link> */}
       <Link to="/clients">Clients</Link>
       <Link to="/cars">Cars</Link>
       <Link to="/operations">Operations</Link>

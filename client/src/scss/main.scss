@@ -1,5 +1,7 @@
-@import "form";
+@import "forms";
 @import "infosLists";
+@import "detailsOfSelectedItem";
+@import "mixins";
 
 html,
 body,
@@ -14,17 +16,5 @@ body,
 }
 
 #root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.operationsInfos,
-.carsInfos,
-.clientsInfos {
-  li {
-    letter-spacing: 2px;
-    line-height: 2rem;
-    list-style: none;
-  }
+  @include flex-center-center;
 }

@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 
 const clientSchema = new mongoose.Schema(
   {
-    firstName: {
+    firstname: {
       type: String,
       required: true,
       max: 30,
-      min: 5,
+      min: 2,
     },
-    lastName: {
+    lastname: {
       type: String,
       required: true,
       max: 30,
-      min: 5,
+      min: 2,
     },
     email: {
       type: String,
@@ -34,7 +34,6 @@ const clientSchema = new mongoose.Schema(
     },
   },
   {
-    // removing password and __v from the returned data from api
     toJSON: {
       transform: function (doc, ret) {
         delete ret.__v;
