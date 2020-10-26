@@ -15,6 +15,7 @@ export const addCarAction = (newCar) => async (dispatch) => {
       "Content-type": "application/json",
     },
   };
+
   const body = JSON.stringify(newCar);
 
   try {

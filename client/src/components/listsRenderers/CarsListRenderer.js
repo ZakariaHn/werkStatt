@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
-import { SET_TARGET } from "../../store/actions/types";
+import { SET_TARGET, EDIT_CAR, DELETE_CAR } from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { helpDeleteCar } from "../../store/helpers/index";
 export const CarsList = () => {
   const dispatch = useDispatch();
 
@@ -25,11 +24,15 @@ export const CarsList = () => {
           {car.carModel}
         </li>
         <div>
-          <FontAwesomeIcon className="icon" icon={faEdit} />
+          <FontAwesomeIcon
+            className="icon"
+            icon={faEdit}
+            onClick={(_) => dispatch({ type: EDIT_CAR, payload: car })}
+          />
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
-            onClick={helpDeleteCar(car.chassyNr)}
+            onClick={() => dispatch({ type: DELETE_CAR, payload: car._id })}
           />
         </div>
       </div>

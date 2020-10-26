@@ -39,11 +39,9 @@ exports.addCar = async (req, res, next) => {
 };
 
 exports.deleteCar = async (req, res, next) => {
-  let id = req.body.id;
+  const _id = req.params._id;
   try {
-    const car = await CarModel.findOneAndRemove({
-      chassyNr: req.params.chassyNr,
-    });
+    const car = await CarModel.findByIdAndDelete({ _id });
     return res.status(200).json(car);
   } catch (error) {
     res.status(404).send("Car was not found.");
@@ -52,13 +50,20 @@ exports.deleteCar = async (req, res, next) => {
 
 exports.updateCar = async (req, res, next) => {
   try {
-    const car = await CarModel.findOneAndUpdate(req.params.chassyNr, {
-      owner: req.body.owner,
-      carModel: req.body.carModel,
-      chassyNr: req.body.chassyNr,
-      engine: req.body.engine,
-      plateNr: req.body.plateNr,
-    });
+    const car = await CarModel.findByIdAndUpdate(
+      { _id: req.params._id },
+      {
+        owner: req.body.owner,
+        carModel: req.body.carModel,
+        chassyNr: req.body.chassyNr,
+        engine: req.body.engine,
+        plateNr: req.body.plateNr,
+      },
+      {
+        new: true,
+      }
+    );
+    car.save();
     return res.status(200).json(car);
   } catch (error) {
     res.status(404).send("Car was not found.");

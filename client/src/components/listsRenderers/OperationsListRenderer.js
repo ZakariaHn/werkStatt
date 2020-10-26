@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { fetchOperationsAction } from "../../store/actions/operationsAction";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_TARGET } from "../../store/actions/types";
+import {
+  DELETE_OPERATION,
+  EDIT_OPERATION,
+  SET_TARGET,
+} from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { helpDeleteOperation } from "../../store/helpers/index";
 
 export const OperationsList = () => {
   const dispatch = useDispatch();
@@ -28,11 +31,19 @@ export const OperationsList = () => {
           {operation.name}
         </li>
         <div>
-          <FontAwesomeIcon className="icon" icon={faEdit} />
+          <FontAwesomeIcon
+            className="icon"
+            icon={faEdit}
+            onClick={(_) =>
+              dispatch({ type: EDIT_OPERATION, payload: operation })
+            }
+          />
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
-            onClick={helpDeleteOperation(operation.name)}
+            onClick={(_) =>
+              dispatch({ type: DELETE_OPERATION, payload: operation._id })
+            }
           />
         </div>
       </div>

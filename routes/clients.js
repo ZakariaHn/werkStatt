@@ -1,4 +1,4 @@
-// everything from here on starts with the prefix : http://localhost:5000/api/clients/add
+// everything from here on starts with the prefix : http://localhost:5000/api/clients/delete/:id
 const router = require("express").Router();
 const {
   addClient,
@@ -10,8 +10,8 @@ const {
 
 router.route("/").get(getClients);
 router.route("/add").post(addClient);
-router.route("/:lastName").get(getClient);
-router.route("/:lastName").delete(deleteClient);
-router.route("/:lastName").put(updateClient);
+router.route("/:_id").get(getClient);
+router.route("/delete/:_id").delete(deleteClient);
+router.route("/update/:_id").patch(updateClient);
 
 module.exports = router;

@@ -22,10 +22,9 @@ exports.addOperation = async (req, res, next) => {
 };
 
 exports.deleteOperation = async (req, res, next) => {
+  const _id = req.params._id;
   try {
-    const operation = await OperationModel.findOneAndRemove({
-      name: req.params.name,
-    });
+    const operation = await OperationModel.findByIdAndDelete({ _id });
     return res.status(200).json(operation);
   } catch (error) {
     res.status(404).send("Operation was not found.");
@@ -34,8 +33,8 @@ exports.deleteOperation = async (req, res, next) => {
 
 exports.updateOperation = async (req, res, next) => {
   try {
-    const operation = await OperationModel.findOneAndUpdate(
-      { name: req.params.name },
+    const operation = await OperationModel.findByIdAndUpdate(
+      { _id: req.params._id },
       {
         name: req.body.name,
         description: req.body.description,

@@ -10,9 +10,9 @@ const {
 
 router.route("/").get(getCars);
 router.route("/add").post(addCar);
-router.route("/chassynr/:chassyNr").get(getCarByChassyNr);
+router.route("/chassynr/:_id").get(getCarByChassyNr);
 router.route("/owner/:owner").get(getCarByOwner);
-router.route("/:chassyNr").delete(deleteCar);
-router.route("/:chassyNr").put(updateCar);
+router.route("/delete/:_id").delete(deleteCar);
+router.route("/update/:_id").patch(updateCar);
 
 module.exports = router;

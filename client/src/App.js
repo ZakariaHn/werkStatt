@@ -1,12 +1,12 @@
 import React from "react";
-import { NavBar } from "./components/NavBar";
+// import { NavBar } from "./components/NavBar";
 import { ToggleLists } from "./components/ToggleLists";
 import { ComponentsHolder } from "./components/content/ComponentsHolder";
 
 const App = () => {
   return (
     <div className="container">
-      <NavBar />
+      {/* <NavBar /> */}
       <ToggleLists />
       <ComponentsHolder />
     </div>

@@ -1,18 +1,38 @@
-import { GET_OPERATIONS, SET_OPERATION } from "../actions/types";
+import { helpEditOperation, helpDeleteOperation } from "../helpers";
+import {
+  GET_OPERATIONS,
+  SET_OPERATION,
+  EDIT_OPERATION,
+  DELETE_OPERATION,
+} from "../actions/types";
 
 const initialState = { operationsArray: [], operation: {} };
 
 const OperationsReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case GET_OPERATIONS:
       return {
         ...state,
-        operationsArray: action.payload,
+        operationsArray: payload,
       };
     case SET_OPERATION:
       return {
         ...state,
-        operation: action.payload,
+        operation: payload,
+      };
+    case EDIT_OPERATION:
+      helpEditOperation(payload);
+      return {
+        ...state,
+      };
+    case DELETE_OPERATION:
+      helpDeleteOperation(payload);
+      return {
+        ...state,
+        operationsArray: state.operationsArray.filter(
+          (operation) => operation._id !== payload
+        ),
       };
     default:
       return state;

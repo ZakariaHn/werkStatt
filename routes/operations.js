@@ -8,7 +8,7 @@ const {
 
 router.route("/").get(getOperations);
 router.route("/add").post(addOperation);
-router.route("/:name").delete(deleteOperation);
-router.route("/:name").put(updateOperation);
+router.route("/delete/:_id").delete(deleteOperation);
+router.route("/update/:_id").patch(updateOperation);
 
 module.exports = router;
