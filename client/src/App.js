@@ -1,14 +1,14 @@
 import React from "react";
-import { NavBar } from "./components/NavBar";
-import { ToggleLists } from "./components/ToggleLists";
 import { ComponentsHolder } from "./components/content/ComponentsHolder";
+import { Footer } from "./components/footer";
+import { Navbar } from "./components/NavBar";
 
 const App = () => {
   return (
     <div className="container">
-      <NavBar />
-      <ToggleLists />
+      <Navbar />
       <ComponentsHolder />
+      <Footer />
     </div>
   );
 };

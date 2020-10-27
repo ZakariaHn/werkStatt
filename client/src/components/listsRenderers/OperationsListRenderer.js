@@ -1,10 +1,14 @@
+import { v4 as id } from "uuid";
 import React, { useEffect } from "react";
-import { fetchOperationsAction } from "../../store/actions/operationsAction";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_TARGET } from "../../store/actions/types";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { helpDeleteOperation } from "../../store/helpers/index";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { fetchOperationsAction } from "../../store/actions/operationsAction";
+import {
+  DELETE_OPERATION,
+  EDIT_OPERATION,
+  SET_TARGET,
+} from "../../store/actions/types";
 
 export const OperationsList = () => {
   const dispatch = useDispatch();
@@ -19,7 +23,7 @@ export const OperationsList = () => {
 
   const renderList = () => {
     return allOperations.map((operation) => (
-      <div className="li-buttons-wrapper" key={operation._id}>
+      <div className="li-buttons-wrapper" key={id()}>
         <li
           onClick={() => {
             dispatch({ type: SET_TARGET, payload: operation });
@@ -28,11 +32,19 @@ export const OperationsList = () => {
           {operation.name}
         </li>
         <div>
-          <FontAwesomeIcon className="icon" icon={faEdit} />
+          <FontAwesomeIcon
+            className="icon"
+            icon={faEdit}
+            onClick={() =>
+              dispatch({ type: EDIT_OPERATION, payload: operation })
+            }
+          />
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
-            onClick={helpDeleteOperation(operation.name)}
+            onClick={() =>
+              dispatch({ type: DELETE_OPERATION, payload: operation._id })
+            }
           />
         </div>
       </div>

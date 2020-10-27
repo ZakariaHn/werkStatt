@@ -16,3 +16,51 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin flex-center-flexEnd {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex-row-flexStart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+@mixin buttons-style {
+  width: 93%;
+  bottom: 2%;
+  height: 3rem;
+  color: $gray;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 6px;
+  position: absolute;
+  letter-spacing: 1px;
+  margin: 0 1rem 0 1rem;
+  background-color: $backGround-light;
+}
+
+@mixin list-wrapper-style {
+  width: 31%;
+  height: 90%;
+  color: $gray;
+  position: relative;
+  border-radius: 0.5rem;
+  background-color: $backGround-dark;
+}
+
+@mixin ul-style {
+  color: $gray;
+  list-style: none;
+  padding: 0 1rem 0 1rem;
+  background: $backGround-dark;
+}
+
+@mixin li-style {
+  padding: 3%;
+  margin: 1rem 0 1rem 0;
+  border-bottom: 1px solid $border;
+}

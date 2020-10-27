@@ -1,36 +1,15 @@
 .details {
-  width: 31%;
-  height: 100%;
-  display: flex;
-  color: #d3d2d2;
-  position: relative;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.479);
+  @include list-wrapper-style;
 
   ul {
-    margin: 0;
-    list-style: none;
-    padding: 0 1rem 0 1rem;
+    @include ul-style;
 
     li {
-      margin-top: 3%;
-      border-bottom: 1px solid #428046;
-      padding: 3%;
+      @include li-style;
     }
   }
 
   button {
-    width: 93%;
-    bottom: 2%;
-    height: 3rem;
-    position: absolute;
-    border-radius: 6px;
-    margin: 0 1rem 0 1rem;
-    background-color: #428046;
+    @include buttons-style;
   }
-}
-.spare {
-  width: 31%;
-  height: 100%;
-  background-color: black;
 }

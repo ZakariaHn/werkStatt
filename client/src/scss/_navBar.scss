@@ -1,0 +1,99 @@
+.navBar {
+  height: 16%;
+  background-color: $backGround-dark;
+  color: $gray;
+  @include flex-row-flexStart;
+
+  .logo {
+    width: 6rem;
+    height: 5rem;
+    font-size: 4rem;
+    margin: 1rem;
+    @include flex-center-center;
+  }
+
+  .all {
+    width: 90%;
+
+    .searchBarHolder {
+      width: 100%;
+      border-bottom: 1px solid $backGround-light;
+
+      input {
+        width: 30%;
+        border: none;
+        height: 2rem;
+        text-indent: 0.5rem;
+        letter-spacing: 1px;
+        background-color: $gray;
+        border-radius: 1rem 0 0 1rem;
+        margin: 1.2rem 0rem 0.5rem 0;
+      }
+
+      button {
+        width: 5rem;
+        border: none;
+        height: 2.12rem;
+        background-color: $gray;
+        border-radius: 0 1rem 1rem 0;
+        border-left: 0.4rem solid $backGround-dark;
+      }
+    }
+  }
+
+  .tapsAndSetting {
+    height: 50%;
+    width: 100%;
+    @include flex-row-center-spacebetween;
+
+    .taps {
+      padding: 0;
+
+      * {
+        color: $gray;
+        letter-spacing: 2px;
+        text-decoration: none;
+        @include flex-center-center;
+      }
+
+      li {
+        * {
+          z-index: 2;
+        }
+        width: 4rem;
+        float: left;
+        color: $gray;
+        cursor: pointer;
+        margin-left: -1px;
+        font-weight: bold;
+        padding: 10px 3rem;
+        position: relative;
+
+        &:after {
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          content: "";
+          position: absolute;
+          transform: skew(-45deg);
+          transition: all 0.2s linear;
+          background-color: $backGround-light;
+        }
+
+        &:hover:after {
+          background-color: darken(#004747, 6%);
+        }
+      }
+    }
+
+    .setting {
+      border-left: 1px solid $gray;
+      * {
+        margin-left: 2rem;
+        font-size: larger;
+      }
+    }
+  }
+}

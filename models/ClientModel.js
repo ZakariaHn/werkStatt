@@ -1,19 +1,17 @@
 const mongoose = require("mongoose");
+const carSchema = require("./car-schema");
+
+const reqStrMax = {
+  type: String,
+      required: true,
+      max: 30,
+      min: 2,
+}
 
 const clientSchema = new mongoose.Schema(
   {
-    firstname: {
-      type: String,
-      required: true,
-      max: 30,
-      min: 2,
-    },
-    lastname: {
-      type: String,
-      required: true,
-      max: 30,
-      min: 2,
-    },
+    firstname: reqStrMax,
+    lastname: reqStrMax,
     email: {
       type: String,
       required: true,
@@ -29,11 +27,10 @@ const clientSchema = new mongoose.Schema(
       max: 30,
       min: 6,
     },
-    cars: {
-      type: Array,
-    },
+    cars: [carSchema],
   },
   {
+    timestamps: true,
     toJSON: {
       transform: function (doc, ret) {
         delete ret.__v;
@@ -43,5 +40,4 @@ const clientSchema = new mongoose.Schema(
 );
 
 const ClientModel = mongoose.model("Client", clientSchema);
-
 module.exports = ClientModel;

@@ -1,19 +1,39 @@
-import { GET_CLIENTS, SET_CLIENT } from "../actions/types";
+import {
+  GET_CLIENTS,
+  SET_CLIENT,
+  DELETE_CLIENT,
+  EDIT_CLIENT,
+} from "../actions/types";
+import { helpDeleteClient, helpEditClient } from "../helpers";
 
 const initialState = { clientsArray: [], client: {} };
 
 const clientsReducer = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case GET_CLIENTS:
-      console.log("reducer: ", action.payload);
       return {
         ...state,
-        clientsArray: action.payload,
+        clientsArray: payload,
       };
     case SET_CLIENT:
       return {
         ...state,
-        client: action.payload,
+        client: payload,
+      };
+    case EDIT_CLIENT:
+      helpEditClient(payload);
+      return {
+        ...state,
+      };
+    case DELETE_CLIENT:
+      helpDeleteClient(payload);
+      return {
+        ...state,
+        clientsArray: state.clientsArray.filter(
+          (client) => client._id !== payload
+        ),
       };
     default:
       return state;

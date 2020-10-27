@@ -11,7 +11,7 @@ exports.getClients = async (req, res, next) => {
 
 exports.getClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findOne({ lastName: req.params.lastName });
+    const client = await ClientModel.findOne(req.params._id);
     return res.status(200).json(client);
   } catch (error) {
     console.log(error);
@@ -30,9 +30,7 @@ exports.addClient = async (req, res, next) => {
 
 exports.deleteClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findOneAndRemove({
-      lastName: req.params.lastName,
-    });
+    const client = await ClientModel.findByIdAndDelete(req.params._id);
     return res.status(200).json(client);
   } catch (error) {
     res.status(404).send("Client was not found.");
@@ -41,14 +39,17 @@ exports.deleteClient = async (req, res, next) => {
 
 exports.updateClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findOneAndUpdate(
-      { lastName: req.params.lastName },
+    const client = await ClientModel.findByIdAndUpdate(
+      req.params._id,
       {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         email: req.body.email,
         birthdate: req.body.birthdate,
         address: req.body.address,
+      },
+      {
+        new: true,
       }
     );
     client.save();
