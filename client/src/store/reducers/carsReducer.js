@@ -1,5 +1,5 @@
-import { DELETE_CAR, EDIT_CAR, GET_CARS, SET_CAR } from "../actions/types";
-import { helpEditCar, helpDeleteCar } from "../helpers/index";
+import { GET_CARS, SET_CAR, EDIT_CAR, DELETE_CAR } from "../actions/types";
+import { helpDeleteCar, helpEditCar } from "../helpers";
 
 const initialState = { carsArray: [], car: {} };
 
@@ -19,9 +19,7 @@ const carsReducer = (state = initialState, action) => {
       };
     case EDIT_CAR:
       helpEditCar(payload);
-      return {
-        ...state,
-      };
+      return { ...state };
     case DELETE_CAR:
       helpDeleteCar(payload);
       return {

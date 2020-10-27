@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
-import { SET_TARGET, EDIT_CAR, DELETE_CAR } from "../../store/actions/types";
+import { DELETE_CAR, EDIT_CAR, SET_TARGET } from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { v4 as id } from "uuid";
 export const CarsList = () => {
   const dispatch = useDispatch();
 
@@ -15,7 +16,7 @@ export const CarsList = () => {
 
   const renderLists = () => {
     return allCars.map((car) => (
-      <div className="li-buttons-wrapper" key={car._id}>
+      <div className="li-buttons-wrapper" key={id()}>
         <li
           onClick={() => {
             dispatch({ type: SET_TARGET, payload: car });
@@ -27,7 +28,7 @@ export const CarsList = () => {
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
-            onClick={(_) => dispatch({ type: EDIT_CAR, payload: car })}
+            onClick={() => dispatch({ type: EDIT_CAR, payload: car })}
           />
           <FontAwesomeIcon
             className="icon"

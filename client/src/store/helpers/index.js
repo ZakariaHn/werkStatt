@@ -1,6 +1,7 @@
 import Axios from "axios";
 
 //Clients Helpers
+
 export const helpFetchClients = async () =>
   await Axios.get("http://localhost:5000/api/clients");
 
@@ -24,11 +25,11 @@ export const helpFetchCars = async () =>
 export const helpAddCar = async (body, config) =>
   await Axios.post("http://localhost:5000/api/cars/add", body, config);
 
-export const helpEditCar = async (car) =>
-  await Axios.patch(`http://localhost:5000/api/cars/update/${car._id}`, car);
-
 export const helpDeleteCar = async (id) =>
   await Axios.delete(`http://localhost:5000/api/cars/delete/${id}`);
+
+export const helpEditCar = async (car) =>
+  await Axios.patch(`http://localhost:5000/api/cars/update/${car._id}`, car);
 
 // Operations Helpers
 

@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 
 export const RegisterClient = () => {
-  const { handleSubmit, register, errors } = useForm();
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { handleSubmit, register, errors } = useForm();
 
   const onSubmitForm = (data) => {
     dispatch(addClientAction(data));

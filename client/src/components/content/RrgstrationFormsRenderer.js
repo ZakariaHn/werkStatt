@@ -8,14 +8,14 @@ import { styles } from "./styles";
 
 export const RrgstrationFormsRenderer = () => {
   const [showOperationModal, hideOperationModal] = useModal(() => (
-    <ReactModal isOpen style={styles}>
+    <ReactModal isOpen ariaHideApp={false} style={styles}>
       <button onClick={hideOperationModal}>X</button>
       <RegisterOperation />
     </ReactModal>
   ));
 
   const [showCarModal, hideCarModal] = useModal(() => (
-    <ReactModal isOpen style={styles}>
+    <ReactModal isOpen ariaHideApp={false} style={styles}>
       <button onClick={hideCarModal}>X</button>
       <RegisterCar />
     </ReactModal>

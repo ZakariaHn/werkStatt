@@ -3,6 +3,7 @@ import { ADD_CLIENT_SUCCESS, GET_CLIENTS } from "./types";
 
 export const fetchClientsAction = () => async (dispatch) => {
   const response = await helpFetchClients();
+  console.log("action: ", response.data);
   dispatch({
     type: GET_CLIENTS,
     payload: response.data,
@@ -15,9 +16,7 @@ export const addClientAction = (newClient) => async (dispatch) => {
       "Content-type": "application/json",
     },
   };
-
   const body = JSON.stringify(newClient);
-
   try {
     const response = await helpAddClient(body, config);
     dispatch({
