@@ -1,7 +1,7 @@
 .navBar {
   height: 16%;
-  background-color: #0f2e2e;
-  color: #cac7c7;
+  background-color: $backGround-dark;
+  color: $gray;
   @include flex-row-flexStart;
 
   .logo {
@@ -17,7 +17,7 @@
 
     .searchBarHolder {
       width: 100%;
-      border-bottom: 1px solid #006666;
+      border-bottom: 1px solid $backGround-light;
 
       input {
         width: 30%;
@@ -25,7 +25,7 @@
         height: 2rem;
         text-indent: 0.5rem;
         letter-spacing: 1px;
-        background-color: #cac7c7;
+        background-color: $gray;
         border-radius: 1rem 0 0 1rem;
         margin: 1.2rem 0rem 0.5rem 0;
       }
@@ -34,9 +34,9 @@
         width: 5rem;
         border: none;
         height: 2.12rem;
-        background-color: #cac7c7;
+        background-color: $gray;
         border-radius: 0 1rem 1rem 0;
-        border-left: 0.4rem solid #0f2e2e;
+        border-left: 0.4rem solid $backGround-dark;
       }
     }
   }
@@ -50,7 +50,7 @@
       padding: 0;
 
       * {
-        color: #cac7c7;
+        color: $gray;
         letter-spacing: 2px;
         text-decoration: none;
         @include flex-center-center;
@@ -62,7 +62,7 @@
         }
         width: 4rem;
         float: left;
-        color: #fff;
+        color: $gray;
         cursor: pointer;
         margin-left: -1px;
         font-weight: bold;
@@ -78,18 +78,18 @@
           content: "";
           position: absolute;
           transform: skew(-45deg);
-          background-color: #004747;
           transition: all 0.2s linear;
+          background-color: $backGround-light;
         }
 
         &:hover:after {
-          background-color: darken(#004747, 5%);
+          background-color: darken(#004747, 6%);
         }
       }
     }
 
     .setting {
-      border-left: 1px solid #cac7c7;
+      border-left: 1px solid $gray;
       * {
         margin-left: 2rem;
         font-size: larger;

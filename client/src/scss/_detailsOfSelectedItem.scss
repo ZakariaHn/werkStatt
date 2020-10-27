@@ -1,30 +1,15 @@
 .details {
-  width: 31%;
-  height: 90%;
-  color: #d3d2d2;
-  position: relative;
-  border-radius: 0.5rem;
-  background-color: #0c2727;
+  @include list-wrapper-style;
 
   ul {
-    margin: 0;
-    list-style: none;
-    padding: 0 1rem 0 1rem;
+    @include ul-style;
 
     li {
-      margin: 1rem 0 1rem 0;
-      border-bottom: 1px solid #428046;
-      padding: 3%;
+      @include li-style;
     }
   }
 
   button {
-    width: 93%;
-    bottom: 2%;
-    height: 3rem;
-    position: absolute;
-    border-radius: 6px;
-    margin: 0 1rem 0 1rem;
-    background-color: #428046;
+    @include buttons-style;
   }
 }

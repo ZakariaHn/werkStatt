@@ -1,5 +1,5 @@
 @import "mixins";
-
+@import "variables";
 .container {
   width: 100%;
   height: 100%;
@@ -7,8 +7,8 @@
   .content {
     width: 100%;
     height: 77%;
-    background-color: #004747;
     @include flex-center-spaceEvenly;
+    background-color: $backGround-light;
 
     .description {
       padding: 4rem;
@@ -18,34 +18,20 @@
     }
 
     .lists {
-      width: 31%;
-      height: 90%;
-      border-radius: 0.5rem;
-      position: relative;
-      background: #0c2727;
+      @include list-wrapper-style;
 
       ul {
-        margin: 0;
-        height: 100%;
-        color: #d3d2d2;
-        background: #0c2727;
-        padding: 0 1rem 0 1rem;
+        @include ul-style;
 
         * {
           @include flex-row-center-spacebetween;
         }
 
         .li-buttons-wrapper {
-          border-bottom: 1px solid #428046;
-
-          li {
-            list-style: none;
-            margin: 1rem 0 1rem 0;
-            padding: 1.3%;
-          }
+          @include li-style;
 
           .icon {
-            color: #d3d2d2;
+            color: $gray;
             margin-left: 1rem;
             @include flex-center-center;
           }
@@ -57,20 +43,12 @@
       }
 
       button {
-        width: 93%;
-        bottom: 2%;
-        height: 3rem;
-        position: absolute;
-        border-radius: 6px;
-        margin: 0 1rem 0 1rem;
-        background-color: #428046;
+        @include buttons-style;
       }
     }
 
     .registrationForms {
-      width: 31%;
-      height: 90%;
-      background-color: #000000c2;
+      @include list-wrapper-style;
     }
   }
 }
