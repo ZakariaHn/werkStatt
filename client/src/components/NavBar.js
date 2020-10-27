@@ -22,17 +22,17 @@ export const Navbar = () => {
           </button>
         </div>
         <div className="tapsAndSetting">
-          <div className="taps">
-            <div>
+          <ul className="taps">
+            <li>
               <Link to="/clients">Clients</Link>
-            </div>
-            <div>
+            </li>
+            <li>
               <Link to="/cars">Cars</Link>
-            </div>
-            <div>
+            </li>
+            <li>
               <Link to="/operations">Operations</Link>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div className="setting">
             <FontAwesomeIcon icon={faUserCircle} />
             <FontAwesomeIcon icon={faCog} />

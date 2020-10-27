@@ -1,7 +1,6 @@
 const OperationModel = require("../models/OperationModel");
 
 exports.getOperations = async (req, res, next) => {
-  console.log("get ops route");
   try {
     const operations = await OperationModel.find();
     return res.status(200).json(operations);
@@ -11,7 +10,6 @@ exports.getOperations = async (req, res, next) => {
 };
 
 exports.addOperation = async (req, res, next) => {
-  console.log("add operation route");
   try {
     const operation = new OperationModel(req.body);
     await operation.save();
@@ -22,9 +20,8 @@ exports.addOperation = async (req, res, next) => {
 };
 
 exports.deleteOperation = async (req, res, next) => {
-  const _id = req.params._id;
   try {
-    const operation = await OperationModel.findByIdAndDelete({ _id });
+    const operation = await OperationModel.findByIdAndDelete(req.params._id);
     return res.status(200).json(operation);
   } catch (error) {
     res.status(404).send("Operation was not found.");
@@ -34,13 +31,16 @@ exports.deleteOperation = async (req, res, next) => {
 exports.updateOperation = async (req, res, next) => {
   try {
     const operation = await OperationModel.findByIdAndUpdate(
-      { _id: req.params._id },
+      req.params._id,
       {
         name: req.body.name,
         description: req.body.description,
         carId: req.body.carId,
         parts: req.body.parts,
         cost: req.body.cost,
+      },
+      {
+        new: true,
       }
     );
     operation.save();

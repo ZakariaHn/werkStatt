@@ -1,5 +1,5 @@
 .navBar {
-  height: 15%;
+  height: 16%;
   background-color: #0f2e2e;
   color: #cac7c7;
   @include flex-row-flexStart;
@@ -14,20 +14,19 @@
 
   .all {
     width: 90%;
-    height: 6rem;
 
     .searchBarHolder {
       width: 100%;
-
       border-bottom: 1px solid #006666;
 
       input {
         width: 30%;
         border: none;
         height: 2rem;
-        letter-spacing: 1px;
         text-indent: 0.5rem;
+        letter-spacing: 1px;
         background-color: #cac7c7;
+        border-radius: 1rem 0 0 1rem;
         margin: 1.2rem 0rem 0.5rem 0;
       }
 
@@ -36,6 +35,7 @@
         border: none;
         height: 2.12rem;
         background-color: #cac7c7;
+        border-radius: 0 1rem 1rem 0;
         border-left: 0.4rem solid #0f2e2e;
       }
     }
@@ -44,19 +44,47 @@
   .tapsAndSetting {
     height: 50%;
     width: 100%;
-    @include flex-center-flexEnd;
+    @include flex-row-center-spacebetween;
 
     .taps {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
+      padding: 0;
 
       * {
-        width: 8.2rem;
         color: #cac7c7;
         letter-spacing: 2px;
         text-decoration: none;
         @include flex-center-center;
+      }
+
+      li {
+        * {
+          z-index: 2;
+        }
+        width: 4rem;
+        float: left;
+        color: #fff;
+        cursor: pointer;
+        margin-left: -1px;
+        font-weight: bold;
+        padding: 10px 3rem;
+        position: relative;
+
+        &:after {
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          content: "";
+          position: absolute;
+          transform: skew(-45deg);
+          background-color: #004747;
+          transition: all 0.2s linear;
+        }
+
+        &:hover:after {
+          background-color: darken(#004747, 5%);
+        }
       }
     }
 
