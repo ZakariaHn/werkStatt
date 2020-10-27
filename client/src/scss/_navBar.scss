@@ -1,0 +1,71 @@
+.navBar {
+  height: 15%;
+  background-color: #0f2e2e;
+  color: #cac7c7;
+  @include flex-row-flexStart;
+
+  .logo {
+    width: 6rem;
+    height: 5rem;
+    font-size: 4rem;
+    margin: 1rem;
+    @include flex-center-center;
+  }
+
+  .all {
+    width: 90%;
+    height: 6rem;
+
+    .searchBarHolder {
+      width: 100%;
+
+      border-bottom: 1px solid #006666;
+
+      input {
+        width: 30%;
+        border: none;
+        height: 2rem;
+        letter-spacing: 1px;
+        text-indent: 0.5rem;
+        background-color: #cac7c7;
+        margin: 1.2rem 0rem 0.5rem 0;
+      }
+
+      button {
+        width: 5rem;
+        border: none;
+        height: 2.12rem;
+        background-color: #cac7c7;
+        border-left: 0.4rem solid #0f2e2e;
+      }
+    }
+  }
+
+  .tapsAndSetting {
+    height: 50%;
+    width: 100%;
+    @include flex-center-flexEnd;
+
+    .taps {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+
+      * {
+        width: 8.2rem;
+        color: #cac7c7;
+        letter-spacing: 2px;
+        text-decoration: none;
+        @include flex-center-center;
+      }
+    }
+
+    .setting {
+      border-left: 1px solid #cac7c7;
+      * {
+        margin-left: 2rem;
+        font-size: larger;
+      }
+    }
+  }
+}

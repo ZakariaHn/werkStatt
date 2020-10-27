@@ -4,15 +4,9 @@
   width: 100%;
   height: 100%;
 
-  .navBar {
-    height: 10%;
-    width: 100%;
-    background-color: #006666;
-  }
-
   .content {
     width: 100%;
-    height: 70%;
+    height: 77%;
     background-color: #004747;
     @include flex-center-spaceEvenly;
 
@@ -25,21 +19,21 @@
 
     .lists {
       width: 31%;
-      height: 100%;
+      height: 90%;
       overflow: auto;
-      background: #006666;
       position: relative;
+      background: #0c2727;
 
       ul {
         margin: 0;
         height: 100%;
-        background: #006666;
-        padding: 0 1rem 0 1.7rem;
         color: #d3d2d2;
+        background: #0c2727;
+        padding: 0 1rem 0 1.7rem;
 
         .li-buttons-wrapper {
+          border-bottom: 1px solid #428046;
           @include flex-row-center-spacebetween;
-          border-bottom: 1px solid #000000b9;
 
           div {
             @include flex-row-center-spacebetween;
@@ -55,8 +49,8 @@
           }
 
           .icon {
-            margin-left: 0.5rem;
             color: #d3d2d2;
+            margin-left: 0.5rem;
             @include flex-center-center;
 
             &:hover {
@@ -65,31 +59,22 @@
           }
         }
       }
+
+      button {
+        width: 93%;
+        bottom: 2%;
+        height: 3rem;
+        position: absolute;
+        border-radius: 6px;
+        margin: 0 1rem 0 1rem;
+        background-color: #428046;
+      }
     }
 
     .registrationForms {
       width: 31%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.76);
-    }
-  }
-
-  .toggleLists {
-    width: 100%;
-    height: 20%;
-    background-color: #004747;
-    @include flex-center-spaceEvenly;
-
-    * {
-      width: 31%;
-      height: 65%;
-      color: #d3d2d2;
-      font-weight: bold;
-      font-size: x-large;
-      border-radius: 4px;
-      text-decoration: none;
-      background-color: #428046;
-      @include flex-center-center;
+      height: 90%;
+      background-color: #000000c2;
     }
   }
 }

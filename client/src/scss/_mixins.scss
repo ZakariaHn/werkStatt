@@ -16,3 +16,15 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin flex-center-flexEnd {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex-row-flexStart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
