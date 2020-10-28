@@ -11,10 +11,7 @@ module.exports = operationSchema = new mongoose.Schema(
     {
         name: reqStrMax,
         description: reqStrMax,
-        carId: {
-            type: Number,
-            required: true,
-        },
+        carId: reqStrMax,
         parts: {
             type: Array,
         },

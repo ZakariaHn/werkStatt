@@ -10,7 +10,7 @@ const reqStrMax = {
 
 module.exports = carSchema = new mongoose.Schema(
     {
-        owner: reqStrMax,
+        ownerId: reqStrMax,
         carModel: reqStrMax,
         carModelType: reqStrMax,
         chassyNr: reqStrMax,
