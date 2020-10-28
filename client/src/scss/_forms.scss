@@ -3,7 +3,9 @@ form {
   height: 95%;
   margin-left: 1rem;
   border-radius: 0.5rem;
-  @include flex-column-spacearound;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   * {
     width: 20rem;

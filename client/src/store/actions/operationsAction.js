@@ -23,5 +23,7 @@ export const addOperationAction = (newOperation) => async (dispatch) => {
       type: ADD_OPERATION_SUCCESS,
       payload: response.data,
     });
-  } catch {}
+  } catch(error) {
+    console.log(error);
+  }
 };

@@ -12,11 +12,6 @@ const carsReducer = (state = initialState, action) => {
         ...state,
         carsArray: payload,
       };
-    case SET_CAR:
-      return {
-        ...state,
-        car: payload,
-      };
     case EDIT_CAR:
       helpEditCar(payload);
       return { ...state };

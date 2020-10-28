@@ -1,11 +1,9 @@
 import {
+  GET_OPERATIONS,
   DELETE_OPERATION,
   EDIT_OPERATION,
-  GET_OPERATIONS,
-  SET_OPERATION,
 } from "../actions/types";
-import { helpEditOperation } from "../helpers";
-import { helpDeleteOperation } from "../helpers/index";
+import { helpEditOperation, helpDeleteOperation } from "../helpers";
 
 const initialState = { operationsArray: [], operation: {} };
 
@@ -17,11 +15,6 @@ const OperationsReducer = (state = initialState, action) => {
       return {
         ...state,
         operationsArray: payload,
-      };
-    case SET_OPERATION:
-      return {
-        ...state,
-        operation: payload,
       };
     case EDIT_OPERATION:
       helpEditOperation(payload);

@@ -1,6 +1,5 @@
 import {
   GET_CLIENTS,
-  SET_CLIENT,
   DELETE_CLIENT,
   EDIT_CLIENT,
 } from "../actions/types";
@@ -16,11 +15,6 @@ const clientsReducer = (state = initialState, action) => {
       return {
         ...state,
         clientsArray: payload,
-      };
-    case SET_CLIENT:
-      return {
-        ...state,
-        client: payload,
       };
     case EDIT_CLIENT:
       helpEditClient(payload);

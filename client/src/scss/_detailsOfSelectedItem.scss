@@ -1,8 +1,10 @@
 .details {
   @include list-wrapper-style;
+  position: relative;
 
   ul {
     @include ul-style;
+    height: 100%;
 
     li {
       @include li-style;
@@ -11,5 +13,8 @@
 
   button {
     @include buttons-style;
+    position: fixed;
+    bottom: 12%;
+    width: 28%;
   }
 }

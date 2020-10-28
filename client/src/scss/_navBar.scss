@@ -15,7 +15,7 @@
   .all {
     width: 90%;
 
-    .searchBarWrapper {
+    .searchBarHolder {
       width: 100%;
       border-bottom: 1px solid $backGround-light;
 
@@ -26,17 +26,16 @@
         text-indent: 0.5rem;
         letter-spacing: 1px;
         background-color: $gray;
-        border-radius: 0 0 0 1rem;
-        margin: 1rem 0rem 0.5rem 0;
+        border-radius: 1rem 0 0 1rem;
+        margin: 1.2rem 0rem 0.5rem 0;
       }
 
       button {
         width: 5rem;
         border: none;
         height: 2.12rem;
-        cursor: pointer;
         background-color: $gray;
-        border-radius: 0 1rem 0 0;
+        border-radius: 0 1rem 1rem 0;
         border-left: 0.4rem solid $backGround-dark;
       }
     }
@@ -45,7 +44,7 @@
   .tapsAndSetting {
     height: 50%;
     width: 100%;
-    @include flex-center-spacebetween;
+    @include flex-row-center-spacebetween;
 
     .taps {
       padding: 0;
@@ -61,16 +60,14 @@
         * {
           z-index: 2;
         }
-
         width: 4rem;
-        height: 100%;
         float: left;
         color: $gray;
         cursor: pointer;
         margin-left: -1px;
         font-weight: bold;
+        padding: 10px 3rem;
         position: relative;
-        padding: 0.7rem 3rem;
 
         &:after {
           top: 0;
@@ -79,7 +76,6 @@
           bottom: 0;
           z-index: 1;
           content: "";
-          transition: 1s;
           position: absolute;
           transform: skew(-45deg);
           transition: all 0.2s linear;
@@ -87,22 +83,16 @@
         }
 
         &:hover:after {
-          background-color: darken($backGround-light, 5%);
+          background-color: darken(#004747, 6%);
         }
       }
     }
 
     .setting {
       border-left: 1px solid $gray;
-
       * {
         margin-left: 2rem;
         font-size: larger;
-
-        &:hover {
-          cursor: pointer;
-          color: $backGround-light;
-        }
       }
     }
   }

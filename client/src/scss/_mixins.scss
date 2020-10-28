@@ -1,13 +1,8 @@
-@mixin flex-center-spacebetween {
+@mixin flex-row-center-spacebetween {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
-
-@mixin flex-column-spacearound {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 @mixin flex-center-spaceEvenly {
@@ -51,13 +46,17 @@
 @mixin list-wrapper-style {
   width: 31%;
   height: 90%;
+  max-height: 40rem;
+  overflow: hidden;
   color: $gray;
   position: relative;
   border-radius: 0.5rem;
+  overflow-y: scroll;
   background-color: $backGround-dark;
 }
 
 @mixin ul-style {
+  max-height: 40rem;
   color: $gray;
   list-style: none;
   padding: 0 1rem 0 1rem;

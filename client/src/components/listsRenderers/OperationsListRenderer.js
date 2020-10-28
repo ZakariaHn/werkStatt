@@ -1,5 +1,5 @@
-import { v4 as id } from "uuid";
 import React, { useEffect } from "react";
+import { v4 as id } from "uuid"; // we should fix this
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";

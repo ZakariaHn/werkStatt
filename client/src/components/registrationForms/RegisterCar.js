@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addCarAction } from "../../store/actions/carsActions";
 
@@ -9,7 +9,10 @@ export const RegisterCar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const ownerId = useSelector(state => state.target.item._id);
+
   const onSubmitForm = (data) => {
+    console.log(data);
     dispatch(addCarAction(data));
     history.push("/cars");
   };
@@ -17,12 +20,13 @@ export const RegisterCar = () => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <div className="input-field">
-        <label htmlFor="fiOwnerrstname"></label>
+        <label htmlFor="ownerId"></label>
         <input
           type="text"
-          name="owner"
+          name="ownerId"
           autoComplete="off"
-          placeholder="owner"
+          placeholder="ownerId"
+          value={ownerId}
           ref={register({
             required: true,
             minLength: 2,
