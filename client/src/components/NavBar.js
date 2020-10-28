@@ -11,11 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Navbar = () => {
   return (
     <div className="navBar">
-      <div className="logo">
-        <FontAwesomeIcon icon={faLaravel} />
-      </div>
+      <FontAwesomeIcon className="logo" icon={faLaravel} />
       <div className="all">
-        <div className="searchBarHolder">
+        <div className="searchBarWrapper">
           <input placeholder="Search for a client, car or an operaiton"></input>
           <button>
             <FontAwesomeIcon icon={faSearch} />

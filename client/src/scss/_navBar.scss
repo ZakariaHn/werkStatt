@@ -15,7 +15,7 @@
   .all {
     width: 90%;
 
-    .searchBarHolder {
+    .searchBarWrapper {
       width: 100%;
       border-bottom: 1px solid $backGround-light;
 
@@ -27,7 +27,7 @@
         letter-spacing: 1px;
         background-color: $gray;
         border-radius: 0 0 0 1rem;
-        margin: 1.2rem 0rem 0.5rem 0;
+        margin: 1rem 0rem 0.5rem 0;
       }
 
       button {
@@ -45,7 +45,7 @@
   .tapsAndSetting {
     height: 50%;
     width: 100%;
-    @include flex-row-center-spacebetween;
+    @include flex-center-spacebetween;
 
     .taps {
       padding: 0;
@@ -61,14 +61,16 @@
         * {
           z-index: 2;
         }
+
         width: 4rem;
+        height: 100%;
         float: left;
         color: $gray;
         cursor: pointer;
         margin-left: -1px;
         font-weight: bold;
-        padding: 10px 3rem;
         position: relative;
+        padding: 0.7rem 3rem;
 
         &:after {
           top: 0;
@@ -85,7 +87,7 @@
         }
 
         &:hover:after {
-          background-color: darken($backGround-light, 6%);
+          background-color: darken($backGround-light, 5%);
         }
       }
     }

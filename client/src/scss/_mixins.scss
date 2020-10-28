@@ -1,8 +1,13 @@
-@mixin flex-row-center-spacebetween {
+@mixin flex-center-spacebetween {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+@mixin flex-column-spacearound {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 @mixin flex-center-spaceEvenly {

@@ -24,7 +24,7 @@
         @include ul-style;
 
         * {
-          @include flex-row-center-spacebetween;
+          @include flex-center-spacebetween;
         }
 
         .li-buttons-wrapper {
