@@ -1,4 +1,4 @@
-import { GET_CARS, SET_CAR, EDIT_CAR, DELETE_CAR } from "../actions/types";
+import { GET_CARS, EDIT_CAR, DELETE_CAR } from "../actions/types";
 import { helpDeleteCar, helpEditCar } from "../helpers";
 
 const initialState = { carsArray: [], car: {} };

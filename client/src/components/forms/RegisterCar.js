@@ -2,47 +2,36 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addOperationAction } from "../../store/actions/operationsAction";
+import { addCarAction } from "../../store/actions/carsActions";
 
-export const RegisterOperation = () => {
+export const RegisterCar = () => {
   const { handleSubmit, register, errors } = useForm();
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const carId = useSelector(state => state.target.item._id);
+  const ownerId = useSelector((state) => state.target.item._id);
 
   const onSubmitForm = (data) => {
-    dispatch(addOperationAction(data));
-    history.push("/operations");
+    console.log(data);
+    dispatch(addCarAction(data));
+    history.push("/cars");
+  };
+
+  const handleChange = () => {
+    console.log("change");
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
+    <form onSubmit={handleSubmit(onSubmitForm)} onChange={handleChange()}>
       <div className="input-field">
-        <label htmlFor="carId"></label>
+        <label htmlFor="ownerId"></label>
         <input
           type="text"
-          name="carId"
+          name="ownerId"
           autoComplete="off"
-          placeholder="Car Id"
-          value={carId}
-          ref={register({
-            required: true,
-            minLength: 4,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
-
-      <div className="input-field">
-        <label htmlFor="name"></label>
-        <input
-          type="text"
-          name="name"
-          autoComplete="off"
-          placeholder="Operation Name"
+          placeholder="ownerId"
+          defaultValue={ownerId}
           ref={register({
             required: true,
             minLength: 2,
@@ -54,12 +43,12 @@ export const RegisterOperation = () => {
       </div>
 
       <div className="input-field">
-        <label htmlFor="description"></label>
+        <label htmlFor="carModel"></label>
         <input
           type="text"
-          name="description"
+          name="carModel"
           autoComplete="off"
-          placeholder="Description"
+          placeholder="Car Model"
           ref={register({
             required: true,
             minLength: 2,
@@ -71,12 +60,12 @@ export const RegisterOperation = () => {
       </div>
 
       <div className="input-field">
-        <label htmlFor="Parts"></label>
+        <label htmlFor="carModelType"></label>
         <input
           type="text"
-          name="Parts"
+          name="carModelType"
           autoComplete="off"
-          placeholder="Parts"
+          placeholder="Car model type"
           ref={register({
             required: true,
             minLength: 2,
@@ -88,12 +77,12 @@ export const RegisterOperation = () => {
       </div>
 
       <div className="input-field">
-        <label htmlFor="costs"></label>
+        <label htmlFor="chassyNr"></label>
         <input
           type="text"
-          name="costs"
+          name="chassyNr"
           autoComplete="off"
-          placeholder="Costs"
+          placeholder="Chassy Nr"
           ref={register({
             required: true,
             minLength: 2,
@@ -104,7 +93,43 @@ export const RegisterOperation = () => {
         )}
       </div>
 
-      <button type="submit">Register Operation</button>
+      <div className="input-field">
+        <label htmlFor="engine"></label>
+        <input
+          type="text"
+          name="engine"
+          autoComplete="off"
+          placeholder="engine"
+          ref={register({
+            required: true,
+            minLength: 2,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 2 characters long!</p>
+        )}
+      </div>
+
+      <div className="input-field">
+        <label htmlFor="plateNr"></label>
+        <input
+          type="text"
+          name="plateNr"
+          autoComplete="off"
+          placeholder="Plate Number"
+          ref={register({
+            required: true,
+            minLength: 2,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 2 characters long!</p>
+        )}
+      </div>
+
+      <div className="buttonWrapper">
+        <button type="submit">Register Car</button>
+      </div>
     </form>
   );
 };

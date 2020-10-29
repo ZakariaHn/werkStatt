@@ -29,36 +29,51 @@
   justify-content: flex-start;
 }
 
+@mixin buttons-wrapper-style {
+  bottom: 0;
+  margin: 0;
+  height: 13%;
+  width: 100%;
+  position: sticky;
+  background-color: $backGround-dark;
+}
+
 @mixin buttons-style {
   width: 93%;
-  bottom: 2%;
   height: 3rem;
   color: $gray;
   font-size: large;
   font-weight: bold;
   border-radius: 6px;
-  position: absolute;
   letter-spacing: 1px;
-  margin: 0 1rem 0 1rem;
+  margin: 0.7rem 1rem 0 1rem;
   background-color: $backGround-light;
 }
 
 @mixin list-wrapper-style {
   width: 31%;
   height: 90%;
-  max-height: 40rem;
-  overflow: hidden;
   color: $gray;
+  overflow: hidden;
+  max-height: 40rem;
   position: relative;
-  border-radius: 0.5rem;
   overflow-y: scroll;
+  border-radius: 0.5rem;
   background-color: $backGround-dark;
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: #081b1b;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 0.5em;
+    background-color: $gray;
+  }
 }
 
 @mixin ul-style {
-  max-height: 40rem;
   color: $gray;
   list-style: none;
+  max-height: 30rem;
   padding: 0 1rem 0 1rem;
   background: $backGround-dark;
 }

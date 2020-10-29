@@ -13,27 +13,27 @@
   }
 
   .all {
-    width: 90%;
+    height: 100%;
+    width: 100%;
 
+    @include flex-row-center-spacebetween;
     .searchBarHolder {
-      width: 100%;
-      border-bottom: 1px solid $backGround-light;
+      width: 40%;
 
       input {
-        width: 30%;
+        width: 85%;
         border: none;
-        height: 2rem;
+        height: 3rem;
         text-indent: 0.5rem;
         letter-spacing: 1px;
         background-color: $gray;
         border-radius: 1rem 0 0 1rem;
-        margin: 1.2rem 0rem 0.5rem 0;
       }
 
       button {
-        width: 5rem;
+        width: 10%;
         border: none;
-        height: 2.12rem;
+        height: 3.12rem;
         background-color: $gray;
         border-radius: 0 1rem 1rem 0;
         border-left: 0.4rem solid $backGround-dark;
@@ -41,61 +41,57 @@
     }
   }
 
-  .tapsAndSetting {
-    height: 50%;
-    width: 100%;
-    @include flex-row-center-spacebetween;
-
-    .taps {
-      padding: 0;
-
-      * {
-        color: $gray;
-        letter-spacing: 2px;
-        text-decoration: none;
-        @include flex-center-center;
-      }
-
-      .nav-link {
-        p {
-          z-index: 2;
-        }
-
-        width: 4rem;
-        height: 1.5rem;
-        float: left;
-        color: $gray;
-        cursor: pointer;
-        margin-left: -1px;
-        font-weight: bold;
-        padding: 10px 3rem;
-        position: relative;
-
-        &:after {
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: 1;
-          content: "";
-          position: absolute;
-          transform: skew(-45deg);
-          transition: all 0.2s linear;
-          background-color: $backGround-light;
-        }
-
-        &:hover:after {
-          background-color: darken(#004747, 6%);
-        }
-      }
+  .taps {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    * {
+      color: $gray;
+      letter-spacing: 2px;
+      text-decoration: none;
+      @include flex-center-center;
     }
 
-    .setting {
-      border-left: 1px solid $gray;
-      * {
-        margin-left: 2rem;
-        font-size: larger;
+    .nav-link {
+      p {
+        z-index: 2;
       }
+
+      width: 12%;
+      height: 6.4em;
+
+      color: $gray;
+      cursor: pointer;
+      margin-left: -1px;
+      font-weight: bold;
+      padding: 10px 3rem;
+      position: relative;
+
+      &:after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        content: "";
+        position: absolute;
+        transform: skew(-45deg);
+        transition: all 0.2s linear;
+        background-color: $backGround-light;
+      }
+
+      &:hover:after {
+        background-color: darken(#004747, 6%);
+      }
+    }
+  }
+
+  .setting {
+    border-left: 1px solid $gray;
+    margin-right: 2rem;
+    * {
+      margin-left: 2rem;
+      font-size: larger;
     }
   }
 }

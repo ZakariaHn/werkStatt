@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   faSearch,
   faCog,
@@ -15,42 +15,40 @@ export const Navbar = () => {
         <FontAwesomeIcon icon={faLaravel} />
       </div>
       <div className="all">
+        <ul className="taps">
+          <NavLink
+            className="nav-link"
+            activeClassName="nav-link-active"
+            to="/clients"
+          >
+            <p>Clients</p>
+          </NavLink>
+
+          <NavLink
+            className="nav-link"
+            activeClassName="nav-link-active"
+            to="/cars"
+          >
+            <p> Cars</p>
+          </NavLink>
+
+          <NavLink
+            className="nav-link"
+            activeClassName="nav-link-active"
+            to="/operations"
+          >
+            <p>Operations</p>
+          </NavLink>
+        </ul>
         <div className="searchBarHolder">
           <input placeholder="Search for a client, car or an operaiton"></input>
           <button>
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
-        <div className="tapsAndSetting">
-          <ul className="taps">
-            <NavLink
-              className="nav-link"
-              activeClassName="nav-link-active"
-              to="/clients"
-            >
-              <p>Clients</p>
-            </NavLink>
-
-            <NavLink
-              className="nav-link"
-              activeClassName="nav-link-active"
-              to="/cars"
-            >
-              <p> Cars</p>
-            </NavLink>
-
-            <NavLink
-              className="nav-link"
-              activeClassName="nav-link-active"
-              to="/operations"
-            >
-              <p>Operations</p>
-            </NavLink>
-          </ul>
-          <div className="setting">
-            <FontAwesomeIcon icon={faUserCircle} />
-            <FontAwesomeIcon icon={faCog} />
-          </div>
+        <div className="setting">
+          <FontAwesomeIcon icon={faUserCircle} />
+          <FontAwesomeIcon icon={faCog} />
         </div>
       </div>
     </div>

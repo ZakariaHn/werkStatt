@@ -1,8 +1,4 @@
-import {
-  GET_CLIENTS,
-  DELETE_CLIENT,
-  EDIT_CLIENT,
-} from "../actions/types";
+import { GET_CLIENTS, DELETE_CLIENT, EDIT_CLIENT } from "../actions/types";
 import { helpDeleteClient, helpEditClient } from "../helpers";
 
 const initialState = { clientsArray: [], client: {} };

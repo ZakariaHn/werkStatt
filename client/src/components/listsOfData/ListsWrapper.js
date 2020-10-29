@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { CarsList } from "./CarsListRenderer";
-import { ClientsList } from "./ClientsListRenderer";
-import { OperationsList } from "./OperationsListRenderer";
+import { CarsList } from "./CarsList";
+import { ClientsList } from "./ClientsList";
+import { OperationsList } from "./OperationsList";
 
 export const ListsWrapper = () => {
   return (
