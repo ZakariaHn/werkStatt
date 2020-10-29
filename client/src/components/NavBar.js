@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import {
   faSearch,
   faCog,
@@ -23,15 +23,29 @@ export const Navbar = () => {
         </div>
         <div className="tapsAndSetting">
           <ul className="taps">
-            <li>
-              <Link to="/clients">Clients</Link>
-            </li>
-            <li>
-              <Link to="/cars">Cars</Link>
-            </li>
-            <li>
-              <Link to="/operations">Operations</Link>
-            </li>
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-link-active"
+              to="/clients"
+            >
+              <p>Clients</p>
+            </NavLink>
+
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-link-active"
+              to="/cars"
+            >
+              <p> Cars</p>
+            </NavLink>
+
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-link-active"
+              to="/operations"
+            >
+              <p>Operations</p>
+            </NavLink>
           </ul>
           <div className="setting">
             <FontAwesomeIcon icon={faUserCircle} />

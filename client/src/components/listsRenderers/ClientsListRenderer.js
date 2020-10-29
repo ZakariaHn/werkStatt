@@ -1,5 +1,5 @@
-import ReactModal from "react-modal";
 import React, { useEffect } from "react";
+import ReactModal from "react-modal";
 import { styles } from "../content/styles";
 import { useModal } from "react-modal-hook";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,16 +23,22 @@ export const ClientsList = () => {
     dispatch(fetchClientsAction());
   }, [dispatch]);
 
+  const handleEditClient = (client) => {
+    console.log(client);
+    showClientModal();
+    // dispatch({ type: EDIT_CLIENT, payload: client });
+  };
+
   const [showClientModal, hideClientModal] = useModal(() => (
     <ReactModal ariaHideApp={false} isOpen style={styles}>
       <button onClick={hideClientModal}>X</button>
-      <RegisterClient />
+      <RegisterClient hide={hideClientModal} updateForm={true} />
     </ReactModal>
   ));
 
   const renderLists = () => {
     return myClients.map((client) => (
-      <div className="li-buttons-wrapper" key={id()}>
+      <div className="li-buttons-wrapper" key={client._id}>
         <li onClick={(_) => dispatch({ type: SET_TARGET, payload: client })}>
           {client.lastname}
         </li>
@@ -40,7 +46,7 @@ export const ClientsList = () => {
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
-            onClick={(_) => dispatch({ type: EDIT_CLIENT, payload: client })}
+            onClick={(_) => handleEditClient(client)}
           />
           <FontAwesomeIcon
             className="icon"

@@ -1,4 +1,5 @@
 const CarModel = require("../models/CarModel");
+const ClientModel = require("../models/ClientModel");
 
 exports.getCars = async (req, res, next) => {
   try {
@@ -29,7 +30,10 @@ exports.getCarByChassyNr = async (req, res, next) => {
 
 exports.addCar = async (req, res, next) => {
   try {
+    const client = await ClientModel.findById(req.body.ownerId);
     const car = new CarModel(req.body);
+    client.cars.push(car);
+    await client.save();
     await car.save();
     res.status(200).json(car);
   } catch (error) {

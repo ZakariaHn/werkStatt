@@ -23,6 +23,8 @@
       ul {
         @include ul-style;
 
+        height: 100%;
+
         * {
           @include flex-row-center-spacebetween;
         }
@@ -44,6 +46,9 @@
 
       button {
         @include buttons-style;
+        position: fixed;
+        bottom: 12%;
+        width: 28%;
       }
     }
 

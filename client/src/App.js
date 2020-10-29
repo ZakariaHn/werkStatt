@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentsHolder } from "./components/content/ComponentsHolder";
+import { Content } from "./components/content";
 import { Footer } from "./components/footer";
 import { Navbar } from "./components/NavBar";
 
@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="container">
       <Navbar />
-      <ComponentsHolder />
+      <Content />
       <Footer />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addOperationAction } from "../../store/actions/operationsAction";
 
@@ -8,6 +8,8 @@ export const RegisterOperation = () => {
   const { handleSubmit, register, errors } = useForm();
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const carId = useSelector(state => state.target.item._id);
 
   const onSubmitForm = (data) => {
     dispatch(addOperationAction(data));
@@ -23,6 +25,7 @@ export const RegisterOperation = () => {
           name="carId"
           autoComplete="off"
           placeholder="Car Id"
+          value={carId}
           ref={register({
             required: true,
             minLength: 4,
