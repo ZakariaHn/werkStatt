@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -9,7 +9,7 @@ export const RegisterCar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const ownerId = useSelector(state => state.target.item._id);
+  const ownerId = useSelector((state) => state.target.item._id);
 
   const onSubmitForm = (data) => {
     console.log(data);

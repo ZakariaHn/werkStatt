@@ -12,7 +12,6 @@ import {
   EDIT_CLIENT,
   SET_TARGET,
 } from "../../store/actions/types";
-import { v4 as id } from "uuid";
 
 export const ClientsList = () => {
   const dispatch = useDispatch();
