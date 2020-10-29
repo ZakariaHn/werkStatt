@@ -1,15 +1,16 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import { RegisterCar } from "./RegisterCar";
 import { RegisterClient } from "./RegisterClient";
 import { RegisterOperation } from "./RegisterOperation";
+import { useSelector } from "react-redux";
 
 export const FormsWrapper = () => {
+  const ifClicked = useSelector((state) => state.clients.ifClicked);
   return (
     <div className="registrationForms">
-      <Route path="/registerCar" component={RegisterCar} />
-      <Route path="/registerClient" component={RegisterClient} />
-      <Route path="/registerOperation" component={RegisterOperation} />
+      {ifClicked === "addClient" && <RegisterClient />}
+      {ifClicked === "addCar" && <RegisterCar />}
+      {ifClicked === "addOperation" && <RegisterOperation />}
     </div>
   );
 };

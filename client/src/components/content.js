@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { Description } from "./content/Description";
-import { SelectedItemWrapper } from "./content/SelectedItemWrapper";
+import { Description } from "./Description";
+import { SelectedItemWrapper } from "./selectedItem/SelectedItemWrapper";
 import { ListsWrapper } from "./listsRenderers/ListsWrapper";
 import { FormsWrapper } from "./registrationForms/FormsWrapper";
 

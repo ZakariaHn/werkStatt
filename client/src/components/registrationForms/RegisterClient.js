@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 
 export const RegisterClient = ({ hide, updateForm }) => {
-  console.log(updateForm);
   const dispatch = useDispatch();
   const { handleSubmit, register, errors } = useForm();
 
