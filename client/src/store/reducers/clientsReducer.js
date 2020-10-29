@@ -1,12 +1,7 @@
-import {
-  GET_CLIENTS,
-  DELETE_CLIENT,
-  EDIT_CLIENT,
-  BUTTON_CLICKED,
-} from "../actions/types";
+import { GET_CLIENTS, DELETE_CLIENT, EDIT_CLIENT } from "../actions/types";
 import { helpDeleteClient, helpEditClient } from "../helpers";
 
-const initialState = { clientsArray: [], client: {}, ifClicked: "" };
+const initialState = { clientsArray: [], client: {} };
 
 const clientsReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -29,11 +24,6 @@ const clientsReducer = (state = initialState, action) => {
         clientsArray: state.clientsArray.filter(
           (client) => client._id !== payload
         ),
-      };
-    case BUTTON_CLICKED:
-      return {
-        ...state,
-        ifClicked: payload,
       };
     default:
       return state;

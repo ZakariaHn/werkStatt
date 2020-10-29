@@ -8,7 +8,7 @@ export const SelectedItemWrapper = () => {
   const dispatch = useDispatch();
 
   const handleAddButton = () => (
-    <div>
+    <div className="buttonWrapper">
       {target.hasOwnProperty("engine") && (
         <button
           onClick={() =>

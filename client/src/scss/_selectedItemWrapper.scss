@@ -1,0 +1,19 @@
+.details {
+  @include list-wrapper-style;
+
+  ul {
+    @include ul-style;
+    height: 90%;
+    position: relative;
+
+    li {
+      @include li-style;
+    }
+  }
+  .buttonWrapper {
+    @include buttons-wrapper-style;
+    button {
+      @include buttons-style;
+    }
+  }
+}

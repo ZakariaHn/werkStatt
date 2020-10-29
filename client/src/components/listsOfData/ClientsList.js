@@ -52,16 +52,18 @@ export const ClientsList = () => {
   return (
     <div className="clientsList">
       <ul>{renderLists()}</ul>
-      <button
-        onClick={() =>
-          dispatch({
-            type: BUTTON_CLICKED,
-            payload: "addClient",
-          })
-        }
-      >
-        Add Client
-      </button>
+      <div className="buttonWrapper">
+        <button
+          onClick={() =>
+            dispatch({
+              type: BUTTON_CLICKED,
+              payload: "addClient",
+            })
+          }
+        >
+          Add Client
+        </button>
+      </div>
     </div>
   );
 };

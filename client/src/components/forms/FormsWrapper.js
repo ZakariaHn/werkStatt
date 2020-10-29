@@ -5,12 +5,13 @@ import { RegisterOperation } from "./RegisterOperation";
 import { useSelector } from "react-redux";
 
 export const FormsWrapper = () => {
-  const ifClicked = useSelector((state) => state.clients.ifClicked);
+  const isClicked = useSelector((state) => state.target.isClicked);
+
   return (
     <div className="registrationForms">
-      {ifClicked === "addClient" && <RegisterClient />}
-      {ifClicked === "addCar" && <RegisterCar />}
-      {ifClicked === "addOperation" && <RegisterOperation />}
+      {isClicked === "addClient" && <RegisterClient />}
+      {isClicked === "addCar" && <RegisterCar />}
+      {isClicked === "addOperation" && <RegisterOperation />}
     </div>
   );
 };
