@@ -3,7 +3,7 @@ import { GetSelectedItem } from "./GetSelectedItem";
 import { useSelector } from "react-redux";
 import { RrgstrationFormsRenderer } from "./RrgstrationFormsRenderer";
 
-export const InfosOfSelectedItem = () => {
+export const SelectedItemWrapper = () => {
   const target = useSelector((state) => state.target.item);
 
   return (

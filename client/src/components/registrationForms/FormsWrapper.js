@@ -4,7 +4,7 @@ import { RegisterCar } from "./RegisterCar";
 import { RegisterClient } from "./RegisterClient";
 import { RegisterOperation } from "./RegisterOperation";
 
-export const FormsHolder = () => {
+export const FormsWrapper = () => {
   return (
     <div className="registrationForms">
       <Route path="/registerCar" component={RegisterCar} />

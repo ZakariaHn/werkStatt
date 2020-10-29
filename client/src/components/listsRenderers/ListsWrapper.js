@@ -4,7 +4,7 @@ import { CarsList } from "./CarsListRenderer";
 import { ClientsList } from "./ClientsListRenderer";
 import { OperationsList } from "./OperationsListRenderer";
 
-export const ListsHolder = () => {
+export const ListsWrapper = () => {
   return (
     <div className="lists">
       <Route path="/cars" component={CarsList} />
