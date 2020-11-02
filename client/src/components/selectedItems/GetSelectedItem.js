@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { v4 as id } from "uuid";
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops } = target;
-
+  delete target._id;
   const handleTargetObject = (target) => {
     let listItems = [];
     for (const [key, value] of Object.entries(target)) {
@@ -20,21 +20,25 @@ export const GetSelectedItem = ({ target }) => {
   };
 
   const handleCars = (cars) => (
-    <ul>
-      cars:
+    <select>
+      <option style={{ display: "none" }} selected disabled>
+        Cars
+      </option>
       {cars.map((car) => (
-        <li key={car._id}>{car.carModel}</li>
+        <option key={car._id}>{car.carModel}</option>
       ))}
-    </ul>
+    </select>
   );
 
   const handleOps = (ops) => (
-    <ul>
-      ops:
+    <select>
+      <option style={{ display: "none" }} selected disabled>
+        Operations
+      </option>
       {ops.map((operation) => (
-        <li key={operation._id}>{operation.name}</li>
+        <option key={operation._id}>{operation.name}</option>
       ))}
-    </ul>
+    </select>
   );
 
   return (

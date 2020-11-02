@@ -1,15 +1,17 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import { CarsList } from "./CarsList";
 import { ClientsList } from "./ClientsList";
 import { OperationsList } from "./OperationsList";
+import { useSelector } from "react-redux";
 
 export const ListsWrapper = () => {
+  const isClicked = useSelector((state) => state.target.isClicked);
+
   return (
     <div className="lists">
-      <Route path="/cars" component={CarsList} />
-      <Route path="/clients" component={ClientsList} />
-      <Route path="/operations" component={OperationsList} />
+      {isClicked === "clientsList" && <ClientsList />}
+      {isClicked === "carsList" && <CarsList />}
+      {isClicked === "operationsList" && <OperationsList />}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -25,18 +25,25 @@ export const ClientsList = () => {
     // dispatch({ type: EDIT_CLIENT, payload: client });
   };
 
+  const activeItem = useRef();
+
   const renderLists = () => {
     return myClients.map((client) => (
       <div className="li-buttons-wrapper" key={client._id}>
-        <li onClick={() => dispatch({ type: SET_TARGET, payload: client })}>
+        <li
+          ref={activeItem}
+          onClick={() => dispatch({ type: SET_TARGET, payload: client })}
+        >
           {client.lastname}
         </li>
+
         <div>
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
             onClick={() => handleEditClient(client)}
           />
+
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
