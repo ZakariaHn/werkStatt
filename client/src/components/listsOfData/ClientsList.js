@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useRef } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -19,22 +19,14 @@ export const ClientsList = () => {
   }, [dispatch]);
 
   const handleEditClient = (client) => {
-    console.log(client);
-
-    // dispatch({ type: EDIT_CLIENT, payload: client });
-  };
-
-  const activeItem = useRef(null);
-
-  const onItemClick = (client) => {
-    activeItem.current.style.color = "red";
     dispatch({ type: SET_TARGET, payload: client });
+    dispatch({ type: BUTTON_CLICKED, payload: "editClient" });
   };
 
   const renderLists = () => {
     return myClients.map((client) => (
       <div className="li-buttons-wrapper" key={client._id}>
-        <li ref={activeItem} onClick={() => onItemClick(client)}>
+        <li onClick={() => dispatch({ type: SET_TARGET, payload: client })}>
           {client.lastname}
         </li>
 

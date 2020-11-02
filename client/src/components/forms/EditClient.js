@@ -1,0 +1,122 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { editClientAction } from "../../store/actions/clientsActions";
+import { useHistory } from "react-router-dom";
+
+export const EditClient = (_) => {
+  const dispatch = useDispatch();
+  const { handleSubmit, register, errors } = useForm();
+  const history = useHistory();
+
+  const client = useSelector((state) => state.target.item);
+  const { firstname, lastname, address, birthdate, email, _id } = client;
+
+  const onSubmitForm = (data) => {
+    const Obj = Object.assign({ _id }, data);
+    dispatch(editClientAction(Obj));
+    history.push("/clients");
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmitForm)}>
+      <div className="input-field">
+        <label htmlFor="firstname"></label>
+        <input
+          type="text"
+          name="firstname"
+          defaultValue={firstname}
+          autoComplete="off"
+          placeholder="First Name"
+          ref={register({
+            required: true,
+            minLength: 2,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 2 characters long!</p>
+        )}
+      </div>
+
+      <div className="input-field">
+        <label htmlFor="lastname"></label>
+        <input
+          type="text"
+          name="lastname"
+          defaultValue={lastname}
+          autoComplete="off"
+          placeholder="Last Name"
+          ref={register({
+            required: true,
+            minLength: 2,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 2 characters long!</p>
+        )}
+      </div>
+
+      <div className="input-field">
+        <label htmlFor="address"></label>
+        <input
+          type="text"
+          name="address"
+          defaultValue={address}
+          autoComplete="off"
+          placeholder="Address"
+          ref={register({
+            required: true,
+            minLength: 8,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 8 characters long!</p>
+        )}
+      </div>
+
+      <div className="input-field">
+        <label htmlFor="birthdate"></label>
+        <input
+          type="date"
+          name="birthdate"
+          defaultValue={birthdate}
+          autoComplete="off"
+          placeholder="Date of birth"
+          ref={register({
+            minLength: 8,
+          })}
+        />
+        {errors.name && (
+          <p className="form-error">At least 8 characters long!</p>
+        )}
+      </div>
+
+      <div className="input-field">
+        <label htmlFor="email"></label>
+        <input
+          type="email"
+          name="email"
+          defaultValue={email}
+          autoComplete="off"
+          placeholder="Email"
+          ref={register({
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Invalid Email Address!",
+            },
+          })}
+        />
+        {errors.email && (
+          <p className="form-error">Must enter a valid Email!</p>
+        )}
+      </div>
+
+      {/* {error && <p className="form-error" style={{ textAlign: "center" }}>{error}</p>}
+            {errorMsg && <p className="form-error" style={{ textAlign: "center" }}>{errorMsg}</p>} */}
+      <div className="buttonWrapper">
+        <button type="submit">Update Client</button>
+      </div>
+    </form>
+  );
+};

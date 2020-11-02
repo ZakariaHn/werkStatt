@@ -20,9 +20,14 @@
 
     .lists {
       @include list-wrapper-style;
-
+      position: relative;
+      
       ul {
+        display: flex;
+        flex-direction: column;
         @include ul-style;
+        max-height: 35rem;
+        overflow-y: scroll;
 
         * {
           @include flex-row-center-spacebetween;
@@ -44,11 +49,12 @@
       }
 
       .buttonWrapper {
+        @include buttons-wrapper-style;
         width: 30%;
         height: 10%;
-        bottom: 12.3%;
-        position: fixed;
-        @include buttons-wrapper-style;
+        bottom: 0px;
+        position: absolute;
+
         button {
           @include buttons-style;
         }
