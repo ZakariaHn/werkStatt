@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
 @mixin flex-center-spaceEvenly {
   display: flex;
   align-items: center;
@@ -69,8 +70,8 @@
 
   &::-webkit-scrollbar {
     width: 0.5em;
-    background-color: $backGround-dark;
     border-radius: 10px;
+    background-color: $backGround-dark;
   }
 
   &::-webkit-scrollbar-thumb {

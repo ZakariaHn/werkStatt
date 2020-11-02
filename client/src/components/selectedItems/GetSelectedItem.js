@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment } from "react";
 import { v4 as id } from "uuid";
 
 export const GetSelectedItem = ({ target }) => {
@@ -21,20 +21,16 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCars = (cars) => (
     <select>
-      <option style={{ display: "none" }} selected disabled>
-        Cars
-      </option>
+      <option style={{ display: "none" }}>Cars</option>
       {cars.map((car) => (
         <option key={car._id}>{car.carModel}</option>
       ))}
     </select>
   );
 
-  const handleOps = (ops) => (
+  const handleOperations = (ops) => (
     <select>
-      <option style={{ display: "none" }} selected disabled>
-        Operations
-      </option>
+      <option style={{ display: "none" }}>Operations</option>
       {ops.map((operation) => (
         <option key={operation._id}>{operation.name}</option>
       ))}
@@ -45,7 +41,7 @@ export const GetSelectedItem = ({ target }) => {
     <Fragment>
       <ul className="targetsInfos">{handleTargetObject(target)}</ul>
       {cars && handleCars(cars)}
-      {ops && handleOps(ops)}
+      {ops && handleOperations(ops)}
     </Fragment>
   );
 };

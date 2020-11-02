@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useImperativeHandle, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +6,6 @@ import { fetchClientsAction } from "../../store/actions/clientsActions";
 import {
   BUTTON_CLICKED,
   DELETE_CLIENT,
-  EDIT_CLIENT,
   SET_TARGET,
 } from "../../store/actions/types";
 
@@ -25,15 +24,17 @@ export const ClientsList = () => {
     // dispatch({ type: EDIT_CLIENT, payload: client });
   };
 
-  const activeItem = useRef();
+  const activeItem = useRef(null);
+
+  const onItemClick = (client) => {
+    activeItem.current.style.color = "red";
+    dispatch({ type: SET_TARGET, payload: client });
+  };
 
   const renderLists = () => {
     return myClients.map((client) => (
       <div className="li-buttons-wrapper" key={client._id}>
-        <li
-          ref={activeItem}
-          onClick={() => dispatch({ type: SET_TARGET, payload: client })}
-        >
+        <li ref={activeItem} onClick={() => onItemClick(client)}>
           {client.lastname}
         </li>
 

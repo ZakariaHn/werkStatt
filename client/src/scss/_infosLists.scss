@@ -44,12 +44,11 @@
       }
 
       .buttonWrapper {
-        @include buttons-wrapper-style;
-        position: fixed;
-        bottom: 12.3%;
-
         width: 30%;
         height: 10%;
+        bottom: 12.3%;
+        position: fixed;
+        @include buttons-wrapper-style;
         button {
           @include buttons-style;
         }
