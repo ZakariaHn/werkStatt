@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BUTTON_CLICKED } from "../store/actions/types";
+import { CLICKED } from "../store/actions/types";
 import { useDispatch } from "react-redux";
 
 export const Navbar = () => {
@@ -14,21 +14,21 @@ export const Navbar = () => {
 
   const clientsList = () => {
     dispatch({
-      type: BUTTON_CLICKED,
+      type: CLICKED,
       payload: "clientsList",
     });
   };
 
   const carsList = () => {
     dispatch({
-      type: BUTTON_CLICKED,
+      type: CLICKED,
       payload: "carsList",
     });
   };
 
   const operationsList = () => {
     dispatch({
-      type: BUTTON_CLICKED,
+      type: CLICKED,
       payload: "operationsList",
     });
   };

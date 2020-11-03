@@ -2,9 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addOperationAction } from "../../store/actions/operationsAction";
+import { editOperationAction } from "../../store/actions/operationsAction";
 
-export const RegisterOperation = () => {
+export const EditOperation = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -12,12 +12,12 @@ export const RegisterOperation = () => {
   const { handleSubmit, register, errors } = useForm();
 
   const operation = useSelector((state) => state.target.item);
-
+  console.log("opertaion", operation);
   const { _id, carId, name, description, parts, cost } = operation;
 
   const onSubmitForm = (data) => {
     const Obj = Object.assign({ _id }, data);
-    dispatch(addOperationAction(Obj));
+    dispatch(editOperationAction(Obj));
     history.push("/operations");
   };
 
@@ -28,9 +28,8 @@ export const RegisterOperation = () => {
         <input
           type="text"
           name="carId"
-          autoComplete="off"
-          placeholder="Car Id"
           defaultValue={carId}
+          autoComplete="off"
           ref={register({
             required: true,
             minLength: 4,
@@ -46,9 +45,9 @@ export const RegisterOperation = () => {
         <input
           type="text"
           name="name"
+          defaultValue={name}
           autoComplete="off"
           placeholder="Operation Name"
-          defaultValue={name}
           ref={register({
             required: true,
             minLength: 2,
@@ -64,9 +63,9 @@ export const RegisterOperation = () => {
         <input
           type="text"
           name="description"
+          defaultValue={description}
           autoComplete="off"
           placeholder="Description"
-          defaultValue={description}
           ref={register({
             required: true,
             minLength: 2,
@@ -82,9 +81,9 @@ export const RegisterOperation = () => {
         <input
           type="text"
           name="Parts"
+          defaultValue={parts}
           autoComplete="off"
           placeholder="Parts"
-          defaultValue={parts}
           ref={register({
             required: true,
             minLength: 2,
@@ -100,9 +99,9 @@ export const RegisterOperation = () => {
         <input
           type="text"
           name="costs"
+          defaultValue={cost}
           autoComplete="off"
           placeholder="Costs"
-          defaultValue={cost}
           ref={register({
             required: true,
             minLength: 2,
@@ -113,7 +112,7 @@ export const RegisterOperation = () => {
         )}
       </div>
       <div className="buttonWrapper">
-        <button type="submit">Register Operation</button>
+        <button type="submit">Update Operation</button>
       </div>
     </form>
   );

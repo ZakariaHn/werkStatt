@@ -1,4 +1,4 @@
-import { BUTTON_CLICKED, SET_TARGET } from "../actions/types";
+import { CLICKED, SET_TARGET } from "../actions/types";
 
 const initialState = { item: {}, isClicked: "" };
 
@@ -11,11 +11,12 @@ export const targetReducer = (state = initialState, action) => {
         ...state,
         item: payload,
       };
-    case BUTTON_CLICKED:
+    case CLICKED:
       return {
         ...state,
         isClicked: payload,
       };
+
     default:
       return state;
   }

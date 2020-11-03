@@ -1,5 +1,9 @@
-import { helpAddOperation, helpFetchOperations } from "../helpers";
-import { ADD_OPERATION_SUCCESS, GET_OPERATIONS } from "./types";
+import {
+  helpAddOperation,
+  helpEditOperation,
+  helpFetchOperations,
+} from "../helpers";
+import { ADD_OPERATION_SUCCESS, EDIT_OPERATION, GET_OPERATIONS } from "./types";
 
 export const fetchOperationsAction = () => async (dispatch) => {
   const response = await helpFetchOperations();
@@ -23,7 +27,19 @@ export const addOperationAction = (newOperation) => async (dispatch) => {
       type: ADD_OPERATION_SUCCESS,
       payload: response.data,
     });
-  } catch(error) {
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editOperationAction = (operation) => async (dispatch) => {
+  try {
+    const response = await helpEditOperation(operation);
+    dispatch({
+      type: EDIT_OPERATION,
+      payload: response.data,
+    });
+  } catch (error) {
     console.log(error);
   }
 };

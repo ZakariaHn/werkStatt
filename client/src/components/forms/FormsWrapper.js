@@ -5,7 +5,7 @@ import { RegisterOperation } from "./RegisterOperation";
 import { useSelector } from "react-redux";
 import { EditClient } from "./EditClient";
 import { EditCar } from "./EditCar";
-import { EDIT_OPERATION } from "../../store/actions/types";
+import { EditOperation } from "./EditOperation";
 
 export const FormsWrapper = () => {
   const isClicked = useSelector((state) => state.target.isClicked);
@@ -17,7 +17,7 @@ export const FormsWrapper = () => {
       {isClicked === "addOperation" && <RegisterOperation />}
       {isClicked === "editClient" && <EditClient />}
       {isClicked === "editCar" && <EditCar />}
-      {isClicked === "editOperation" && <EDIT_OPERATION />}
+      {isClicked === "editOperation" && <EditOperation />}
     </div>
   );
 };

@@ -16,11 +16,13 @@ const OperationsReducer = (state = initialState, action) => {
         ...state,
         operationsArray: payload,
       };
+
     case EDIT_OPERATION:
       helpEditOperation(payload);
       return {
         ...state,
       };
+
     case DELETE_OPERATION:
       helpDeleteOperation(payload);
       return {
@@ -29,6 +31,7 @@ const OperationsReducer = (state = initialState, action) => {
           (operation) => operation._id !== payload
         ),
       };
+
     default:
       return state;
   }

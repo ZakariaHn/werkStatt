@@ -60,10 +60,10 @@
 
 @mixin list-wrapper-style {
   width: 31%;
-  height: 90%;
+  height: 100%;
   color: $gray;
   overflow: hidden;
-  max-height: 40rem;
+  max-height: 90%;
   overflow-y: scroll;
   border-radius: 0.5rem;
   background-color: $backGround-dark;
@@ -85,7 +85,7 @@
 @mixin ul-style {
   color: $gray;
   list-style: none;
-  max-height: 30rem;
+
   padding: 0 1rem 0 1rem;
   background: $backGround-dark;
 }

@@ -12,11 +12,13 @@ const clientsReducer = (state = initialState, action) => {
         ...state,
         clientsArray: payload,
       };
+
     case EDIT_CLIENT:
       helpEditClient(payload);
       return {
         ...state,
       };
+
     case DELETE_CLIENT:
       helpDeleteClient(payload);
       return {
@@ -25,6 +27,7 @@ const clientsReducer = (state = initialState, action) => {
           (client) => client._id !== payload
         ),
       };
+
     default:
       return state;
   }

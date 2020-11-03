@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
 import {
-  BUTTON_CLICKED,
+  CLICKED,
   DELETE_CAR,
   EDIT_CAR,
   SET_TARGET,
@@ -22,7 +22,7 @@ export const CarsList = () => {
 
   const handleEditCar = (car) => {
     dispatch({ type: SET_TARGET, payload: car });
-    dispatch({ type: BUTTON_CLICKED, payload: "editCar" });
+    dispatch({ type: CLICKED, payload: "editCar" });
   };
 
   const renderLists = () => {

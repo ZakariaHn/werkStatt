@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { addCarAction } from "../../store/actions/carsActions";
+import { editCarAction } from "../../store/actions/carsActions";
 
 export const EditCar = () => {
   const dispatch = useDispatch();
@@ -21,12 +21,12 @@ export const EditCar = () => {
     chassyNr,
     engine,
     plateNr,
-    huau,
   } = car;
 
   const onSubmitForm = (data) => {
     const Obj = Object.assign({ _id }, data);
-    dispatch(addCarAction(Obj));
+    dispatch(editCarAction(Obj));
+
     history.push("/cars");
   };
 

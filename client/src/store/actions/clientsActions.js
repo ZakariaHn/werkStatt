@@ -28,14 +28,6 @@ export const addClientAction = (newClient) => async (dispatch) => {
 };
 
 export const editClientAction = (client) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-type": "application/json",
-    },
-  };
-  
-  const body = JSON.stringify(client);
-
   try {
     const response = await helpEditClient(client);
     dispatch({
