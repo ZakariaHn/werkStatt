@@ -1,10 +1,12 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { v4 as id } from "uuid";
-import { GET_CARS } from "../../store/actions/types";
+import { useDispatch } from "react-redux";
+import { SET_TARGET } from "../../store/actions/types";
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops } = target;
-  // delete target._id;
+
+  const dispatch = useDispatch();
 
   const handleTargetObject = (target) => {
     let listItems = [];
@@ -21,14 +23,17 @@ export const GetSelectedItem = ({ target }) => {
     return listItems;
   };
 
-  const handleChange = e => {
-    const targetCar = cars.filter(car => car.carModel === e.target.value);
-  }
+  const handleChange = (e) => {
+    const targetCar = cars.filter((car) => car.carModel === e.target.value);
+    dispatch({ type: SET_TARGET, payload: targetCar });
+  };
 
   const handleCars = (cars) => (
     <select onChange={handleChange}>
       {cars.map((car) => (
-        <option key={car._id} value={car.carModel}>{car.carModel}</option>
+        <option key={car._id} value={car.carModel}>
+          {car.carModel}
+        </option>
       ))}
     </select>
   );
@@ -48,4 +53,4 @@ export const GetSelectedItem = ({ target }) => {
       {ops && handleOperations(ops)}
     </Fragment>
   );
-}
+};

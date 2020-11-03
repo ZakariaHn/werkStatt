@@ -2,12 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { editClientAction } from "../../store/actions/clientsActions";
-import { useHistory } from "react-router-dom";
+import { CLICKED } from "../../store/actions/types";
 
 export const EditClient = (_) => {
   const dispatch = useDispatch();
   const { handleSubmit, register, errors } = useForm();
-  const history = useHistory();
 
   const client = useSelector((state) => state.target.item);
   const { firstname, lastname, address, birthdate, email, _id } = client;
@@ -15,7 +14,7 @@ export const EditClient = (_) => {
   const onSubmitForm = (data) => {
     const Obj = Object.assign({ _id }, data);
     dispatch(editClientAction(Obj));
-    history.push("/clients");
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
+import { CLICKED } from "../../store/actions/types";
 
 export const RegisterClient = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ export const RegisterClient = () => {
 
   const onSubmitForm = (data) => {
     dispatch(addClientAction(data));
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   return (

@@ -9,7 +9,7 @@ export const ClientsList = () => {
   const dispatch = useDispatch();
 
   const myClients = useSelector((state) => state.clients.clientsArray);
-  const isClicked = useSelector((state) => state.target.isClicked);
+
   useEffect(() => {
     dispatch(fetchClientsAction());
   }, [dispatch]);
@@ -19,12 +19,15 @@ export const ClientsList = () => {
     dispatch({ type: CLICKED, payload: "editClient" });
   };
 
+  const handleOnClick = (client) => {
+    dispatch({ type: SET_TARGET, payload: client });
+    dispatch({ type: CLICKED, payload: "" });
+  };
+
   const renderLists = () => {
     return myClients.map((client) => (
       <div className="li-buttons-wrapper" key={client._id}>
-        <li onClick={() => dispatch({ type: SET_TARGET, payload: client })}>
-          {client.lastname}
-        </li>
+        <li onClick={() => handleOnClick(client)}>{client.lastname}</li>
 
         <div>
           <FontAwesomeIcon

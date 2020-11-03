@@ -1,29 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { addCarAction } from "../../store/actions/carsActions";
+import { CLICKED } from "../../store/actions/types";
 
 export const RegisterCar = () => {
   const { handleSubmit, register, errors } = useForm();
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const ownerId = useSelector((state) => state.target.item._id);
 
   const onSubmitForm = (data) => {
-    console.log(data);
     dispatch(addCarAction(data));
-    history.push("/cars");
-  };
-
-  const handleChange = () => {
-    console.log("change");
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)} onChange={handleChange()}>
+    <form onSubmit={handleSubmit(onSubmitForm)}>
       <div className="input-field">
         <label htmlFor="ownerId"></label>
         <input

@@ -1,13 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { editCarAction } from "../../store/actions/carsActions";
+import { CLICKED } from "../../store/actions/types";
 
 export const EditCar = () => {
   const dispatch = useDispatch();
-
-  const history = useHistory();
 
   const { handleSubmit, register, errors } = useForm();
 
@@ -26,8 +24,7 @@ export const EditCar = () => {
   const onSubmitForm = (data) => {
     const Obj = Object.assign({ _id }, data);
     dispatch(editCarAction(Obj));
-
-    history.push("/cars");
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   return (
@@ -141,7 +138,7 @@ export const EditCar = () => {
       </div>
 
       <div className="buttonWrapper">
-        <button type="submit">Register Car</button>
+        <button type="submit">Update Car</button>
       </div>
     </form>
   );

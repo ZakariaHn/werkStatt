@@ -1,19 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { addOperationAction } from "../../store/actions/operationsAction";
+import { CLICKED } from "../../store/actions/types";
 
 export const RegisterOperation = () => {
   const { handleSubmit, register, errors } = useForm();
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const carId = useSelector((state) => state.target.item._id);
 
   const onSubmitForm = (data) => {
     dispatch(addOperationAction(data));
-    history.push("/operations");
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   return (

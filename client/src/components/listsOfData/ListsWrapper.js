@@ -5,13 +5,13 @@ import { OperationsList } from "./OperationsList";
 import { useSelector } from "react-redux";
 
 export const ListsWrapper = () => {
-  const isClicked = useSelector((state) => state.target.isClicked);
+  const clickedTab = useSelector((state) => state.target.clickedTab);
 
   return (
     <div className="lists">
-      {isClicked === "clientsList" && <ClientsList />}
-      {isClicked === "carsList" && <CarsList />}
-      {isClicked === "operationsList" && <OperationsList />}
+      {clickedTab === "clientsList" && <ClientsList />}
+      {clickedTab === "carsList" && <CarsList />}
+      {clickedTab === "operationsList" && <OperationsList />}
     </div>
   );
 };
