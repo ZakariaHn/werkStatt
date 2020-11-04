@@ -5,11 +5,11 @@ import { faAt } from "@fortawesome/free-solid-svg-icons";
 export const Footer = () => {
   return (
     <div className="footer">
-      <div>
+      <section>
         <FontAwesomeIcon icon={faInstagram} />
         <FontAwesomeIcon icon={faFacebook} />
         <FontAwesomeIcon icon={faAt} />
-      </div>
+      </section>
       <small>Copyright © 2020 Automobus.</small>
     </div>
   );

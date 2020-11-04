@@ -1,7 +1,7 @@
 import React from "react";
 import { GetSelectedItem } from "./GetSelectedItem";
 import { useDispatch, useSelector } from "react-redux";
-import { BUTTON_CLICKED } from "../../store/actions/types";
+import { CLICKED } from "../../store/actions/types";
 
 export const SelectedItemWrapper = () => {
   const target = useSelector((state) => state.target.item);
@@ -13,7 +13,7 @@ export const SelectedItemWrapper = () => {
         <button
           onClick={() =>
             dispatch({
-              type: BUTTON_CLICKED,
+              type: CLICKED,
               payload: "addOperation",
             })
           }
@@ -26,7 +26,7 @@ export const SelectedItemWrapper = () => {
         <button
           onClick={() =>
             dispatch({
-              type: BUTTON_CLICKED,
+              type: CLICKED,
               payload: "addCar",
             })
           }

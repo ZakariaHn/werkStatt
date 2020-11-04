@@ -39,9 +39,7 @@ exports.deleteClient = async (req, res, next) => {
 
 exports.updateClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findByIdAndUpdate(
-      req.params._id,
-      {
+    const client = await ClientModel.findByIdAndUpdate(req.params._id,{
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,

@@ -3,13 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
-import {
-  BUTTON_CLICKED,
-  DELETE_CLIENT,
-  EDIT_CLIENT,
-  SET_TARGET,
-} from "../../store/actions/types";
-
+import { CLICKED, DELETE_CLIENT, SET_TARGET } from "../../store/actions/types";
 export const ClientsList = () => {
   const dispatch = useDispatch();
 
@@ -20,23 +14,27 @@ export const ClientsList = () => {
   }, [dispatch]);
 
   const handleEditClient = (client) => {
-    console.log(client);
+    dispatch({ type: SET_TARGET, payload: client });
+    dispatch({ type: CLICKED, payload: "editClient" });
+  };
 
-    // dispatch({ type: EDIT_CLIENT, payload: client });
+  const handleOnClickListItem = (client) => {
+    dispatch({ type: SET_TARGET, payload: client });
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   const renderLists = () => {
     return myClients.map((client) => (
       <div className="li-buttons-wrapper" key={client._id}>
-        <li onClick={() => dispatch({ type: SET_TARGET, payload: client })}>
-          {client.lastname}
-        </li>
+        <li onClick={() => handleOnClickListItem(client)}>{client.lastname}</li>
+
         <div>
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
             onClick={() => handleEditClient(client)}
           />
+
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
@@ -56,7 +54,7 @@ export const ClientsList = () => {
         <button
           onClick={() =>
             dispatch({
-              type: BUTTON_CLICKED,
+              type: CLICKED,
               payload: "addClient",
             })
           }

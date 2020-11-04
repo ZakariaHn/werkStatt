@@ -1,12 +1,13 @@
 @import "mixins";
 @import "variables";
+
 .container {
   width: 100%;
   height: 100%;
 
   .content {
     width: 100%;
-    height: 77%;
+    height: 84%;
     @include flex-center-spaceEvenly;
     background-color: $backGround-light;
 
@@ -44,6 +45,10 @@
 
       .buttonWrapper {
         @include buttons-wrapper-style;
+        width: 30%;
+        height: 10%;
+        bottom: 12%;
+        position: absolute;
 
         button {
           @include buttons-style;

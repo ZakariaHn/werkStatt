@@ -1,6 +1,6 @@
-import { BUTTON_CLICKED, SET_TARGET } from "../actions/types";
+import { CLICKED, SET_TARGET, TAB_CLICKED } from "../actions/types";
 
-const initialState = { item: {}, isClicked: "" };
+const initialState = { item: {}, isClicked: "", clickedTab: "" };
 
 export const targetReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -11,11 +11,17 @@ export const targetReducer = (state = initialState, action) => {
         ...state,
         item: payload,
       };
-    case BUTTON_CLICKED:
+    case CLICKED:
       return {
         ...state,
         isClicked: payload,
       };
+    case TAB_CLICKED:
+      return {
+        ...state,
+        clickedTab: payload,
+      };
+
     default:
       return state;
   }

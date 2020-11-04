@@ -1,97 +1,92 @@
 .navBar {
-  height: 16%;
-  background-color: $backGround-dark;
+  height: 8%;
   color: $gray;
-  @include flex-row-flexStart;
+  background-color: $backGround-dark;
+  @include flex-row-center-flexStart;
 
   .logo {
-    width: 6rem;
-    height: 5rem;
-    font-size: 4rem;
-    margin: 1rem;
+    width: 15%;
+    height: 100%;
+    color: $gray;
+    font-size: 3rem;
+    @include gradient;
     @include flex-center-center;
+
+    small {
+      font-size: small;
+    }
   }
 
   .all {
     height: 100%;
     width: 100%;
+    margin-left: 2rem;
+    @include flex-row-center-flexStart;
 
-    @include flex-row-center-spacebetween;
+    .taps {
+      padding: 0;
+      width: 27%;
+      height: 100%;
+      color: $gray;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 1rem;
+      @include flex-row-center-spacearound;
+
+      li {
+        width: 33.33%;
+        height: 100%;
+        color: $gray;
+        letter-spacing: 2px;
+        @include flex-center-center;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+          @include gradient;
+        }
+      }
+    }
+
     .searchBarHolder {
-      width: 40%;
+      height: 50%;
+      width: 34.5%;
+      margin-left: 4rem;
+      border-radius: 4px;
+      @include flex-center-center;
+
+      &:hover {
+        box-shadow: 0px 0px 3px 3px rgb(83, 83, 83),
+          inset 0px 0px 8px 3px rgb(100, 100, 100);
+      }
 
       input {
-        width: 85%;
+        width: 90%;
+        height: 94%;
         border: none;
-        height: 3rem;
         text-indent: 0.5rem;
         letter-spacing: 1px;
         background-color: $gray;
-        border-radius: 1rem 0 0 1rem;
+        border-radius: 0.3rem 0 0 0.3rem;
       }
 
       button {
         width: 10%;
+        height: 100%;
         border: none;
-        height: 3.12rem;
+        cursor: pointer;
         background-color: $gray;
-        border-radius: 0 1rem 1rem 0;
-        border-left: 0.4rem solid $backGround-dark;
+        border-radius: 0 0.3rem 0.3rem 0;
       }
     }
   }
+}
 
-  .taps {
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    * {
-      color: $gray;
-      letter-spacing: 2px;
-      text-decoration: none;
-      @include flex-center-center;
-    }
+.setting {
+  margin-right: 2rem;
+  @include flex-center-center;
 
-    .nav-link {
-      p {
-        z-index: 2;
-      }
-
-      width: 12%;
-      height: 6.4em;
-
-      color: $gray;
-      cursor: pointer;
-      margin-left: -1px;
-      font-weight: bold;
-      padding: 10px 3rem;
-      position: relative;
-
-      &:after {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-        content: "";
-        position: absolute;
-        transform: skew(-45deg);
-        transition: all 0.2s linear;
-        background-color: $backGround-light;
-      }
-
-      &:hover:after {
-        background-color: darken(#004747, 6%);
-      }
-    }
-  }
-
-  .setting {
-    border-left: 1px solid $gray;
-    margin-right: 2rem;
-    * {
-      margin-left: 2rem;
-      font-size: larger;
-    }
+  * {
+    margin-left: 2rem;
+    font-size: larger;
   }
 }

@@ -12,9 +12,11 @@ const carsReducer = (state = initialState, action) => {
         ...state,
         carsArray: payload,
       };
+
     case EDIT_CAR:
       helpEditCar(payload);
       return { ...state };
+
     case DELETE_CAR:
       helpDeleteCar(payload);
       return {

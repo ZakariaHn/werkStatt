@@ -1,6 +1,7 @@
 // Selected Item (target) action type
 export const SET_TARGET = "SET_TARGET";
-export const BUTTON_CLICKED = "BUTTON_CLICKED";
+export const CLICKED = "CLICKED";
+export const TAB_CLICKED = "TAB_CLICKED";
 
 // Client Actions types
 export const SET_CLIENT = "SET_CLIENT";

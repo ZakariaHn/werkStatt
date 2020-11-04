@@ -5,21 +5,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchOperationsAction } from "../../store/actions/operationsAction";
 import {
+  CLICKED,
   DELETE_OPERATION,
-  EDIT_OPERATION,
   SET_TARGET,
 } from "../../store/actions/types";
 
 export const OperationsList = () => {
   const dispatch = useDispatch();
 
+  const allOperations = useSelector(
+    (state) => state.operations.operationsArray
+  );
+
   useEffect(() => {
     dispatch(fetchOperationsAction());
   }, [dispatch]);
 
-  const allOperations = useSelector(
-    (state) => state.operations.operationsArray
-  );
+  const handleEditOperation = (operation) => {
+    dispatch({ type: SET_TARGET, payload: operation });
+    dispatch({ type: CLICKED, payload: "editOperation" });
+  };
 
   const renderList = () => {
     return allOperations.map((operation) => (
@@ -31,14 +36,14 @@ export const OperationsList = () => {
         >
           {operation.name}
         </li>
+
         <div>
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
-            onClick={() =>
-              dispatch({ type: EDIT_OPERATION, payload: operation })
-            }
+            onClick={() => handleEditOperation(operation)}
           />
+
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}

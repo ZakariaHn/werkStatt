@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import {
   faSearch,
   faCog,
@@ -7,49 +6,56 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { TAB_CLICKED } from "../store/actions/types";
+import { useDispatch } from "react-redux";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const clientsList = () => {
+    dispatch({
+      type: TAB_CLICKED,
+      payload: "clientsList",
+    });
+  };
+
+  const carsList = () => {
+    dispatch({
+      type: TAB_CLICKED,
+      payload: "carsList",
+    });
+  };
+
+  const operationsList = () => {
+    dispatch({
+      type: TAB_CLICKED,
+      payload: "operationsList",
+    });
+  };
+
   return (
     <div className="navBar">
-      <div className="logo">
-        <FontAwesomeIcon icon={faLaravel} />
-      </div>
       <div className="all">
+        <div className="logo">
+          <FontAwesomeIcon icon={faLaravel} />
+          <small>AUTOMOBUS</small>
+        </div>
         <ul className="taps">
-          <NavLink
-            className="nav-link"
-            activeClassName="nav-link-active"
-            to="/clients"
-          >
-            <p>Clients</p>
-          </NavLink>
-
-          <NavLink
-            className="nav-link"
-            activeClassName="nav-link-active"
-            to="/cars"
-          >
-            <p> Cars</p>
-          </NavLink>
-
-          <NavLink
-            className="nav-link"
-            activeClassName="nav-link-active"
-            to="/operations"
-          >
-            <p>Operations</p>
-          </NavLink>
+          <li onClick={clientsList}>Clients</li>
+          <li onClick={carsList}>Cars</li>
+          <li onClick={operationsList}>Operations</li>
         </ul>
+
         <div className="searchBarHolder">
-          <input placeholder="Search for a client, car or an operaiton"></input>
+          <input placeholder="Search for a client, car or an operaiton" />
           <button>
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
-        <div className="setting">
-          <FontAwesomeIcon icon={faUserCircle} />
-          <FontAwesomeIcon icon={faCog} />
-        </div>
+      </div>
+      <div className="setting">
+        <FontAwesomeIcon icon={faUserCircle} />
+        <FontAwesomeIcon icon={faCog} />
       </div>
     </div>
   );

@@ -1,21 +1,21 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { addClientAction } from "../../store/actions/clientsActions";
-import { CLICKED } from "../../store/actions/types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faExclamationCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { editClientAction } from "../../store/actions/clientsActions";
+import { CLICKED, SET_TARGET } from "../../store/actions/types";
 
-export const RegisterClient = () => {
+export const EditClient = (_) => {
   const dispatch = useDispatch();
   const { handleSubmit, register, errors } = useForm();
 
+  const client = useSelector((state) => state.target.item);
+  const { firstname, lastname, address, birthdate, email, _id } = client;
+
   const onSubmitForm = (data) => {
-    dispatch(addClientAction(data));
+    const Obj = Object.assign({ _id }, data);
+    dispatch(editClientAction(Obj));
     dispatch({ type: CLICKED, payload: "" });
+    dispatch({ type: SET_TARGET, payload: Obj });
   };
 
   return (
@@ -25,6 +25,7 @@ export const RegisterClient = () => {
         <input
           type="text"
           name="firstname"
+          defaultValue={firstname}
           autoComplete="off"
           placeholder="First Name"
           ref={register({
@@ -42,6 +43,7 @@ export const RegisterClient = () => {
         <input
           type="text"
           name="lastname"
+          defaultValue={lastname}
           autoComplete="off"
           placeholder="Last Name"
           ref={register({
@@ -49,9 +51,9 @@ export const RegisterClient = () => {
             minLength: 2,
           })}
         />
-        <FontAwesomeIcon icon={faCheckCircle} />
-        <FontAwesomeIcon icon={faExclamationCircle} />
-        {errors.name && <small>At least 2 characters long!</small>}
+        {errors.name && (
+          <p className="form-error">At least 2 characters long!</p>
+        )}
       </div>
 
       <div className="input-field">
@@ -59,6 +61,7 @@ export const RegisterClient = () => {
         <input
           type="text"
           name="address"
+          defaultValue={address}
           autoComplete="off"
           placeholder="Address"
           ref={register({
@@ -76,6 +79,7 @@ export const RegisterClient = () => {
         <input
           type="date"
           name="birthdate"
+          defaultValue={birthdate}
           autoComplete="off"
           placeholder="Date of birth"
           ref={register({
@@ -92,6 +96,7 @@ export const RegisterClient = () => {
         <input
           type="email"
           name="email"
+          defaultValue={email}
           autoComplete="off"
           placeholder="Email"
           ref={register({
@@ -110,7 +115,7 @@ export const RegisterClient = () => {
       {/* {error && <p className="form-error" style={{ textAlign: "center" }}>{error}</p>}
             {errorMsg && <p className="form-error" style={{ textAlign: "center" }}>{errorMsg}</p>} */}
       <div className="buttonWrapper">
-        <button type="submit">Register Client</button>
+        <button type="submit">Update Client</button>
       </div>
     </form>
   );
