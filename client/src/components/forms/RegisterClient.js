@@ -3,6 +3,11 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 import { CLICKED } from "../../store/actions/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const RegisterClient = () => {
   const dispatch = useDispatch();
@@ -44,9 +49,9 @@ export const RegisterClient = () => {
             minLength: 2,
           })}
         />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
+        <FontAwesomeIcon icon={faCheckCircle} />
+        <FontAwesomeIcon icon={faExclamationCircle} />
+        {errors.name && <small>At least 2 characters long!</small>}
       </div>
 
       <div className="input-field">

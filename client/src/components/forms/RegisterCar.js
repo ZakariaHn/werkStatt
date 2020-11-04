@@ -113,7 +113,10 @@ export const RegisterCar = () => {
           placeholder="Plate Number"
           ref={register({
             required: true,
-            minLength: 2,
+            // pattern: {
+            //   value: /^[A-ZÄÖÜ]{1,3}/i,
+            //   message: "invalid plate number",
+            // },
           })}
         />
         {errors.name && (

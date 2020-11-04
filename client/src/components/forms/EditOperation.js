@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { editOperationAction } from "../../store/actions/operationsAction";
-import { CLICKED } from "../../store/actions/types";
+import { CLICKED, SET_TARGET } from "../../store/actions/types";
 
 export const EditOperation = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ export const EditOperation = () => {
     const Obj = Object.assign({ _id }, data);
     dispatch(editOperationAction(Obj));
     dispatch({ type: CLICKED, payload: "" });
+    dispatch({ type: SET_TARGET, payload: Obj });
   };
 
   return (

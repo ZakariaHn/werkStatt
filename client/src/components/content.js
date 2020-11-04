@@ -6,11 +6,11 @@ import { FormsWrapper } from "./forms/FormsWrapper";
 export const Content = () => {
   return (
     <Fragment>
-      <div className="content">
+      <section className="content">
         <ListsWrapper />
         <SelectedItemWrapper />
         <FormsWrapper />
-      </div>
+      </section>
     </Fragment>
   );
 };

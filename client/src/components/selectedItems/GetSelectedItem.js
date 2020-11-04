@@ -3,6 +3,8 @@ import { v4 as id } from "uuid";
 import { useDispatch } from "react-redux";
 import { SET_TARGET } from "../../store/actions/types";
 
+// Render the fetched data from an endpoint in a list. Clients/ cars/ operations
+
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops } = target;
 
@@ -23,13 +25,15 @@ export const GetSelectedItem = ({ target }) => {
     return listItems;
   };
 
-  const handleChange = (e) => {
+  // Set cars in a drop down list and show its data
+
+  const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: SET_TARGET, payload: targetCar });
   };
 
   const handleCars = (cars) => (
-    <select onChange={handleChange}>
+    <select onChange={handleCarChange}>
       {cars.map((car) => (
         <option key={car._id} value={car.carModel}>
           {car.carModel}
@@ -38,8 +42,17 @@ export const GetSelectedItem = ({ target }) => {
     </select>
   );
 
+  // Set operations in a drop down list and show its data
+
+  const handleOperationChange = (e) => {
+    const targetOperation = ops.filter(
+      (operation) => operation.name === e.target.value
+    );
+    dispatch({ type: SET_TARGET, payload: targetOperation });
+  };
+
   const handleOperations = (ops) => (
-    <select>
+    <select onChange={handleOperationChange}>
       {ops.map((operation) => (
         <option key={operation._id}>{operation.name}</option>
       ))}

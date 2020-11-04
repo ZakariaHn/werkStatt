@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { editCarAction } from "../../store/actions/carsActions";
-import { CLICKED } from "../../store/actions/types";
+import { CLICKED, SET_TARGET } from "../../store/actions/types";
 
 export const EditCar = () => {
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export const EditCar = () => {
     const Obj = Object.assign({ _id }, data);
     dispatch(editCarAction(Obj));
     dispatch({ type: CLICKED, payload: "" });
+    dispatch({ type: SET_TARGET, payload: Obj });
   };
 
   return (

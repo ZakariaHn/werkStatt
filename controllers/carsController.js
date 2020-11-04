@@ -57,6 +57,7 @@ exports.updateCar = async (req, res, next) => {
       {
         ownerId: req.body.ownerId,
         carModel: req.body.carModel,
+        carModelType: req.body.carModelType,
         chassyNr: req.body.chassyNr,
         engine: req.body.engine,
         plateNr: req.body.plateNr,
@@ -65,6 +66,7 @@ exports.updateCar = async (req, res, next) => {
         new: true,
       }
     );
+    car.save();
     return res.status(200).json(car);
   } catch (error) {
     res.status(404).send("Car was not found.");
