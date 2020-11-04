@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TAB_CLICKED } from "../store/actions/types";
 import { useDispatch } from "react-redux";
 
-export const Navbar = () => {
+export const NavBar = () => {
   const dispatch = useDispatch();
 
   const clientsList = () => {
