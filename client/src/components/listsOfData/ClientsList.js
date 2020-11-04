@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
-import { CLICKED, DELETE_CLIENT, SET_TARGET } from "../../store/actions/types";
+import {
+  CLICKED,
+  DELETE_CLIENT,
+  SET_TARGET,
+  TARGET_CAR,
+} from "../../store/actions/types";
 export const ClientsList = () => {
   const dispatch = useDispatch();
 
@@ -16,11 +21,13 @@ export const ClientsList = () => {
   const handleEditClient = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
     dispatch({ type: CLICKED, payload: "editClient" });
+    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const handleOnClickListItem = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
     dispatch({ type: CLICKED, payload: "" });
+    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const renderLists = () => {

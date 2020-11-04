@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCarsAction } from "../../store/actions/carsActions";
-import { CLICKED, DELETE_CAR, SET_TARGET } from "../../store/actions/types";
+import {
+  CLICKED,
+  DELETE_CAR,
+  SET_TARGET,
+  TARGET_CAR,
+} from "../../store/actions/types";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as id } from "uuid";
@@ -18,6 +23,7 @@ export const CarsList = () => {
   const handleEditCar = (car) => {
     dispatch({ type: SET_TARGET, payload: car });
     dispatch({ type: CLICKED, payload: "editCar" });
+    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const renderLists = () => {

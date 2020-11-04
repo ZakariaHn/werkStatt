@@ -1,4 +1,4 @@
-import { GET_CARS, EDIT_CAR, DELETE_CAR } from "../actions/types";
+import { GET_CARS, EDIT_CAR, DELETE_CAR, TARGET_CAR } from "../actions/types";
 import { helpDeleteCar, helpEditCar } from "../helpers";
 
 const initialState = { carsArray: [], car: {} };
@@ -22,6 +22,11 @@ const carsReducer = (state = initialState, action) => {
       return {
         ...state,
         carsArray: state.carsArray.filter((car) => car._id !== payload),
+      };
+    case TARGET_CAR:
+      return {
+        ...state,
+        car: payload,
       };
     default:
       return state;

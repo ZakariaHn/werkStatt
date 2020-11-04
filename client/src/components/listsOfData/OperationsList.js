@@ -8,6 +8,7 @@ import {
   CLICKED,
   DELETE_OPERATION,
   SET_TARGET,
+  TARGET_CAR,
 } from "../../store/actions/types";
 
 export const OperationsList = () => {
@@ -24,6 +25,7 @@ export const OperationsList = () => {
   const handleEditOperation = (operation) => {
     dispatch({ type: SET_TARGET, payload: operation });
     dispatch({ type: CLICKED, payload: "editOperation" });
+    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const renderList = () => {
