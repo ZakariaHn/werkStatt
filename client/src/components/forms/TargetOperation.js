@@ -2,25 +2,24 @@ import React, { Fragment } from "react";
 import { v4 as id } from "uuid";
 import { useSelector } from "react-redux";
 
-export const TargetCar = () => {
-  const car = useSelector((state) => state.cars.car);
+export const TargetOperation = () => {
+  const operation = useSelector((state) => state.operations.operation);
 
-  const handleTargetCar = (car) => {
+  const handleTargetOperation = (operation) => {
     let listItems = [];
-    for (const [key, value] of Object.entries(car)) {
+    for (const [key, value] of Object.entries(operation)) {
       listItems.push(
         <li key={id()}>
           {key.split(/(?=[A-Z])/).join(" ")}: {value}
         </li>
       );
     }
-
     return listItems;
   };
 
   return (
     <Fragment>
-      <ul className="targetsInfos">{handleTargetCar(car[0])}</ul>
+      <ul className="targetsInfos">{handleTargetOperation(operation[0])}</ul>
     </Fragment>
   );
 };

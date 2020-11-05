@@ -11,11 +11,13 @@ export const targetReducer = (state = initialState, action) => {
         ...state,
         item: payload,
       };
+
     case CLICKED:
       return {
         ...state,
         isClicked: payload,
       };
+
     case TAB_CLICKED:
       return {
         ...state,

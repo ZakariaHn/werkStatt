@@ -21,13 +21,11 @@ export const ClientsList = () => {
   const handleEditClient = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
     dispatch({ type: CLICKED, payload: "editClient" });
-    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const handleOnClickListItem = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
     dispatch({ type: CLICKED, payload: "" });
-    dispatch({ type: TARGET_CAR, payload: {} });
   };
 
   const renderLists = () => {

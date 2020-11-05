@@ -23,11 +23,13 @@ const carsReducer = (state = initialState, action) => {
         ...state,
         carsArray: state.carsArray.filter((car) => car._id !== payload),
       };
+
     case TARGET_CAR:
       return {
         ...state,
         car: payload,
       };
+
     default:
       return state;
   }

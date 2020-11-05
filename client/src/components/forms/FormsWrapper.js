@@ -7,18 +7,20 @@ import { EditClient } from "./EditClient";
 import { EditCar } from "./EditCar";
 import { EditOperation } from "./EditOperation";
 import { TargetCar } from "./TargetCar";
+import { TargetOperation } from "./TargetOperation";
+
 export const FormsWrapper = () => {
   const isClicked = useSelector((state) => state.target.isClicked);
-  const car = useSelector((state) => state.cars.car);
   return (
     <div className="registrationForms">
-      {isClicked === "addClient" && <RegisterClient />}
-      {isClicked === "addCar" && <RegisterCar />}
-      {isClicked === "addOperation" && <RegisterOperation />}
-      {isClicked === "editClient" && <EditClient />}
       {isClicked === "editCar" && <EditCar />}
+      {isClicked === "addCar" && <RegisterCar />}
+      {isClicked === "targetCar" && <TargetCar />}
+      {isClicked === "editClient" && <EditClient />}
+      {isClicked === "addClient" && <RegisterClient />}
       {isClicked === "editOperation" && <EditOperation />}
-      {car.length > 0 && <TargetCar car={car[0]} />}
+      {isClicked === "addOperation" && <RegisterOperation />}
+      {isClicked === "targetOperation" && <TargetOperation />}
     </div>
   );
 };

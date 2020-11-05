@@ -23,19 +23,17 @@ export const CarsList = () => {
   const handleEditCar = (car) => {
     dispatch({ type: SET_TARGET, payload: car });
     dispatch({ type: CLICKED, payload: "editCar" });
-    dispatch({ type: TARGET_CAR, payload: {} });
+  };
+
+  const handleOnClickListItem = (car) => {
+    dispatch({ type: SET_TARGET, payload: car });
+    dispatch({ type: CLICKED, payload: "" });
   };
 
   const renderLists = () => {
     return allCars.map((car) => (
       <div className="li-buttons-wrapper" key={id()}>
-        <li
-          onClick={() => {
-            dispatch({ type: SET_TARGET, payload: car });
-          }}
-        >
-          {car.carModel}
-        </li>
+        <li onClick={() => handleOnClickListItem(car)}>{car.carModel}</li>
         <div>
           <FontAwesomeIcon
             className="icon"
