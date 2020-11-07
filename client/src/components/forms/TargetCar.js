@@ -20,7 +20,7 @@ export const TargetCar = () => {
 
   return (
     <Fragment>
-      <ul className="targetsInfos">{handleTargetCar(car[0])}</ul>
+      <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
     </Fragment>
   );
 };
