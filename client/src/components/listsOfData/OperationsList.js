@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as id } from "uuid"; // we should fix this
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,8 +9,21 @@ import {
   DELETE_OPERATION,
   SET_TARGET,
 } from "../../store/actions/types";
+import ListItem from "@material-ui/core/ListItem";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: "50%",
+    borderRadius: "1rem",
+  },
+  selected: {
+    color: "#b8632b",
+  },
+}));
 export const OperationsList = () => {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const allOperations = useSelector(
@@ -26,17 +39,24 @@ export const OperationsList = () => {
     dispatch({ type: CLICKED, payload: "editOperation" });
   };
 
-  const handleOnClickListItem = (operation) => {
+  const handleOnClickListItem = (operation, index) => {
+    setSelectedIndex(index);
     dispatch({ type: SET_TARGET, payload: operation });
     dispatch({ type: CLICKED, payload: "" });
   };
 
   const renderList = () => {
-    return allOperations.map((operation) => (
+    return allOperations.map((operation, index) => (
       <div className="li-buttons-wrapper" key={id()}>
-        <li onClick={() => handleOnClickListItem(operation)}>
+        <ListItem
+          button
+          className={classes.root}
+          selected={selectedIndex === index}
+          classes={{ selected: classes.selected }}
+          onClick={() => handleOnClickListItem(operation, index)}
+        >
           {operation.name}
-        </li>
+        </ListItem>
 
         <div>
           <FontAwesomeIcon

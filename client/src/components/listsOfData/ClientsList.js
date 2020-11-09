@@ -4,12 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
 import { CLICKED, DELETE_CLIENT, SET_TARGET } from "../../store/actions/types";
-import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: "30%",
+    borderRadius: "1rem",
+  },
+  selected: {
+    color: "#b8632b",
+  },
+}));
 
 export const ClientsList = () => {
-  const [selectedIndex, setSelectedIndex] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const myClients = useSelector((state) => state.clients.clientsArray);
 
@@ -30,15 +41,16 @@ export const ClientsList = () => {
 
   const renderLists = () => {
     return myClients.map((client, index) => (
-      <List className="li-buttons-wrapper" key={client._id}>
+      <div className="li-buttons-wrapper" key={client._id}>
         <ListItem
           button
+          className={classes.root}
           selected={selectedIndex === index}
+          classes={{ selected: classes.selected }}
           onClick={() => handleOnClickListItem(client, index)}
         >
           {client.lastname}
         </ListItem>
-
         <div>
           <FontAwesomeIcon
             className="icon"
@@ -54,7 +66,7 @@ export const ClientsList = () => {
             }
           />
         </div>
-      </List>
+      </div>
     ));
   };
 
