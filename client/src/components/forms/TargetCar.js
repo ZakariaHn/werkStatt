@@ -6,6 +6,9 @@ export const TargetCar = () => {
   const car = useSelector((state) => state.cars.car);
 
   const handleTargetCar = (car) => {
+    delete car._id;
+    delete car.ownerId;
+
     let listItems = [];
     for (const [key, value] of Object.entries(car)) {
       listItems.push(

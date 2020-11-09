@@ -16,9 +16,9 @@ export const GetSelectedItem = ({ target }) => {
       if (key !== "cars" && key !== "ops") {
         // there must be a way to extract 'index' from a for of loop
         listItems.push(
-          <li key={id()}>
+          <ul key={id()}>
             {key.split(/(?=[A-Z])/).join(" ")}: {value}
-          </li>
+          </ul>
         );
       }
     }
@@ -36,7 +36,7 @@ export const GetSelectedItem = ({ target }) => {
   const handleCars = (cars) => (
     <select onChange={handleCarChange}>
       {cars.map((car) => (
-        <option key={car._id} value={car.carModel}>
+        <option key={id()} value={car.carModel}>
           {car.carModel}
         </option>
       ))}
@@ -56,14 +56,14 @@ export const GetSelectedItem = ({ target }) => {
   const handleOperations = (ops) => (
     <select onChange={handleOperationChange}>
       {ops.map((operation) => (
-        <option key={operation._id}>{operation.name}</option>
+        <option key={id()}>{operation.name}</option>
       ))}
     </select>
   );
 
   return (
     <Fragment>
-      <ul className="targetsInfos">{handleTargetObject(target)}</ul>
+      <li className="targetsInfos">{handleTargetObject(target)}</li>
       {cars && handleCars(cars)}
       {ops && handleOperations(ops)}
     </Fragment>

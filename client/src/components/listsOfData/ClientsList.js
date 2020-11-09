@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
-import {
-  CLICKED,
-  DELETE_CLIENT,
-  SET_TARGET,
-  TARGET_CAR,
-} from "../../store/actions/types";
+import { CLICKED, DELETE_CLIENT, SET_TARGET } from "../../store/actions/types";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+
 export const ClientsList = () => {
+  const [selectedIndex, setSelectedIndex] = useState("");
   const dispatch = useDispatch();
 
   const myClients = useSelector((state) => state.clients.clientsArray);
@@ -23,15 +22,22 @@ export const ClientsList = () => {
     dispatch({ type: CLICKED, payload: "editClient" });
   };
 
-  const handleOnClickListItem = (client) => {
+  const handleOnClickListItem = (client, index) => {
+    setSelectedIndex(index);
     dispatch({ type: SET_TARGET, payload: client });
     dispatch({ type: CLICKED, payload: "" });
   };
 
   const renderLists = () => {
-    return myClients.map((client) => (
-      <div className="li-buttons-wrapper" key={client._id}>
-        <li onClick={() => handleOnClickListItem(client)}>{client.lastname}</li>
+    return myClients.map((client, index) => (
+      <List className="li-buttons-wrapper" key={client._id}>
+        <ListItem
+          button
+          selected={selectedIndex === index}
+          onClick={() => handleOnClickListItem(client, index)}
+        >
+          {client.lastname}
+        </ListItem>
 
         <div>
           <FontAwesomeIcon
@@ -48,7 +54,7 @@ export const ClientsList = () => {
             }
           />
         </div>
-      </div>
+      </List>
     ));
   };
 
