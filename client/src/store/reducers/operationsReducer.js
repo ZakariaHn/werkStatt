@@ -2,6 +2,7 @@ import {
   GET_OPERATIONS,
   DELETE_OPERATION,
   EDIT_OPERATION,
+  TARGET_OPERATION,
 } from "../actions/types";
 import { helpEditOperation, helpDeleteOperation } from "../helpers";
 
@@ -30,6 +31,11 @@ const OperationsReducer = (state = initialState, action) => {
         operationsArray: state.operationsArray.filter(
           (operation) => operation._id !== payload
         ),
+      };
+    case TARGET_OPERATION:
+      return {
+        ...state,
+        operation: payload,
       };
 
     default:

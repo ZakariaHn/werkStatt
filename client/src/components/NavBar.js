@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { TAB_CLICKED } from "../store/actions/types";
@@ -23,9 +23,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const NavBar = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [input, setInput] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  /* Functions determines the selected Tab in the navbar*/
 
   const clientsList = () => {
     setSelectedIndex(0);
@@ -50,6 +53,20 @@ export const NavBar = () => {
       payload: "operationsList",
     });
   };
+
+  // Handling search bar _______________________________________
+
+  let list = useSelector((state) => state.clients.clientsArray);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+    console.log(input);
+  };
+
+  if (input.length > 0) {
+    list = list.filter((i) => i.lastname.match(input));
+  }
 
   return (
     <div className="navBar">
@@ -89,7 +106,13 @@ export const NavBar = () => {
         </List>
 
         <div className="searchBarHolder">
-          <input placeholder="Search for a client, car or an operaiton" />
+          <input
+            type="text"
+            value={input}
+            onChange={handleChange}
+            placeholder="Search for a client, car or an operaiton"
+          />
+
           <button>
             <FontAwesomeIcon icon={faSearch} />
           </button>

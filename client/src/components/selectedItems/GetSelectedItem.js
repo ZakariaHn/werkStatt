@@ -1,7 +1,11 @@
 import React, { Fragment } from "react";
 import { v4 as id } from "uuid";
 import { useDispatch } from "react-redux";
-import { CLICKED, SET_TARGET, TARGET_CAR } from "../../store/actions/types";
+import {
+  CLICKED,
+  TARGET_OPERATION,
+  TARGET_CAR,
+} from "../../store/actions/types";
 
 // Render the fetched data from an endpoint in a list. Clients/ cars/ operations
 
@@ -35,6 +39,7 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCars = (cars) => (
     <select onChange={handleCarChange}>
+      <option>Cars</option>
       {cars.map((car) => (
         <option key={id()} value={car.carModel}>
           {car.carModel}
@@ -49,14 +54,17 @@ export const GetSelectedItem = ({ target }) => {
     const targetOperation = ops.filter(
       (operation) => operation.name === e.target.value
     );
-    dispatch({ type: SET_TARGET, payload: targetOperation });
+    dispatch({ type: TARGET_OPERATION, payload: targetOperation });
     dispatch({ type: CLICKED, payload: "targetOperation" });
   };
 
   const handleOperations = (ops) => (
     <select onChange={handleOperationChange}>
+      <option>Operations</option>
       {ops.map((operation) => (
-        <option key={id()}>{operation.name}</option>
+        <option key={id()} value={operation.name}>
+          {operation.name}
+        </option>
       ))}
     </select>
   );

@@ -18,10 +18,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const ClientsList = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const dispatch = useDispatch();
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const myClients = useSelector((state) => state.clients.clientsArray);
 
   useEffect(() => {
