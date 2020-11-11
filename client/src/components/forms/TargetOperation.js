@@ -19,7 +19,9 @@ export const TargetOperation = () => {
 
   return (
     <Fragment>
-      <ul className="targetsInfos">{handleTargetOperation(operation[0])}</ul>
+      <ul className="targetOperationList">
+        {handleTargetOperation(operation[0])}
+      </ul>
     </Fragment>
   );
 };

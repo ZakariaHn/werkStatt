@@ -4,11 +4,13 @@ import { useForm } from "react-hook-form";
 import { editClientAction } from "../../store/actions/clientsActions";
 import { CLICKED, SET_TARGET } from "../../store/actions/types";
 
-export const EditClient = (_) => {
+export const EditClient = () => {
   const dispatch = useDispatch();
+
   const { handleSubmit, register, errors } = useForm();
 
   const client = useSelector((state) => state.target.item);
+
   const { firstname, lastname, address, birthdate, email, _id } = client;
 
   const onSubmitForm = (data) => {

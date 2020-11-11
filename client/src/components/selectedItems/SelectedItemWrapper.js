@@ -7,6 +7,9 @@ export const SelectedItemWrapper = () => {
   const target = useSelector((state) => state.target.item);
   const dispatch = useDispatch();
 
+  /* Function determains which button should be rendered 
+     upon the payload sent to the state as a strig      */
+
   const handleAddButton = () => (
     <div className="buttonWrapper">
       {target.hasOwnProperty("engine") && (
