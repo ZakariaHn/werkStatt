@@ -6,11 +6,7 @@ import { TAB_CLICKED } from "../store/actions/types";
 import { makeStyles } from "@material-ui/core/styles";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faCog,
-  faUserCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCog, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -27,7 +23,7 @@ export const NavBar = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [search, setSearch] = useState("null");
+  const [search, setSearch] = useState("");
   /* Functions determines the selected Tab in the navbar*/
 
   const clientsList = () => {
@@ -56,30 +52,50 @@ export const NavBar = () => {
 
   // Handling search bar _______________________________________
 
-  let list = useSelector((state) => state.search);
+  let client = useSelector((state) => state.clients.clientsArray);
+  let car = useSelector((state) => state.cars.carsArray);
 
   const handleInputOnChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
-    console.log(input);
+    console.log(client, car);
   };
 
   if (input.length > 0) {
-    list = list.filter((i) => i.lastname.match(input));
+    client = client.filter((i) => i.lastname.match(input));
+    car = car.filter((i) => i.carModel.match(input));
+
+    console.log(clientsList);
+    console.log(input);
   }
 
   const handleSelectOnChange = (e) => {
+    e.preventDefault();
     setSearch(e.target.value);
-    // switch (search) {
-    //   case "client":
-    //     console.log("it's client ");
-    //     break;
-    //   case "car":
-    //     console.log("it's a car ");
-    //     break;
-    //   default:
-    // }
-    search === "client" ? console.log("client") : console.log("car");
+  };
+
+  // if (search === "client") {
+  //   dispatch({
+  //     type: TAB_CLICKED,
+  //     payload: "clientsList",
+  //   });
+  // } else if (search === "car") {
+  //   dispatch({
+  //     type: TAB_CLICKED,
+  //     payload: "carsList",
+  //   });
+  // }
+
+  const placeHolder = () => {
+    if (search === "client") {
+      return "Enter Client Name";
+    } else if (search === "car") {
+      return "Enter plate Number";
+    } else if (search === "operation") {
+      return "Enter Operation Name";
+    } else {
+      return "What are you looking for ?";
+    }
   };
 
   return (
@@ -124,13 +140,14 @@ export const NavBar = () => {
             type="text"
             value={input}
             onChange={handleInputOnChange}
-            placeholder="Search for a client, car or an operaiton"
+            placeholder={placeHolder()}
           />
 
           <select onChange={handleSelectOnChange}>
             <option>I'm looking for...</option>
             <option value="client">Client</option>
             <option value="car">Car</option>
+            <option value="operation">Operation</option>
           </select>
 
           {/* 
