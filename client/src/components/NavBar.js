@@ -27,7 +27,7 @@ export const NavBar = () => {
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(null);
-
+  const [search, setSearch] = useState("null");
   /* Functions determines the selected Tab in the navbar*/
 
   const clientsList = () => {
@@ -56,9 +56,9 @@ export const NavBar = () => {
 
   // Handling search bar _______________________________________
 
-  let list = useSelector((state) => state.clients.clientsArray);
+  let list = useSelector((state) => state.search);
 
-  const handleChange = (e) => {
+  const handleInputOnChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
     console.log(input);
@@ -67,6 +67,20 @@ export const NavBar = () => {
   if (input.length > 0) {
     list = list.filter((i) => i.lastname.match(input));
   }
+
+  const handleSelectOnChange = (e) => {
+    setSearch(e.target.value);
+    // switch (search) {
+    //   case "client":
+    //     console.log("it's client ");
+    //     break;
+    //   case "car":
+    //     console.log("it's a car ");
+    //     break;
+    //   default:
+    // }
+    search === "client" ? console.log("client") : console.log("car");
+  };
 
   return (
     <div className="navBar">
@@ -109,13 +123,20 @@ export const NavBar = () => {
           <input
             type="text"
             value={input}
-            onChange={handleChange}
+            onChange={handleInputOnChange}
             placeholder="Search for a client, car or an operaiton"
           />
 
+          <select onChange={handleSelectOnChange}>
+            <option>I'm looking for...</option>
+            <option value="client">Client</option>
+            <option value="car">Car</option>
+          </select>
+
+          {/* 
           <button>
             <FontAwesomeIcon icon={faSearch} />
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="setting">

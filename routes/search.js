@@ -1,6 +1,11 @@
 const router = require("express").Router();
-const { getData } = require("../controllers/searchController");
 
-router.route("/").get(getData);
+const {
+  getCarData,
+  getClientData,
+} = require("../controllers/searchController");
+
+router.route("/").get(getCarData);
+router.route("/").get(getClientData);
 
 module.exports = router;

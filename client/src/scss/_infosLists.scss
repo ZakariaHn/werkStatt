@@ -62,7 +62,8 @@
   }
 }
 
-.targetCarList {
+.targetCarList,
+.targetOperationList {
   @include ul-style;
   li {
     @include li-style;

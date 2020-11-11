@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { v4 as id } from "uuid"; // we should fix this
+import { v4 as id } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -10,21 +10,13 @@ import {
   SET_TARGET,
 } from "../../store/actions/types";
 import ListItem from "@material-ui/core/ListItem";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: "50%",
-    borderRadius: "1rem",
-  },
-  selected: {
-    color: "#b8632b",
-  },
-}));
-export const OperationsList = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const classes = useStyles();
+export const OperationsList = (props) => {
+  const classes = props.styles();
+
   const dispatch = useDispatch();
+
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const allOperations = useSelector(
     (state) => state.operations.operationsArray

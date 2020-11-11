@@ -7,21 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as id } from "uuid";
 
 import ListItem from "@material-ui/core/ListItem";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: "30%",
-    borderRadius: "1rem",
-  },
-  selected: {
-    color: "#b8632b",
-  },
-}));
-
-export const CarsList = () => {
+export const CarsList = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const classes = useStyles();
+
+  const classes = props.styles();
 
   const dispatch = useDispatch();
 
@@ -54,12 +44,14 @@ export const CarsList = () => {
         >
           {car.carModel}
         </ListItem>
+
         <div>
           <FontAwesomeIcon
             className="icon"
             icon={faEdit}
             onClick={() => handleEditCar(car)}
           />
+
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}

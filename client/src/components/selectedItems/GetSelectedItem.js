@@ -7,7 +7,7 @@ import {
   TARGET_CAR,
 } from "../../store/actions/types";
 
-// Render the fetched data from an endpoint in a list. Clients/ cars/ operations
+// Render data from an mongoDB in lists. Clients/ cars/ operations
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops } = target;
@@ -18,19 +18,18 @@ export const GetSelectedItem = ({ target }) => {
     let listItems = [];
     for (const [key, value] of Object.entries(target)) {
       if (key !== "cars" && key !== "ops") {
-        // there must be a way to extract 'index' from a for of loop
         listItems.push(
-          <ul key={id()}>
+          <li key={id()}>
             {key.split(/(?=[A-Z])/).join(" ")}: {value}
-          </ul>
+          </li>
         );
       }
     }
+
     return listItems;
   };
 
-  // Set cars in a drop down list and show its data
-
+  // Set cars owned by the selected client in a drop down list and show its data
   const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: TARGET_CAR, payload: targetCar });
@@ -48,12 +47,10 @@ export const GetSelectedItem = ({ target }) => {
     </select>
   );
 
-  // Set operations in a drop down list and show its data
+  // Set the related operations to the selected car in a drop down list and show its data
 
   const handleOperationChange = (e) => {
-    const targetOperation = ops.filter(
-      (operation) => operation.name === e.target.value
-    );
+    const targetOperation = ops.filter((op) => op.name === e.target.value);
     dispatch({ type: TARGET_OPERATION, payload: targetOperation });
     dispatch({ type: CLICKED, payload: "targetOperation" });
   };
@@ -61,9 +58,9 @@ export const GetSelectedItem = ({ target }) => {
   const handleOperations = (ops) => (
     <select onChange={handleOperationChange}>
       <option>Operations</option>
-      {ops.map((operation) => (
-        <option key={id()} value={operation.name}>
-          {operation.name}
+      {ops.map((op) => (
+        <option key={id()} value={op.name}>
+          {op.name}
         </option>
       ))}
     </select>
@@ -71,7 +68,7 @@ export const GetSelectedItem = ({ target }) => {
 
   return (
     <Fragment>
-      <li className="targetsInfos">{handleTargetObject(target)}</li>
+      <ul>{handleTargetObject(target)}</ul>
       {cars && handleCars(cars)}
       {ops && handleOperations(ops)}
     </Fragment>

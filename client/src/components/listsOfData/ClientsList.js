@@ -5,22 +5,14 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { fetchClientsAction } from "../../store/actions/clientsActions";
 import { CLICKED, DELETE_CLIENT, SET_TARGET } from "../../store/actions/types";
 import ListItem from "@material-ui/core/ListItem";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: "30%",
-    borderRadius: "1rem",
-  },
-  selected: {
-    color: "#b8632b",
-  },
-}));
+export const ClientsList = (props) => {
+  const classes = props.styles();
 
-export const ClientsList = () => {
-  const classes = useStyles();
   const dispatch = useDispatch();
+
   const [selectedIndex, setSelectedIndex] = useState(null);
+
   const myClients = useSelector((state) => state.clients.clientsArray);
 
   useEffect(() => {
