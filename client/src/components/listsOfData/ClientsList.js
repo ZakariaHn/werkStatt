@@ -24,6 +24,14 @@ export const ClientsList = (props) => {
     dispatch({ type: CLICKED, payload: "editClient" });
   };
 
+  const handleDeleteClient = (client) => {
+    if (
+      window.confirm(`Are you sure you want to delete ${client.lastname} ?`)
+    ) {
+      return dispatch({ type: DELETE_CLIENT, payload: client._id });
+    }
+  };
+
   const handleOnClickListItem = (client, index) => {
     setSelectedIndex(index);
     dispatch({ type: SET_TARGET, payload: client });
@@ -52,9 +60,7 @@ export const ClientsList = (props) => {
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
-            onClick={() =>
-              dispatch({ type: DELETE_CLIENT, payload: client._id })
-            }
+            onClick={() => handleDeleteClient(client)}
           />
         </div>
       </div>

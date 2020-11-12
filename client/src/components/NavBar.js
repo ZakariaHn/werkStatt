@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: "1rem",
   },
   selected: {
-    color: "#b8632b",
+    color: "#e74c3c",
   },
 }));
 
@@ -94,7 +94,7 @@ export const NavBar = () => {
     } else if (search === "operation") {
       return "Enter Operation Name";
     } else {
-      return "What are you looking for ?";
+      return "What are you looking for?";
     }
   };
 
@@ -149,11 +149,6 @@ export const NavBar = () => {
             <option value="car">Car</option>
             <option value="operation">Operation</option>
           </select>
-
-          {/* 
-          <button>
-            <FontAwesomeIcon icon={faSearch} />
-          </button> */}
         </div>
       </div>
       <div className="setting">

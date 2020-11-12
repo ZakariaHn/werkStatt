@@ -54,10 +54,9 @@
       border-radius: 4px;
       @include flex-center-center;
       position: relative;
-
       &::before {
         content: "\27A2";
-        font-size: 25px;
+        font-size: 22px;
         position: absolute;
         right: 2px;
 
@@ -86,8 +85,8 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
-        -moz-padding-start: calc(10px - 3px);
         border: none;
+        padding-left: 4px;
         width: 26%;
         height: 100%;
         cursor: pointer;
@@ -96,6 +95,7 @@
         border-left: 1px solid gray;
         background-color: $gray;
         border-radius: 0 0.3rem 0.3rem 0;
+        color: rgb(95, 95, 95);
 
         &::-ms-expand {
           display: none;
