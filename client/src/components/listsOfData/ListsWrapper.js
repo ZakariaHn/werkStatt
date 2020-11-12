@@ -12,7 +12,7 @@ export const ListsWrapper = () => {
       borderRadius: "1rem",
     },
     selected: {
-      color: "#b8632b",
+      color: "#e74c3c",
     },
   }));
 

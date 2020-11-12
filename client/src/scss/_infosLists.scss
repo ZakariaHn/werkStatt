@@ -65,7 +65,9 @@
 .targetCarList,
 .targetOperationList {
   @include ul-style;
+  width: 100%;
   li {
     @include li-style;
+    height: 0.9rem;
   }
 }

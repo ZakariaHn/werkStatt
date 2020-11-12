@@ -7,36 +7,152 @@
   position: relative;
   @include flex-center-center;
 
-  form {
-    width: 95%;
-    height: 95%;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    position: relative;
-
-    input {
-      width: 99%;
-      color: $gray;
-      height: 2.5rem;
-      font-size: 1rem;
-      text-indent: 1rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1.5px;
-      border-radius: 0.5rem;
-      background-color: $backGround-dark;
-      border: 2px solid $backGround-light;
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .container {
+    height: 100%;
+    border: 2px solid #777;
+    border-bottom: 1rem solid #777;
+    .header {
+      box-shadow: inset 3px 1px 2rem -4px #777;
+      background-color: #dadada;
+      color: rgb(48, 48, 48);
+      padding: 13px 5px 5px 2.4rem;
+      display: flex;
+      justify-content: space-between;
+      small {
+        margin: 0;
+        text-align: center;
+      }
+      .close {
+        background-color: $backGround-dark;
+        width: 1rem;
+        height: 1rem;
+        color: rgb(206, 206, 206);
+        font-weight: bold;
+        border-radius: 50%;
+        cursor: pointer;
+      }
     }
+    form {
+      padding: 30px 40px;
+      overflow: hidden;
+      max-height: 100%;
 
-    .buttonWrapper {
-      @include buttons-wrapper-style;
-      position: absolute;
-      left: 0.1rem;
+      .form-control {
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        position: relative;
+
+        &.success input {
+          border-color: #2ecc71;
+        }
+        &.success .fa-check-circle {
+          color: #2ecc71;
+          visibility: visible;
+        }
+
+        &.error input {
+          border-color: #e74c3c;
+        }
+
+        &.error .fa-exclamation-circle {
+          color: #e74c3c;
+          visibility: visible;
+        }
+
+        &.error small {
+          visibility: visible;
+        }
+
+        .fas {
+          visibility: hidden;
+          position: absolute;
+          top: 33px;
+          right: 5px;
+        }
+
+        label {
+          display: inline-block;
+          margin-bottom: 5px;
+          font-size: 0.9rem;
+        }
+
+        input {
+          border: 2px solid #777;
+          box-shadow: 2px 2px 10px -2px #777;
+          background-color: #dadadad8;
+          border-radius: 4px;
+          display: block;
+          font-family: inherit;
+          font-size: 14px;
+          padding: 8px 0 8px 0;
+          width: 100%;
+          text-indent: 10px;
+          &:focus {
+            outline: 0;
+            border-color: #777;
+          }
+        }
+      }
 
       button {
-        @include buttons-style;
+        background-color: #dadada;
+        color: gray;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 3px;
+        height: 3em;
+        width: 84%;
+        margin-top: 2rem;
+        border-radius: 5px;
+        box-shadow: inset 3px 5px 2rem -4px #777;
+        position: absolute;
+        bottom: 4%;
+      }
 
-        background-color: $backGround-light;
+      small {
+        color: #e74c3c;
+        position: absolute;
+        visibility: hidden;
+        bottom: 0;
+        left: 0;
       }
     }
   }
 }
+
+// form {
+//     width: 95%;
+//     height: 95%;
+//     padding: 1rem;
+//     border-radius: 0.5rem;
+//     position: relative;
+
+// input {
+//   width: 99%;
+//   color: $gray;
+//   height: 2.5rem;
+//   font-size: 1rem;
+//   text-indent: 1rem;
+//   margin-bottom: 2rem;
+//   letter-spacing: 1.5px;
+//   border-radius: 0.5rem;
+//   background-color: $backGround-dark;
+//   border: 2px solid $backGround-light;
+// }
+
+//   .buttonWrapper {
+//     @include buttons-wrapper-style;
+//     position: absolute;
+//     left: 0.1rem;
+
+//     button {
+//       @include buttons-style;
+
+//       background-color: $backGround-light;
+//     }
+//   }
+// }
