@@ -68,6 +68,12 @@ export const GetSelectedItem = ({ target }) => {
 
   return (
     <Fragment>
+      <div className="selected-item-header">
+        <small>
+          {cars && `${target.firstname} ${target.lastname}`}
+          {ops && `${target.carModel}`}
+        </small>
+      </div>
       <ul>{handleTargetObject(target)}</ul>
       {cars && handleCars(cars)}
       {ops && handleOperations(ops)}

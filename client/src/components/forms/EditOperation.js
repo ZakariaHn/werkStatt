@@ -21,98 +21,109 @@ export const EditOperation = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
-      <div className="input-field">
-        <label htmlFor="carId"></label>
-        <input
-          type="text"
-          name="carId"
-          defaultValue={carId}
-          autoComplete="off"
-          ref={register({
-            required: true,
-            minLength: 4,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
+    <div className="container">
+      <div className="header">
+        <small>Update {operation.name} operation</small>
+        <small
+          className="close"
+          onClick={() => dispatch({ type: CLICKED, payload: "" })}
+        >
+          x
+        </small>
       </div>
+      <form onSubmit={handleSubmit(onSubmitForm)}>
+        <div className="form-control">
+          <label htmlFor="carId"></label>
+          <input
+            type="text"
+            name="carId"
+            defaultValue={carId}
+            autoComplete="off"
+            ref={register({
+              required: true,
+              minLength: 4,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="name"></label>
-        <input
-          type="text"
-          name="name"
-          defaultValue={name}
-          autoComplete="off"
-          placeholder="Operation Name"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="name"></label>
+          <input
+            type="text"
+            name="name"
+            defaultValue={name}
+            autoComplete="off"
+            placeholder="Operation Name"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="description"></label>
-        <input
-          type="text"
-          name="description"
-          defaultValue={description}
-          autoComplete="off"
-          placeholder="Description"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="description"></label>
+          <input
+            type="text"
+            name="description"
+            defaultValue={description}
+            autoComplete="off"
+            placeholder="Description"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="Parts"></label>
-        <input
-          type="text"
-          name="Parts"
-          defaultValue={parts}
-          autoComplete="off"
-          placeholder="Parts"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="Parts"></label>
+          <input
+            type="text"
+            name="Parts"
+            defaultValue={parts}
+            autoComplete="off"
+            placeholder="Parts"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="costs"></label>
-        <input
-          type="text"
-          name="costs"
-          defaultValue={cost}
-          autoComplete="off"
-          placeholder="Costs"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
-      <div className="buttonWrapper">
-        <button type="submit">Update Operation</button>
-      </div>
-    </form>
+        <div className="form-control">
+          <label htmlFor="costs"></label>
+          <input
+            type="text"
+            name="costs"
+            defaultValue={cost}
+            autoComplete="off"
+            placeholder="Costs"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
+        <div className="buttonWrapper">
+          <button type="submit">Update Operation</button>
+        </div>
+      </form>
+    </div>
   );
 };
