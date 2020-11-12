@@ -13,7 +13,11 @@ export const TargetCar = () => {
     for (const [key, value] of Object.entries(car)) {
       listItems.push(
         <li key={id()}>
-          {key.split(/(?=[A-Z])/).join(" ")}: {value}
+          {key
+            .split(/(?=[A-Z])/)
+            .join(" ")[0]
+            .toUpperCase() + key.slice(1)}
+          : {value}
         </li>
       );
     }

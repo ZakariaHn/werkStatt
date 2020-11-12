@@ -31,7 +31,7 @@ export const EditCar = () => {
   return (
     <div className="container">
       <div className="header">
-        <small>`Update ${car.carModel}`</small>
+        <small>Update {car.carModel}</small>
         <small
           className="close"
           onClick={() => dispatch({ type: CLICKED, payload: "" })}

@@ -6,6 +6,7 @@ import {
   TARGET_OPERATION,
   TARGET_CAR,
 } from "../../store/actions/types";
+import { faBreadSlice } from "@fortawesome/free-solid-svg-icons";
 
 // Render data from an mongoDB in lists. Clients/ cars/ operations
 
@@ -20,7 +21,11 @@ export const GetSelectedItem = ({ target }) => {
       if (key !== "cars" && key !== "ops") {
         listItems.push(
           <li key={id()}>
-            {key.split(/(?=[A-Z])/).join(" ")}: {value}
+            {key
+              .split(/(?=[A-Z])/)
+              .join(" ")[0]
+              .toUpperCase() + key.slice(1)}
+            : {value}
           </li>
         );
       }
@@ -70,8 +75,12 @@ export const GetSelectedItem = ({ target }) => {
     <Fragment>
       <div className="selected-item-header">
         <small>
-          {cars && `${target.firstname} ${target.lastname}`}
-          {ops && `${target.carModel}`}
+          {cars &&
+            `${target.firstname[0].toUpperCase() + target.firstname.slice(1)} ${
+              target.lastname[0].toUpperCase() + target.lastname.slice(1)
+            }`}
+          {ops &&
+            `${target.carModel[0].toUpperCase() + target.carModel.slice(1)}`}
         </small>
       </div>
       <ul>{handleTargetObject(target)}</ul>

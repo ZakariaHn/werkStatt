@@ -1,7 +1,7 @@
 .navBar {
   height: 8%;
   color: $gray;
-  background-color: $backGround-dark;
+  background: $backGround-dark;
   @include flex-row-center-flexStart;
 
   .logo {
@@ -93,7 +93,7 @@
         position: absolute;
         right: 0;
         border-left: 1px solid gray;
-        background-color: $gray;
+        background-color: rgb(206, 204, 204);
         border-radius: 0 0.3rem 0.3rem 0;
         color: rgb(95, 95, 95);
 

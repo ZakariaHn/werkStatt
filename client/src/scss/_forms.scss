@@ -6,6 +6,7 @@
   height: 100%;
   position: relative;
   @include flex-center-center;
+  border: 2px solid #a7a7a7;
 
   * {
     padding: 0;
@@ -105,10 +106,10 @@
         letter-spacing: 3px;
         height: 3em;
         width: 84%;
-        margin-top: 2rem;
         border-radius: 5px;
         box-shadow: inset 3px 5px 2rem -4px #777;
         position: absolute;
+        margin-top: 2rem;
         bottom: 4%;
       }
 

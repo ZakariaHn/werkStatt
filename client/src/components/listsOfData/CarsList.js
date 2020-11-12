@@ -69,6 +69,11 @@ export const CarsList = (props) => {
 
   return (
     <div className="carsList">
+      <div className="selected-item-header">
+        <small>
+          {allCars.length > 0 ? "All registered cars" : "No cars registered"}
+        </small>
+      </div>
       <ul>{renderLists()}</ul>
     </div>
   );
