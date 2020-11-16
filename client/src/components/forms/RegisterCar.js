@@ -28,7 +28,7 @@ export const RegisterCar = (props) => {
           x
         </small>
       </div>
-      <form onSubmit={handleSubmit(onSubmitForm)}>
+      <form className="carsForm" onSubmit={handleSubmit(onSubmitForm)}>
         <div className="form-control success">
           <label htmlFor="ownerId">Owner Id</label>
           <input

@@ -28,7 +28,7 @@ export const RegisterOperation = (props) => {
       </div>
       <form onSubmit={handleSubmit(onSubmitForm)}>
         <div className="form-control success">
-          <label htmlFor="carId"></label>
+          <label htmlFor="carId">Car Id</label>
           <input
             type="text"
             name="carId"
@@ -45,7 +45,7 @@ export const RegisterOperation = (props) => {
         </div>
 
         <div className="form-control error">
-          <label htmlFor="name"></label>
+          <label htmlFor="name">Operation Name</label>
           <input
             type="text"
             name="name"
@@ -61,7 +61,7 @@ export const RegisterOperation = (props) => {
         </div>
 
         <div className="form-control">
-          <label htmlFor="description"></label>
+          <label htmlFor="description">Description</label>
           <input
             type="text"
             name="description"
@@ -77,7 +77,7 @@ export const RegisterOperation = (props) => {
         </div>
 
         <div className="form-control">
-          <label htmlFor="Parts"></label>
+          <label htmlFor="Parts">Parts</label>
           <input
             type="text"
             name="Parts"
@@ -93,7 +93,7 @@ export const RegisterOperation = (props) => {
         </div>
 
         <div className="form-control">
-          <label htmlFor="costs"></label>
+          <label htmlFor="costs">Costs</label>
           <input
             type="text"
             name="costs"

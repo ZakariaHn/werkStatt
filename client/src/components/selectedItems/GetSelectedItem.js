@@ -6,7 +6,6 @@ import {
   TARGET_OPERATION,
   TARGET_CAR,
 } from "../../store/actions/types";
-import { faBreadSlice } from "@fortawesome/free-solid-svg-icons";
 
 // Render data from an mongoDB in lists. Clients/ cars/ operations
 
