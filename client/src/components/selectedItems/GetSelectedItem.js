@@ -11,7 +11,7 @@ import {
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops } = target;
-
+  delete target._id;
   const dispatch = useDispatch();
 
   const handleTargetObject = (target) => {
@@ -33,6 +33,21 @@ export const GetSelectedItem = ({ target }) => {
     return listItems;
   };
 
+  const handleHeader = () => {
+    return (
+      <div className="selected-item-header">
+        <small>
+          {cars &&
+            `${target.firstname[0].toUpperCase() + target.firstname.slice(1)} ${
+              target.lastname[0].toUpperCase() + target.lastname.slice(1)
+            }`}
+          {ops &&
+            `${target.carModel[0].toUpperCase() + target.carModel.slice(1)}`}
+        </small>
+      </div>
+    );
+  };
+
   // Set cars owned by the selected client in a drop down list and show its data
   const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
@@ -42,7 +57,7 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCars = (cars) => (
     <select onChange={handleCarChange}>
-      <option>Cars</option>
+      <option>Operations</option>
       {cars.map((car) => (
         <option key={id()} value={car.carModel}>
           {car.carModel}
@@ -72,16 +87,7 @@ export const GetSelectedItem = ({ target }) => {
 
   return (
     <Fragment>
-      <div className="selected-item-header">
-        <small>
-          {cars &&
-            `${target.firstname[0].toUpperCase() + target.firstname.slice(1)} ${
-              target.lastname[0].toUpperCase() + target.lastname.slice(1)
-            }`}
-          {ops &&
-            `${target.carModel[0].toUpperCase() + target.carModel.slice(1)}`}
-        </small>
-      </div>
+      {handleHeader()}
       <ul>{handleTargetObject(target)}</ul>
       {cars && handleCars(cars)}
       {ops && handleOperations(ops)}

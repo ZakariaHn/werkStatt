@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 export const TargetOperation = () => {
   const operation = useSelector((state) => state.operations.operation);
+  const car = useSelector((state) => state.target.item);
 
   const handleTargetOperation = (operation) => {
     let listItems = [];
@@ -23,9 +24,17 @@ export const TargetOperation = () => {
 
   return (
     <Fragment>
-      <ul className="targetOperationList">
-        {handleTargetOperation(operation[0])}
-      </ul>
+      <div className="targetOperationWrapper">
+        <div className="selected-item-header">
+          <small>
+            Operations on{" "}
+            {car.carModel[0].toUpperCase() + car.carModel.slice(1)}
+          </small>
+        </div>
+        <ul className="targetOperationList">
+          {handleTargetOperation(operation[0])}
+        </ul>
+      </div>
     </Fragment>
   );
 };

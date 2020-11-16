@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 export const TargetCar = () => {
   const car = useSelector((state) => state.cars.car);
+  const client = useSelector((state) => state.target.item);
+
   console.log("car", car);
   const handleTargetCar = (car, value) => {
     // delete car._id;
@@ -29,8 +31,12 @@ export const TargetCar = () => {
     <div className="targetCarWrapper">
       <div className="selected-item-header">
         <small>
-          {` Operations on 
-          ${car[0].carModel[0].toUpperCase() + car[0].carModel.slice(1)}`}
+          Car: {car[0].carModel[0].toUpperCase() + car[0].carModel.slice(1)}
+        </small>
+        <small>
+          Owner:{" "}
+          {client.firstname[0].toUpperCase() + client.firstname.slice(1) + " "}
+          {client.lastname[0].toUpperCase() + client.lastname.slice(1)}
         </small>
       </div>
       <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
