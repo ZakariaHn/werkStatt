@@ -6,8 +6,7 @@ export const TargetCar = () => {
   const car = useSelector((state) => state.cars.car);
   const client = useSelector((state) => state.target.item);
 
-  console.log("car", car);
-  const handleTargetCar = (car, value) => {
+  const handleTargetCar = (car) => {
     // delete car._id;
     // delete car.ownerId;
 

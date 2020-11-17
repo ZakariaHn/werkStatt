@@ -6,7 +6,7 @@ import { CLICKED } from "../../store/actions/types";
 export const SelectedItemWrapper = () => {
   const target = useSelector((state) => state.target.item);
   const dispatch = useDispatch();
-  console.log("target:", target);
+
   /* Function determains which button should be rendered 
      upon the payload sent to the state as a strig      */
 

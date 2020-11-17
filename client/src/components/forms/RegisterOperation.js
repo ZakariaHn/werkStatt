@@ -14,7 +14,9 @@ export const RegisterOperation = (props) => {
     dispatch(addOperationAction(data));
     dispatch({ type: CLICKED, payload: "" });
   };
+
   const { icons } = props;
+
   return (
     <div className="container">
       <div className="header">

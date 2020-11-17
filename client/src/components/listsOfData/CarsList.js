@@ -25,6 +25,7 @@ export const CarsList = (props) => {
     dispatch({ type: SET_TARGET, payload: car });
     dispatch({ type: CLICKED, payload: "editCar" });
   };
+
   const handleDeleteCar = (car) => {
     if (window.confirm(`Are you sure you want to delete ${car.carModel} ?`)) {
       return dispatch({ type: DELETE_CAR, payload: car._id });

@@ -10,7 +10,7 @@ import {
 // Render data from an mongoDB in lists. Clients/ cars/ operations
 
 export const GetSelectedItem = ({ target }) => {
-  const { cars, ops } = target;
+  const { cars, ops, firstname, lastname, carModel } = target;
   delete target._id;
   const dispatch = useDispatch();
 
@@ -38,17 +38,17 @@ export const GetSelectedItem = ({ target }) => {
       <div className="selected-item-header">
         <small>
           {cars &&
-            `${target.firstname[0].toUpperCase() + target.firstname.slice(1)} ${
-              target.lastname[0].toUpperCase() + target.lastname.slice(1)
+            `${firstname[0].toUpperCase() + firstname.slice(1)} ${
+              lastname[0].toUpperCase() + lastname.slice(1)
             }`}
-          {ops &&
-            `${target.carModel[0].toUpperCase() + target.carModel.slice(1)}`}
+          {ops && `${carModel[0].toUpperCase() + carModel.slice(1)}`}
         </small>
       </div>
     );
   };
 
   // Set cars owned by the selected client in a drop down list and show its data
+
   const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: TARGET_CAR, payload: targetCar });
