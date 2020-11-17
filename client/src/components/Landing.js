@@ -3,17 +3,23 @@ import { useDispatch } from "react-redux";
 import { loginAction, registerAction } from "../store/actions/authActions";
 
 export const Landing = () => {
+
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     let registerData = {
-      email: e.target[0].value,
-      password: "asdfasdf",
-    };
+      "email": e.target[0].value,
+      "password": "asdfasdf"
+    }
 
     dispatch(loginAction(registerData)); // dispatching type and payload inside this dispatched action
-  };
+
+    // dispatch({
+    //   type: 'LOGIN_SUCCESS',
+    //   payload: userData
+    // })
+  }
 
   return (
     <div className="description">
