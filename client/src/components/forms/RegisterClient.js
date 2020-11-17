@@ -1,109 +1,19 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 import { CLICKED } from "../../store/actions/types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faExclamationCircle,
-} from "@fortawesome/free-solid-svg-icons";
 
-export const RegisterClient = () => {
+export const RegisterClient = (props) => {
   const dispatch = useDispatch();
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmitForm = (data) => {
-    // checkInputs();
     dispatch(addClientAction(data));
     dispatch({ type: CLICKED, payload: "" });
   };
-  // const mainform = useRef(null);
-  // const lastname = useRef(null);
-  // const firstname = useRef(null);
-  // const email = useRef(null);
-  // const address = useRef(null);
-  // const birthday = useRef(null);
-  // console.log(lastname);
 
-  // React.useEffect(() => {
-  //   mainform.current.focus();
-  // }, []);
-
-  // function checkInputs() {
-  //   // trim to remove the whitespaces
-  //   const lastnamevalue = lastname.value.trim();
-  //   const firstnamevalue = firstname.value.trim();
-  //   const emailValue = email.value.trim();
-  //   const addressValue = address.value.trim();
-  //   const birthdayValue = birthday.value.trim();
-
-  //   let errorMessage = "Field cannot be blank";
-  //   if (lastnamevalue === "") {
-  //     setErrorFor(lastname, errorMessage);
-  //   } else {
-  //     setSuccessFor(lastname);
-  //   }
-
-  //   if (firstnamevalue === "") {
-  //     setErrorFor(firstname, errorMessage);
-  //   } else {
-  //     setSuccessFor(firstname);
-  //   }
-
-  //   if (emailValue === "") {
-  //     setErrorFor(email);
-  //   } else if (!isEmail(emailValue)) {
-  //     setErrorFor(email, errorMessage);
-  //   } else {
-  //     setSuccessFor(email);
-  //   }
-
-  //   if (addressValue === "") {
-  //     setErrorFor(address, errorMessage);
-  //   } else {
-  //     setSuccessFor(address);
-  //   }
-
-  //   if (birthdayValue === "") {
-  //     setErrorFor(birthday, errorMessage);
-  //   } else {
-  //     setSuccessFor(birthday);
-  //   }
-  // }
-
-  // function setErrorFor(input, message) {
-  //   const formControl = input.parentElement;
-  //   const small = formControl.querySelector("small");
-  //   formControl.className = "form-control error";
-  //   small.innerText = message;
-  // }
-
-  // function setSuccessFor(input) {
-  //   const formControl = input.parentElement;
-  //   formControl.className = "form-control success";
-  // }
-
-  // function isEmail(email) {
-  //   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-  //     email
-  //   );
-  // }
-
-  // // SOCIAL PANEL JS
-  // const floating_btn = document.querySelector(".floating-btn");
-  // const close_btn = document.querySelector(".close-btn");
-  // const social_panel_container = document.querySelector(
-  //   ".social-panel-container"
-  // );
-
-  // floating_btn.addEventListener("click", () => {
-  //   social_panel_container.classList.toggle("visible");
-  // });
-
-  // close_btn.addEventListener("click", () => {
-  //   social_panel_container.classList.remove("visible");
-  // });
+  const { icons } = props;
   return (
     <div className="container">
       <div className="header">
@@ -128,14 +38,7 @@ export const RegisterClient = () => {
               minLength: 2,
             })}
           />
-          <FontAwesomeIcon
-            className="fas fa-check-circle"
-            icon={faCheckCircle}
-          />
-          <FontAwesomeIcon
-            className="fas fa-exclamation-circle"
-            icon={faExclamationCircle}
-          />
+          {icons()}
           <small>At least 2 characters long!</small>
         </div>
 
@@ -152,14 +55,7 @@ export const RegisterClient = () => {
               minLength: 2,
             })}
           />
-          <FontAwesomeIcon
-            className="fas fa-check-circle"
-            icon={faCheckCircle}
-          />
-          <FontAwesomeIcon
-            className="fas fa-exclamation-circle"
-            icon={faExclamationCircle}
-          />
+          {icons()}
           <small>At least 2 characters long!</small>
         </div>
 
@@ -176,14 +72,7 @@ export const RegisterClient = () => {
               minLength: 8,
             })}
           />
-          <FontAwesomeIcon
-            className="fas fa-check-circle"
-            icon={faCheckCircle}
-          />
-          <FontAwesomeIcon
-            className="fas fa-exclamation-circle"
-            icon={faExclamationCircle}
-          />
+          {icons()}
           <small>At least 2 characters long!</small>
         </div>
 
@@ -199,14 +88,7 @@ export const RegisterClient = () => {
               minLength: 8,
             })}
           />
-          <FontAwesomeIcon
-            className="fas fa-check-circle"
-            icon={faCheckCircle}
-          />
-          <FontAwesomeIcon
-            className="fas fa-exclamation-circle"
-            icon={faExclamationCircle}
-          />
+          {icons()}
           <small>At least 2 characters long!</small>
         </div>
 
@@ -226,14 +108,7 @@ export const RegisterClient = () => {
               },
             })}
           />
-          <FontAwesomeIcon
-            className="fas fa-check-circle"
-            icon={faCheckCircle}
-          />
-          <FontAwesomeIcon
-            className="fas fa-exclamation-circle"
-            icon={faExclamationCircle}
-          />
+          {icons()}
           <small>At least 2 characters long!</small>
         </div>
 

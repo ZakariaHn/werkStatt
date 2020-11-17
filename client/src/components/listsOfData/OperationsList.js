@@ -31,6 +31,12 @@ export const OperationsList = (props) => {
     dispatch({ type: CLICKED, payload: "editOperation" });
   };
 
+  const handleDeleteOperation = (operation) => {
+    if (window.confirm(`Are you sure you want to delete ${operation.name} ?`)) {
+      return dispatch({ type: DELETE_OPERATION, payload: operation._id });
+    }
+  };
+
   const handleOnClickListItem = (operation, index) => {
     setSelectedIndex(index);
     dispatch({ type: SET_TARGET, payload: operation });
@@ -60,9 +66,7 @@ export const OperationsList = (props) => {
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
-            onClick={() =>
-              dispatch({ type: DELETE_OPERATION, payload: operation._id })
-            }
+            onClick={() => handleDeleteOperation(operation)}
           />
         </div>
       </div>
@@ -71,6 +75,13 @@ export const OperationsList = (props) => {
 
   return (
     <div className="operationInfos">
+      <div className="selected-item-header">
+        <small>
+          {allOperations.length > 0
+            ? "All registered operations"
+            : "No operations registered"}
+        </small>
+      </div>
       <ul>{renderList()}</ul>
     </div>
   );

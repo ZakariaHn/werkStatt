@@ -29,118 +29,129 @@ export const EditCar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmitForm)}>
-      <div className="input-field">
-        <label htmlFor="ownerId"></label>
-        <input
-          type="text"
-          name="ownerId"
-          autoComplete="off"
-          placeholder="ownerId"
-          defaultValue={ownerId}
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
+    <div className="container">
+      <div className="header">
+        <small>Update {car.carModel}</small>
+        <small
+          className="close"
+          onClick={() => dispatch({ type: CLICKED, payload: "" })}
+        >
+          x
+        </small>
       </div>
+      <form onSubmit={handleSubmit(onSubmitForm)}>
+        <div className="form-control">
+          <label htmlFor="ownerId"></label>
+          <input
+            type="text"
+            name="ownerId"
+            autoComplete="off"
+            placeholder="ownerId"
+            defaultValue={ownerId}
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="carModel"></label>
-        <input
-          type="text"
-          name="carModel"
-          autoComplete="off"
-          defaultValue={carModel}
-          placeholder="Car Model"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="carModel"></label>
+          <input
+            type="text"
+            name="carModel"
+            autoComplete="off"
+            defaultValue={carModel}
+            placeholder="Car Model"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="carModelType"></label>
-        <input
-          type="text"
-          name="carModelType"
-          autoComplete="off"
-          defaultValue={carModelType}
-          placeholder="Car model type"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="carModelType"></label>
+          <input
+            type="text"
+            name="carModelType"
+            autoComplete="off"
+            defaultValue={carModelType}
+            placeholder="Car model type"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="chassyNr"></label>
-        <input
-          type="text"
-          name="chassyNr"
-          defaultValue={chassyNr}
-          autoComplete="off"
-          placeholder="Chassy Nr"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="chassyNr"></label>
+          <input
+            type="text"
+            name="chassyNr"
+            defaultValue={chassyNr}
+            autoComplete="off"
+            placeholder="Chassy Nr"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="engine"></label>
-        <input
-          type="text"
-          name="engine"
-          defaultValue={engine}
-          autoComplete="off"
-          placeholder="engine"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="engine"></label>
+          <input
+            type="text"
+            name="engine"
+            defaultValue={engine}
+            autoComplete="off"
+            placeholder="engine"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="input-field">
-        <label htmlFor="plateNr"></label>
-        <input
-          type="text"
-          name="plateNr"
-          defaultValue={plateNr}
-          autoComplete="off"
-          placeholder="Plate Number"
-          ref={register({
-            required: true,
-            minLength: 2,
-          })}
-        />
-        {errors.name && (
-          <p className="form-error">At least 2 characters long!</p>
-        )}
-      </div>
+        <div className="form-control">
+          <label htmlFor="plateNr"></label>
+          <input
+            type="text"
+            name="plateNr"
+            defaultValue={plateNr}
+            autoComplete="off"
+            placeholder="Plate Number"
+            ref={register({
+              required: true,
+              minLength: 2,
+            })}
+          />
+          {errors.name && (
+            <p className="form-error">At least 2 characters long!</p>
+          )}
+        </div>
 
-      <div className="buttonWrapper">
-        <button type="submit">Update Car</button>
-      </div>
-    </form>
+        <div className="buttonWrapper">
+          <button type="submit">Update Car</button>
+        </div>
+      </form>
+    </div>
   );
 };

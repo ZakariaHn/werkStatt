@@ -1,7 +1,9 @@
 .details {
+  border: 2px solid #a7a7a7;
   @include list-wrapper-style;
   position: relative;
   height: 90%;
+
   ul {
     @include ul-style;
     max-height: 80%;
@@ -11,16 +13,43 @@
       height: 0.5rem;
     }
   }
+
   select {
     margin-left: 1rem;
     color: $gray;
   }
+
   .buttonWrapper {
     @include buttons-wrapper-style;
     position: absolute;
     bottom: 0;
+
     button {
       @include buttons-style;
     }
+  }
+}
+
+.selected-item-header {
+  display: flex;
+  justify-content: space-between;
+  color: #303030;
+  background-color: #dadada;
+  padding: 5px 5px 5px 2.4rem;
+  box-shadow: inset 3px 1px 2rem -4px #777;
+
+  small {
+    margin: 0;
+    text-align: center;
+  }
+
+  .close {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    color: #cecece;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: $backGround-dark;
   }
 }

@@ -49,13 +49,16 @@
 @mixin buttons-style {
   width: 93%;
   height: 3rem;
-  color: $gray;
-  font-size: large;
+  background-color: #dadada;
+  color: gray;
+  font-size: 1rem;
   font-weight: bold;
-  border-radius: 6px;
-  letter-spacing: 1px;
-  margin: 0.7rem 1rem 0 1rem;
-  background-color: $backGround-light;
+  letter-spacing: 3px;
+
+  border-radius: 5px;
+  box-shadow: inset 3px 5px 2rem -4px #777;
+  position: absolute;
+  margin: 0.5em 0 0 1rem;
 }
 
 @mixin list-wrapper-style {

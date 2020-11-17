@@ -48,7 +48,7 @@ export const ClientsList = (props) => {
           classes={{ selected: classes.selected }}
           onClick={() => handleOnClickListItem(client, index)}
         >
-          {client.lastname}
+          {client.lastname[0].toUpperCase() + client.lastname.slice(1)}
         </ListItem>
         <div>
           <FontAwesomeIcon
@@ -56,7 +56,6 @@ export const ClientsList = (props) => {
             icon={faEdit}
             onClick={() => handleEditClient(client)}
           />
-
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}
@@ -69,6 +68,13 @@ export const ClientsList = (props) => {
 
   return (
     <div className="clientsList">
+      <div className="selected-item-header">
+        <small>
+          {myClients.length > 0
+            ? "All registered clients"
+            : "No clients registered"}
+        </small>
+      </div>
       <ul>{renderLists()}</ul>
       <div className="buttonWrapper">
         <button
