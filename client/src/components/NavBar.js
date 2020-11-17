@@ -65,7 +65,6 @@ export const NavBar = () => {
     client = client.filter((i) => i.lastname.match(input));
     car = car.filter((i) => i.carModel.match(input));
 
-    console.log(clientsList);
     console.log(input);
   }
 

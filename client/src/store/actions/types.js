@@ -28,3 +28,13 @@ export const DELETE_OPERATION = "DELETE_OPERATION";
 export const TARGET_OPERATION = "TARGET_OPERATION";
 export const ADD_OPERATION_FAIL = "ADD_OPERATION_FAIL";
 export const ADD_OPERATION_SUCCESS = "ADD_OPERATION_SUCCESS";
+
+// Authentication Actions types
+export const AUTH_ERROR = "AUTH_ERROR";
+export const USER_LOADED = "USER_LOADED";
+export const USER_LOADING = "USER_LOADING";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";

@@ -1,6 +1,17 @@
 import Axios from "axios";
 
-//Clients Helpers
+// Auth Helpers
+
+export const helpFetchMe = async (config) =>
+  await Axios.get('http://localhost:5000/api/auth/me', config);
+
+export const helpRegisterUser = async (body, config) =>
+  await Axios.post("http://localhost:5000/api/auth/register", body, config);
+
+export const helpLoginUser = async (body, config) =>
+  await Axios.post("http://localhost:5000/api/auth/login", body, config);
+
+// Clients Helpers
 
 export const helpFetchClients = async () =>
   await Axios.get("http://localhost:5000/api/clients");

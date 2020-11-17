@@ -56,7 +56,6 @@ export const ClientsList = (props) => {
             icon={faEdit}
             onClick={() => handleEditClient(client)}
           />
-
           <FontAwesomeIcon
             className="icon"
             icon={faTrash}

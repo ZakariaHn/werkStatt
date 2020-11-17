@@ -11,7 +11,7 @@ import {
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops, firstname, lastname, carModel } = target;
-  delete target._id;
+  // delete target._id;
   const dispatch = useDispatch();
 
   const handleTargetObject = (target) => {
