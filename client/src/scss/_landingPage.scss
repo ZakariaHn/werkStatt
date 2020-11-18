@@ -18,7 +18,7 @@
         font-weight: bold;
         cursor: pointer;
         transition: 0.5s;
-        font-size: 1rem;
+        font-size: 0.8rem;
 
         &:hover {
           background-color: #ebebeb;
@@ -77,8 +77,9 @@
     strong {
       font-size: xx-large;
       color: $backGround-dark;
-      letter-spacing: 0.8rem;
-      margin-left: 0.7rem;
+      letter-spacing: 1.04rem;
+      margin-left: 0.5rem;
+
       padding-bottom: 2rem;
     }
 
@@ -93,7 +94,15 @@
         input {
           height: 2rem;
           border: 1px solid rgb(190, 190, 190);
+          border-radius: 4px;
+          letter-spacing: 1px;
+          text-indent: 0.7rem;
+
+          &:focus {
+            border: 1px solid transparent;
+          }
         }
+
         * {
           display: block;
           width: 98.2%;
@@ -104,13 +113,13 @@
         font-weight: bolder;
         font-size: 1rem;
         letter-spacing: 4px;
-
+        border-radius: 4px;
         border: 2px solid $backGround-dark;
       }
     }
     .forgot-password {
       @include flex-column-center-center;
-      margin-bottom: 1rem;
+      margin-bottom: 4rem;
 
       :nth-child(1) {
         letter-spacing: 2px;
