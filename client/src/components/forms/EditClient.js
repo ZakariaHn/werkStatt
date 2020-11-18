@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { editClientAction } from "../../store/actions/clientsActions";
 import { CLICKED, SET_TARGET } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
-export const EditClient = () => {
+export const EditClient = (props) => {
   const dispatch = useDispatch();
 
   const { handleSubmit, register, errors } = useForm();
@@ -20,8 +21,19 @@ export const EditClient = () => {
     dispatch({ type: SET_TARGET, payload: Obj });
   };
 
+  const { Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
+
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>
           Update {client.firstname} {client.lastname}
@@ -132,6 +144,6 @@ export const EditClient = () => {
           <button type="submit">Update Client</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };

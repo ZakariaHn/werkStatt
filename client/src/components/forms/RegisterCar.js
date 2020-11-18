@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addCarAction } from "../../store/actions/carsActions";
 import { CLICKED } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
 export const RegisterCar = (props) => {
   const { handleSubmit, register, errors } = useForm();
@@ -16,9 +17,18 @@ export const RegisterCar = (props) => {
     dispatch({ type: CLICKED, payload: "" });
   };
 
-  const { icons } = props;
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Register new car</small>
         <small
@@ -133,6 +143,6 @@ export const RegisterCar = (props) => {
           <button type="submit">SUBMIT</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };

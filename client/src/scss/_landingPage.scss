@@ -25,6 +25,7 @@
           color: $backGround-dark;
         }
       }
+
       :nth-child(3) {
         background-color: #ebebeb;
         color: $backGround-dark;
@@ -35,6 +36,7 @@
           background-color: $backGround-dark;
         }
       }
+
       :last-child {
         margin-left: 0.3rem;
         background-color: #ebebeb;
@@ -51,6 +53,7 @@
       }
     }
   }
+
   .landing-content {
     height: 84%;
     background-color: #ffffff;
@@ -60,6 +63,7 @@
       #00474781,
       #e4e4e4 94%
     );
+
     .login-header {
       height: 30%;
       @include flex-column-center-center;
@@ -97,6 +101,7 @@
 
         div {
           padding-bottom: 2rem;
+
           input {
             height: 2rem;
             border: 1px solid rgb(158, 158, 158);
@@ -114,6 +119,7 @@
             width: 98.2%;
           }
         }
+
         .submit-button {
           height: 2.7rem;
           font-weight: bolder;
@@ -124,6 +130,7 @@
           background-color: transparent;
           border: 2px solid $backGround-dark;
           transition: 0.5s;
+
           &:hover {
             border: 2px solid #dedede;
             background-color: #dedede2a;
@@ -133,7 +140,7 @@
       }
       .forgot-password {
         @include flex-column-center-center;
-        margin-bottom: 4rem;
+
         :nth-child(1) {
           letter-spacing: 2px;
           transition: 1s;
@@ -148,6 +155,7 @@
           }
         }
       }
+
       .back {
         margin-bottom: 1rem;
         color: #dedede;

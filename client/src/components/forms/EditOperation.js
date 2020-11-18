@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { editOperationAction } from "../../store/actions/operationsAction";
 import { CLICKED, SET_TARGET } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
-export const EditOperation = () => {
+export const EditOperation = (props) => {
   const dispatch = useDispatch();
 
   const { handleSubmit, register, errors } = useForm();
@@ -20,8 +21,18 @@ export const EditOperation = () => {
     dispatch({ type: SET_TARGET, payload: Obj });
   };
 
+  const { Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Update {operation.name} operation</small>
         <small
@@ -124,6 +135,6 @@ export const EditOperation = () => {
           <button type="submit">Update Operation</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };

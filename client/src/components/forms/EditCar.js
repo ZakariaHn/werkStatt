@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { editCarAction } from "../../store/actions/carsActions";
 import { CLICKED, SET_TARGET } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
-export const EditCar = () => {
+export const EditCar = (props) => {
   const dispatch = useDispatch();
 
   const { handleSubmit, register, errors } = useForm();
@@ -21,6 +22,9 @@ export const EditCar = () => {
     plateNr,
   } = car;
 
+  const { Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
+
   const onSubmitForm = (data) => {
     const Obj = Object.assign({ _id }, data);
     dispatch(editCarAction(Obj));
@@ -29,7 +33,15 @@ export const EditCar = () => {
   };
 
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Update {car.carModel}</small>
         <small
@@ -152,6 +164,6 @@ export const EditCar = () => {
           <button type="submit">Update Car</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 import { CLICKED } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
 export const RegisterClient = (props) => {
   const dispatch = useDispatch();
@@ -13,9 +14,19 @@ export const RegisterClient = (props) => {
     dispatch({ type: CLICKED, payload: "" });
   };
 
-  const { icons } = props;
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
+
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Register new client</small>
         <small
@@ -117,6 +128,6 @@ export const RegisterClient = (props) => {
 
         <button type="submit">SUBMIT</button>
       </form>
-    </div>
+    </motion.div>
   );
 };
