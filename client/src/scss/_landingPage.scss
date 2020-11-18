@@ -51,88 +51,113 @@
       }
     }
   }
+  .landing-content {
+    height: 84%;
+    background-color: #ffffff;
+    background-image: linear-gradient(
+      360deg,
+      #ffffff 0%,
+      #00474781,
+      #e4e4e4 94%
+    );
+    .login-header {
+      height: 30%;
+      @include flex-column-center-center;
 
-  .login-header {
-    height: 25%;
-    background-color: #ebebeb;
-    @include flex-column-center-center;
+      div :nth-child(1) {
+        font-size: 6rem;
+        color: $backGround-dark;
+      }
 
-    div :nth-child(1) {
-      font-size: 6rem;
-      color: $backGround-dark;
+      strong {
+        color: $backGround-dark;
+        letter-spacing: 1rem;
+      }
     }
 
-    strong {
-      color: $backGround-dark;
-      letter-spacing: 1rem;
-    }
-  }
+    .login-form {
+      width: 100%;
+      height: 60%;
+      @include flex-column-center-center;
 
-  .login-form {
-    width: 100%;
-    height: 59%;
-    background-color: #ebebeb;
-    @include flex-column-center-center;
+      strong {
+        font-size: xx-large;
+        color: $backGround-dark;
+        letter-spacing: 1.04rem;
+        margin-left: 0.5rem;
 
-    strong {
-      font-size: xx-large;
-      color: $backGround-dark;
-      letter-spacing: 1.04rem;
-      margin-left: 0.5rem;
-
-      padding-bottom: 2rem;
-    }
-
-    form {
-      height: 100%;
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-
-      div {
         padding-bottom: 2rem;
-        input {
-          height: 2rem;
-          border: 1px solid rgb(190, 190, 190);
-          border-radius: 4px;
-          letter-spacing: 1px;
-          text-indent: 0.7rem;
+      }
 
-          &:focus {
-            border: 1px solid transparent;
+      form {
+        height: 100%;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+
+        div {
+          padding-bottom: 2rem;
+          input {
+            height: 2rem;
+            border: 1px solid rgb(158, 158, 158);
+            border-radius: 4px;
+            letter-spacing: 1px;
+            text-indent: 0.7rem;
+
+            &:focus {
+              border: 1px solid transparent;
+            }
+          }
+
+          * {
+            display: block;
+            width: 98.2%;
           }
         }
-
-        * {
-          display: block;
-          width: 98.2%;
-        }
-      }
-      .submit-button {
-        height: 2.7rem;
-        font-weight: bolder;
-        font-size: 1rem;
-        letter-spacing: 4px;
-        border-radius: 4px;
-        border: 2px solid $backGround-dark;
-      }
-    }
-    .forgot-password {
-      @include flex-column-center-center;
-      margin-bottom: 4rem;
-
-      :nth-child(1) {
-        letter-spacing: 2px;
-        transition: 1s;
-        border-bottom: 2px solid $backGround-dark;
-        cursor: pointer;
-        &:hover {
-          color: rgb(255, 255, 255);
-          background-color: $backGround-dark;
+        .submit-button {
+          height: 2.7rem;
+          font-weight: bolder;
+          font-size: 1rem;
+          letter-spacing: 4px;
+          color: $backGround-dark;
           border-radius: 4px;
-          font-size: small;
-          padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+          background-color: transparent;
+          border: 2px solid $backGround-dark;
+          transition: 0.5s;
+          &:hover {
+            border: 2px solid #dedede;
+            background-color: #dedede2a;
+            cursor: pointer;
+          }
         }
+      }
+      .forgot-password {
+        @include flex-column-center-center;
+        margin-bottom: 4rem;
+        :nth-child(1) {
+          letter-spacing: 2px;
+          transition: 1s;
+          border-bottom: 2px solid $backGround-dark;
+          cursor: pointer;
+          &:hover {
+            color: rgb(255, 255, 255);
+            background-color: $backGround-dark;
+            border-radius: 4px;
+            font-size: small;
+            padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+          }
+        }
+      }
+      .back {
+        margin-bottom: 1rem;
+        color: #dedede;
+        width: 1.6rem;
+        height: 2rem;
+        background-color: $backGround-dark;
+        border-radius: 50%;
+        @include flex-center-center;
+        font-weight: bolder;
+        cursor: pointer;
       }
     }
   }
