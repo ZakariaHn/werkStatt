@@ -1,0 +1,136 @@
+.landing-page {
+  width: 100%;
+  height: 100%;
+
+  .navBar {
+    height: 8%;
+
+    .setting {
+      position: absolute;
+      right: 0;
+      list-style: none;
+      border-radius: 4px;
+      font-weight: bold;
+
+      li {
+        padding: 0.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.5s;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: #ebebeb;
+          color: $backGround-dark;
+        }
+      }
+      :nth-child(3) {
+        background-color: #ebebeb;
+        color: $backGround-dark;
+        border: 2px solid #ebebeb;
+        height: 0.9rem;
+        &:hover {
+          color: rgb(255, 255, 255);
+          background-color: $backGround-dark;
+        }
+      }
+      :last-child {
+        margin-left: 0.3rem;
+        background-color: #ebebeb;
+        color: $backGround-dark;
+        border: 2px solid #ebebeb;
+        padding: 0.3rem;
+        border-radius: 4px;
+        transition: 0.5s;
+        &:hover {
+          cursor: pointer;
+          color: rgb(255, 255, 255);
+          background-color: $backGround-dark;
+        }
+      }
+    }
+  }
+
+  .login-header {
+    height: 25%;
+    background-color: #ebebeb;
+    @include flex-column-center-center;
+
+    div :nth-child(1) {
+      font-size: 6rem;
+      color: $backGround-dark;
+    }
+
+    strong {
+      color: $backGround-dark;
+      letter-spacing: 1rem;
+    }
+  }
+
+  .login-form {
+    width: 100%;
+    height: 59%;
+    background-color: #ebebeb;
+    @include flex-column-center-center;
+
+    strong {
+      font-size: xx-large;
+      color: $backGround-dark;
+      letter-spacing: 0.8rem;
+      margin-left: 0.7rem;
+      padding-bottom: 2rem;
+    }
+
+    form {
+      height: 100%;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        padding-bottom: 2rem;
+        input {
+          height: 2rem;
+          border: 1px solid rgb(190, 190, 190);
+        }
+        * {
+          display: block;
+          width: 98.2%;
+        }
+      }
+      .submit-button {
+        height: 2.7rem;
+        font-weight: bolder;
+        font-size: 1rem;
+        letter-spacing: 4px;
+
+        border: 2px solid $backGround-dark;
+      }
+    }
+    .forgot-password {
+      @include flex-column-center-center;
+      margin-bottom: 1rem;
+
+      :nth-child(1) {
+        letter-spacing: 2px;
+        transition: 1s;
+        border-bottom: 2px solid $backGround-dark;
+        cursor: pointer;
+        &:hover {
+          color: rgb(255, 255, 255);
+          background-color: $backGround-dark;
+          border-radius: 4px;
+          font-size: small;
+          padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    height: 8%;
+  }
+}

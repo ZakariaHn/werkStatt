@@ -12,6 +12,13 @@
   justify-content: space-around;
 }
 
+@mixin flex-row-center-flexStart {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 @mixin flex-center-spaceEvenly {
   display: flex;
   align-items: center;
@@ -24,17 +31,17 @@
   justify-content: center;
 }
 
+@mixin flex-column-center-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin flex-center-flexEnd {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
-
-@mixin flex-row-center-flexStart {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
 }
 
 @mixin buttons-wrapper-style {
@@ -67,7 +74,6 @@
   color: $gray;
   overflow: hidden;
   max-height: 90%;
-
   border-radius: 0.5rem;
   background-color: $backGround-dark;
 

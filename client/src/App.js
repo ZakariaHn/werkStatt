@@ -7,20 +7,21 @@ import { NavBar } from "./components/NavBar";
 import { loadUser } from "./store/actions/authActions";
 
 const App = () => {
-
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUser());
-  }, [])
+  }, []);
 
-  return (
+  return isAuthenticated ? (
     <div className="container">
       <NavBar />
-      {isAuthenticated ? <Content /> : <Landing />}
+      <Content />
       <Footer />
     </div>
+  ) : (
+    <Landing />
   );
 };
 
