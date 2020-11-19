@@ -14,6 +14,7 @@ export const SignInForm = () => {
       payload: "signUpClicked",
     });
   };
+
   const onSignIn = (data) => {
     console.log(data);
     let registerData = {
