@@ -22,6 +22,7 @@ export const EditClient = (props) => {
   };
 
   const { Transition } = props;
+
   const { pageStyle, pageVariants, pageTransition } = Transition;
 
   return (
