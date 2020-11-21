@@ -1,7 +1,18 @@
-import { GET_CLIENTS, DELETE_CLIENT, EDIT_CLIENT } from "../actions/types";
+import {
+  GET_CLIENTS,
+  DELETE_CLIENT,
+  EDIT_CLIENT,
+  FIND_CLIENTS,
+  ERROR_MSG,
+} from "../actions/types";
 import { helpDeleteClient, helpEditClient } from "../helpers";
 
-const initialState = { clientsArray: [], client: {} };
+const initialState = {
+  clientsArray: [],
+  foundClients: [],
+  client: {},
+  errorMsg: "",
+};
 
 const clientsReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -11,6 +22,21 @@ const clientsReducer = (state = initialState, action) => {
       return {
         ...state,
         clientsArray: payload,
+      };
+
+    case FIND_CLIENTS:
+      let foundClients = {
+        ...state,
+        foundClients: payload,
+      };
+      console.log("found here ", foundClients);
+      return foundClients;
+
+    case ERROR_MSG:
+      // localStorage.removeItem('auth-token');
+      return {
+        ...state,
+        errorMsg: payload,
       };
 
     case EDIT_CLIENT:

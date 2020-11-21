@@ -11,18 +11,13 @@ import { About } from "./About";
 export const Landing = () => {
   const [Transition] = useState({
     pageVariants: {
-      initial: {
-        opacity: 0,
-        x: "-10vw",
-        scale: 0.2,
-      },
       in: {
         opacity: 1,
         scale: 1,
       },
       out: {
         opacity: 0,
-        scale: 2,
+        scale: 1,
       },
     },
     pageTransition: {

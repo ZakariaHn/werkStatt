@@ -1,7 +1,13 @@
-import { GET_CARS, EDIT_CAR, DELETE_CAR, TARGET_CAR } from "../actions/types";
+import {
+  GET_CARS,
+  EDIT_CAR,
+  DELETE_CAR,
+  TARGET_CAR,
+  FIND_CARS,
+} from "../actions/types";
 import { helpDeleteCar, helpEditCar } from "../helpers";
 
-const initialState = { carsArray: [], car: {} };
+const initialState = { carsArray: [], foundCars: [], car: {} };
 
 const carsReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -11,6 +17,12 @@ const carsReducer = (state = initialState, action) => {
       return {
         ...state,
         carsArray: payload,
+      };
+
+    case FIND_CARS:
+      return {
+        ...state,
+        foundCars: payload,
       };
 
     case EDIT_CAR:

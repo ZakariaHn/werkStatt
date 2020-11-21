@@ -1,6 +1,6 @@
 import { CLICKED, SET_TARGET, TAB_CLICKED } from "../actions/types";
 
-const initialState = { item: {}, isClicked: "", clickedTab: "" };
+const initialState = { item: {}, isClicked: "", clickedTab: "clientsList" };
 
 export const targetReducer = (state = initialState, action) => {
   const { type, payload } = action;

@@ -1,31 +1,41 @@
 import React from "react";
 import { v4 as id } from "uuid";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { CLICKED, TARGET_CAR } from "../../store/actions/types";
 
 export const TargetCar = () => {
-  const car = useSelector((state) => state.cars.car);
-  console.log(car);
+  const car = useSelector((state) => state.cars.carsArray);
   const client = useSelector((state) => state.target.item);
+  const dispatch = useDispatch();
 
   const handleTargetCar = (car) => {
     let listItems = [];
     for (const [key, value] of Object.entries(car)) {
-      listItems.push(
-        <li key={id()}>
-          {key
-            .split(/(?=[A-Z])/)
-            .join(" ")[0]
-            .toUpperCase() + key.slice(1)}
-          : {value}
-        </li>
-      );
+      if (key !== "ops") {
+        listItems.push(
+          <li key={id()}>
+            {key
+              .split(/(?=[A-Z])/)
+              .join(" ")[0]
+              .toUpperCase() + key.slice(1)}
+            : {value}
+          </li>
+        );
+      }
     }
     return listItems;
   };
 
+  // const handleCarChange = (e) => {
+  //   const targetCar = cars.filter((car) => car.carModel === e.target.value);
+  //   dispatch({ type: TARGET_CAR, payload: targetCar });
+  //   dispatch({ type: CLICKED, payload: "targetCar" });
+  // };
   const handleOperations = (ops) => (
-    <select>
-      <option>Operations</option>
+    <select value="1">
+      <option value="1" disabled>
+        Operations
+      </option>
       {ops.map((op) => (
         <option key={id()} value={op.name}>
           {op.name}
@@ -46,7 +56,7 @@ export const TargetCar = () => {
           Owner: {firstName} {lastName}
         </small>
       </div>
-      <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
+      <ul className="targetCarList">{handleTargetCar(car[2])}</ul>
       {car.ops && handleOperations(car.ops)}
     </div>
   );

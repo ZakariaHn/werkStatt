@@ -14,7 +14,7 @@ export const SignInForm = (props) => {
     console.log(data);
     let registerData = {
       email: data.email,
-      password: "asdfasdf",
+      password: data.password,
     };
 
     dispatch(loginAction(registerData));
@@ -45,7 +45,7 @@ export const SignInForm = (props) => {
         </div>
         <div>
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="Password"
             ref={register}

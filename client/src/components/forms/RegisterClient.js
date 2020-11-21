@@ -37,7 +37,7 @@ export const RegisterClient = (props) => {
         </small>
       </div>
       <form onSubmit={handleSubmit(onSubmitForm)}>
-        <div className="form-control success">
+        <div className="form-control">
           <label htmlFor="firstname">First Name</label>
           <input
             type="text"
@@ -53,7 +53,7 @@ export const RegisterClient = (props) => {
           <small>At least 2 characters long!</small>
         </div>
 
-        <div className="form-control error">
+        <div className="form-control">
           <label htmlFor="lastname">Last Name</label>
           <input
             id="lastname"

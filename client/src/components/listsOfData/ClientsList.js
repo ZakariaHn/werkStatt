@@ -14,10 +14,15 @@ export const ClientsList = (props) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const myClients = useSelector((state) => state.clients.clientsArray);
+  const foundClient = useSelector((state) => state.clients.foundClients);
 
   useEffect(() => {
     dispatch(fetchClientsAction());
-  }, [dispatch]);
+  }, []);
+
+  // useEffect(() => {
+    
+  // }, [myClients]);
 
   const handleEditClient = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
@@ -39,7 +44,10 @@ export const ClientsList = (props) => {
   };
 
   const renderLists = () => {
-    return myClients.map((client, index) => (
+    let render;
+
+    foundClient.length > 0 ? render = foundClient : render = myClients;
+    return render.map((client, index) => (
       <div className="li-buttons-wrapper" key={client._id}>
         <ListItem
           button

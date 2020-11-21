@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   CLICKED,
   TARGET_OPERATION,
-  TARGET_CAR,
+  SET_TARGET,
 } from "../../store/actions/types";
 
 // Render data from an mongoDB in lists. Clients/ cars/ operations
@@ -50,13 +50,15 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
-    dispatch({ type: TARGET_CAR, payload: targetCar });
+    dispatch({ type: SET_TARGET, payload: targetCar });
     dispatch({ type: CLICKED, payload: "targetCar" });
   };
 
   const handleCars = (cars) => (
-    <select onChange={handleCarChange}>
-      <option>Cars</option>
+    <select value="1" onChange={handleCarChange}>
+      <option value="1" disabled>
+        Cars
+      </option>
       {cars.map((car) => (
         <option key={id()} value={car.carModel}>
           {car.carModel}
@@ -74,8 +76,10 @@ export const GetSelectedItem = ({ target }) => {
   };
 
   const handleOperations = (ops) => (
-    <select onChange={handleOperationChange}>
-      <option>Operations</option>
+    <select value="1" onChange={handleOperationChange}>
+      <option value="1" disabled>
+        Operations
+      </option>
       {ops.map((op) => (
         <option key={id()} value={op.name}>
           {op.name}
