@@ -11,11 +11,10 @@ import {
 
 export const GetSelectedItem = ({ target }) => {
   const { cars, ops, firstname, lastname, carModel } = target;
-  // delete target._id;
   const dispatch = useDispatch();
 
+  let listItems = [];
   const handleTargetObject = (target) => {
-    let listItems = [];
     for (const [key, value] of Object.entries(target)) {
       if (key !== "cars" && key !== "ops") {
         listItems.push(
@@ -57,7 +56,7 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCars = (cars) => (
     <select onChange={handleCarChange}>
-      <option>Operations</option>
+      <option>Cars</option>
       {cars.map((car) => (
         <option key={id()} value={car.carModel}>
           {car.carModel}

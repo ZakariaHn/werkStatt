@@ -1,5 +1,5 @@
 .landing-page {
-  width: 100%;
+  width: 100vw;
   height: 100%;
 
   .navBar {
@@ -80,7 +80,7 @@
     }
 
     .login-form {
-      width: 100%;
+      width: 99vw;
       height: 60%;
       @include flex-column-center-center;
 
@@ -138,12 +138,13 @@
           }
         }
       }
+
       .forgot-password {
         @include flex-column-center-center;
-
+        margin-bottom: 4rem;
         :nth-child(1) {
           letter-spacing: 2px;
-          transition: 1s;
+          transition: 0.5s;
           border-bottom: 2px solid $backGround-dark;
           cursor: pointer;
           &:hover {
@@ -178,7 +179,7 @@
 }
 
 .about-page {
-  width: 100%;
+  width: 99vw;
   height: 60%;
   display: flex;
   align-items: center;
@@ -190,7 +191,7 @@
     color: $backGround-dark;
   }
 
-  text {
+  p {
     width: 60%;
     line-height: 2rem;
     font-size: 1.4rem;

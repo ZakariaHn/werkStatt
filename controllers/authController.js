@@ -55,16 +55,12 @@ exports.registerUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  //Validate input data using a separate joi validation file
-
   const { error } = loginValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  //Check if email already exists
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("Email does not exist !");
 
-  //Check if password is correct
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) return res.status(400).send("Invalid password !");
 

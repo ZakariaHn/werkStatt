@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { Footer } from "../footer";
@@ -9,6 +9,31 @@ import { SignInForm } from "./SignInForm";
 import { About } from "./About";
 
 export const Landing = () => {
+  const [Transition] = useState({
+    pageVariants: {
+      initial: {
+        opacity: 0,
+        x: "-10vw",
+        scale: 0.2,
+      },
+      in: {
+        opacity: 1,
+        scale: 1,
+      },
+      out: {
+        opacity: 0,
+        scale: 2,
+      },
+    },
+    pageTransition: {
+      type: "tween",
+      ease: "anticipate",
+      duration: 1,
+    },
+    pageStyle: {
+      position: "absolute",
+    },
+  });
   const loginHeader = () => (
     <div className="login-header">
       <div>
@@ -27,11 +52,11 @@ export const Landing = () => {
         {loginHeader()}
 
         {isClicked === "signUpClicked" ? (
-          <SignUpForm />
+          <SignUpForm Transition={Transition} />
         ) : isClicked === "AboutTabClicked" ? (
           <About />
         ) : (
-          <SignInForm />
+          <SignInForm Transition={Transition} />
         )}
       </div>
       <Footer />

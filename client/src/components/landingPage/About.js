@@ -43,13 +43,14 @@ export const About = () => {
       className="about-page"
     >
       <strong> What exactly do we offer? </strong>
-      <text>
+      <p>
         With our software you can quickly and easily call up and record all
-        information about your customers and customer vehicles. such as create
-        customer with vehicle. This data can be adopted at any time with just
-        one click. With our master data management software you always know when
-        and what has been done on the vehicles.
-      </text>
+        information about your customers and there vehicles. such as create
+        customer with vehicle, as well as registiring operation for each
+        vehicle. This data can be adopted at any time with just one click. With
+        our master data management software you always know when and what has
+        been done on the vehicles.
+      </p>
     </motion.div>
   );
 };

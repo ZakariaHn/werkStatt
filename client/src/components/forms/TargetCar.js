@@ -4,12 +4,10 @@ import { useSelector } from "react-redux";
 
 export const TargetCar = () => {
   const car = useSelector((state) => state.cars.car);
+  console.log(car);
   const client = useSelector((state) => state.target.item);
 
   const handleTargetCar = (car) => {
-    // delete car._id;
-    // delete car.ownerId;
-
     let listItems = [];
     for (const [key, value] of Object.entries(car)) {
       listItems.push(
@@ -22,23 +20,34 @@ export const TargetCar = () => {
         </li>
       );
     }
-
     return listItems;
   };
+
+  const handleOperations = (ops) => (
+    <select>
+      <option>Operations</option>
+      {ops.map((op) => (
+        <option key={id()} value={op.name}>
+          {op.name}
+        </option>
+      ))}
+    </select>
+  );
+
+  let firstName = client.firstname[0].toUpperCase() + client.firstname.slice(1);
+  let lastName = client.lastname[0].toUpperCase() + client.lastname.slice(1);
+  let carModel = car[0].carModel[0].toUpperCase() + car[0].carModel.slice(1);
 
   return (
     <div className="targetCarWrapper">
       <div className="selected-item-header">
+        <small>Car: {carModel}</small>
         <small>
-          Car: {car[0].carModel[0].toUpperCase() + car[0].carModel.slice(1)}
-        </small>
-        <small>
-          Owner:{" "}
-          {client.firstname[0].toUpperCase() + client.firstname.slice(1) + " "}
-          {client.lastname[0].toUpperCase() + client.lastname.slice(1)}
+          Owner: {firstName} {lastName}
         </small>
       </div>
       <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
+      {car.ops && handleOperations(car.ops)}
     </div>
   );
 };

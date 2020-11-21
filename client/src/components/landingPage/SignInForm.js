@@ -1,19 +1,14 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 import { CLICKED } from "../../store/actions/types";
 import { loginAction } from "../../store/actions/authActions";
 
-export const SignInForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+export const SignInForm = (props) => {
   const dispatch = useDispatch();
-
-  const onSignUp = () => {
-    dispatch({
-      type: CLICKED,
-      payload: "signUpClicked",
-    });
-  };
+  const { register, handleSubmit, errors } = useForm();
+  const { pageStyle, pageVariants, pageTransition } = props.Transition;
 
   const onSignIn = (data) => {
     console.log(data);
@@ -22,10 +17,26 @@ export const SignInForm = () => {
       password: "asdfasdf",
     };
 
-    dispatch(loginAction(registerData)); // dispatching type and payload inside this dispatched action
+    dispatch(loginAction(registerData));
   };
+
+  const onSignUp = () => {
+    dispatch({
+      type: CLICKED,
+      payload: "signUpClicked",
+    });
+  };
+
   return (
-    <div className="login-form">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="login-form"
+    >
       <strong>PLEASE SIGN IN</strong>
       <form onSubmit={handleSubmit(onSignIn)}>
         <div>
@@ -49,6 +60,6 @@ export const SignInForm = () => {
           Don't have an account? <span onClick={onSignUp}>Join Now</span>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
