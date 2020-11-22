@@ -102,15 +102,11 @@ export const NavBar = () => {
   };
 
   const placeHolder = () => {
-    if (search === "client") {
-      return "Enter Client Name";
-    } else if (search === "car") {
-      return "Enter Car Model";
-    } else if (search === "operation") {
-      return "Enter Operation Name";
-    } else {
-      return "What are you looking for?";
-    }
+    return search === "client"
+      ? "Enter Client Name"
+      : search === "car"
+      ? "Enter Car Model"
+      : "Enter Operation Name";
   };
 
   const userIcon = useSelector((state) => state.auth.user);
