@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { SelectedItemWrapper } from "./selectedItems/SelectedItemWrapper";
 import { ListsWrapper } from "./listsOfData/ListsWrapper";
 import { FormsWrapper } from "./forms/FormsWrapper";

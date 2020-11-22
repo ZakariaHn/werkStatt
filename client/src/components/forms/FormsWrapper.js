@@ -58,21 +58,30 @@ export const FormsWrapper = () => {
 
   return (
     <div className="registrationForms">
+      {isClicked === "" && <div className="logo">AUTOMOBUS</div>}
+
       {isClicked === "editCar" && <EditCar Transition={Transition} />}
+
       {isClicked === "addCar" && (
         <RegisterCar icons={icons} Transition={Transition} />
       )}
-      {isClicked === "targetCar" && <TargetCar Transition={Transition} />}
+
       {isClicked === "editClient" && <EditClient Transition={Transition} />}
+
       {isClicked === "addClient" && (
         <RegisterClient icons={icons} Transition={Transition} />
       )}
+
       {isClicked === "editOperation" && (
         <EditOperation Transition={Transition} />
       )}
+
       {isClicked === "addOperation" && (
         <RegisterOperation icons={icons} Transition={Transition} />
       )}
+
+      {isClicked === "targetCar" && <TargetCar Transition={Transition} />}
+
       {isClicked === "targetOperation" && (
         <TargetOperation Transition={Transition} />
       )}

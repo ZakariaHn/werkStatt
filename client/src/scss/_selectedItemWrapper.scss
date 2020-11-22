@@ -2,7 +2,12 @@
   border: 2px solid #a7a7a7;
   @include list-wrapper-style;
   position: relative;
-
+  .logo {
+    font-size: 20rem;
+    text-align: center;
+    margin-top: 30%;
+    color: rgba(253, 253, 253, 0.089);
+  }
   ul {
     @include ul-style;
     max-height: 80%;

@@ -1,12 +1,11 @@
 import React from "react";
 import { v4 as id } from "uuid";
-import { useDispatch, useSelector } from "react-redux";
-import { CLICKED, TARGET_CAR } from "../../store/actions/types";
+import { useSelector } from "react-redux";
 
 export const TargetCar = () => {
-  const car = useSelector((state) => state.cars.carsArray);
+  const car = useSelector((state) => state.cars.car);
   const client = useSelector((state) => state.target.item);
-  const dispatch = useDispatch();
+  console.log("this one", client);
 
   const handleTargetCar = (car) => {
     let listItems = [];
@@ -26,16 +25,8 @@ export const TargetCar = () => {
     return listItems;
   };
 
-  // const handleCarChange = (e) => {
-  //   const targetCar = cars.filter((car) => car.carModel === e.target.value);
-  //   dispatch({ type: TARGET_CAR, payload: targetCar });
-  //   dispatch({ type: CLICKED, payload: "targetCar" });
-  // };
   const handleOperations = (ops) => (
-    <select value="1">
-      <option value="1" disabled>
-        Operations
-      </option>
+    <select placeholder="Operations">
       {ops.map((op) => (
         <option key={id()} value={op.name}>
           {op.name}
@@ -44,8 +35,8 @@ export const TargetCar = () => {
     </select>
   );
 
-  let firstName = client.firstname[0].toUpperCase() + client.firstname.slice(1);
-  let lastName = client.lastname[0].toUpperCase() + client.lastname.slice(1);
+  let firstname = client.firstname[0].toUpperCase() + client.firstname.slice(1);
+  let lastname = client.lastname[0].toUpperCase() + client.lastname.slice(1);
   let carModel = car[0].carModel[0].toUpperCase() + car[0].carModel.slice(1);
 
   return (
@@ -53,10 +44,10 @@ export const TargetCar = () => {
       <div className="selected-item-header">
         <small>Car: {carModel}</small>
         <small>
-          Owner: {firstName} {lastName}
+          Owner: {firstname} {lastname}
         </small>
       </div>
-      <ul className="targetCarList">{handleTargetCar(car[2])}</ul>
+      <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
       {car.ops && handleOperations(car.ops)}
     </div>
   );

@@ -113,6 +113,8 @@ export const NavBar = () => {
     }
   };
 
+  const userIcon = useSelector((state) => state.auth.user);
+
   return (
     <div className="navBar">
       <div className="all">
@@ -167,8 +169,8 @@ export const NavBar = () => {
         </div>
       </div>
       <div className="setting">
-        <small>user name</small>{" "}
-        <small
+        <div>{userIcon.name[0].toUpperCase()}</div>
+        <span
           onClick={() =>
             dispatch({
               type: LOGOUT_SUCCESS,
@@ -177,7 +179,7 @@ export const NavBar = () => {
           }
         >
           Log out
-        </small>
+        </span>
       </div>
     </div>
   );

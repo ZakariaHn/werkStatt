@@ -5,12 +5,13 @@ import {
   CLICKED,
   TARGET_OPERATION,
   SET_TARGET,
+  TARGET_CAR,
 } from "../../store/actions/types";
 
-// Render data from an mongoDB in lists. Clients/ cars/ operations
+// Render data from  mongoDB in lists. Clients/ cars/ operations
 
 export const GetSelectedItem = ({ target }) => {
-  const { cars, ops, firstname, lastname, carModel } = target;
+  const { cars, ops, firstname, lastname, carModel, name } = target;
   const dispatch = useDispatch();
 
   let listItems = [];
@@ -41,7 +42,14 @@ export const GetSelectedItem = ({ target }) => {
               lastname[0].toUpperCase() + lastname.slice(1)
             }`}
           {ops && `${carModel[0].toUpperCase() + carModel.slice(1)}`}
+          {name && `${name[0].toUpperCase() + name.slice(1)}`}{" "}
         </small>
+        {/* <small
+          className="close"
+          onClick={() => dispatch({ type: TARGET_CAR, payload: {} })}
+        >
+          x
+        </small> */}
       </div>
     );
   };
@@ -50,7 +58,7 @@ export const GetSelectedItem = ({ target }) => {
 
   const handleCarChange = (e) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
-    dispatch({ type: SET_TARGET, payload: targetCar });
+    dispatch({ type: TARGET_CAR, payload: targetCar });
     dispatch({ type: CLICKED, payload: "targetCar" });
   };
 

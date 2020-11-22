@@ -16,7 +16,7 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="navBar">
+    <div className="landing-pag-nav-bar">
       <div className="logo">
         <FontAwesomeIcon icon={faLaravel} />
         <small>AUTOMOBUS</small>
