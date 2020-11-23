@@ -17,6 +17,7 @@ export const CarsList = (props) => {
 
   const myCars = useSelector((state) => state.cars.carsArray);
   const foundCar = useSelector((state) => state.cars.foundCars);
+
   useEffect(() => {
     dispatch(fetchCarsAction());
   }, [dispatch]);
@@ -41,7 +42,7 @@ export const CarsList = (props) => {
   const renderLists = () => {
     let render;
 
-    foundCar.length > 0 ? render = foundCar : render = myCars;
+    foundCar.length > 0 ? (render = foundCar) : (render = myCars);
     return render.map((car, index) => (
       <div className="li-buttons-wrapper" key={id()}>
         <ListItem

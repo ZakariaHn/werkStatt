@@ -109,7 +109,16 @@ export const NavBar = () => {
       : "Enter Operation Name";
   };
 
-  const userIcon = useSelector((state) => state.auth.user);
+  // Set first letter of first and seconde name of registered user in the navBar
+  // const userName = useSelector((state) => state.auth.user);
+
+  // const userIcon = () => {
+  //   let matches = userName.name.match(/\b(\w)/g).join("");
+  //   let firstLetter = matches[0].toUpperCase();
+  //   let secondeLetter = matches[1].toUpperCase();
+  //   let icon = firstLetter + secondeLetter;
+  //   return;
+  // };
 
   return (
     <div className="navBar">
@@ -165,7 +174,7 @@ export const NavBar = () => {
         </div>
       </div>
       <div className="setting">
-        <div>{userIcon.name[0].toUpperCase()}</div>
+        <div>FA</div>
         <span
           onClick={() =>
             dispatch({

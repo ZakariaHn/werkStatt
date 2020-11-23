@@ -1,10 +1,5 @@
 import { helpAddClient, helpFetchClients, helpEditClient } from "../helpers";
-import {
-  ADD_CLIENT_SUCCESS,
-  EDIT_CLIENT,
-  ERROR_MSG,
-  GET_CLIENTS,
-} from "./types";
+import { ADD_CLIENT, EDIT_CLIENT, ERROR_MSG, GET_CLIENTS } from "./types";
 
 export const fetchClientsAction = () => async (dispatch) => {
   const response = await helpFetchClients();
@@ -25,7 +20,7 @@ export const addClientAction = (newClient) => async (dispatch) => {
   try {
     const response = await helpAddClient(body, config);
     dispatch({
-      type: ADD_CLIENT_SUCCESS,
+      type: ADD_CLIENT,
       payload: response.data,
     });
   } catch (error) {

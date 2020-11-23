@@ -10,7 +10,7 @@ export const EDIT_CLIENT = "EDIT_CLIENT";
 export const FIND_CLIENTS = "FIND_CLIENTS";
 export const DELETE_CLIENT = "DELETE_CLIENT";
 export const ADD_CLIENT_FAIL = "ADD_CLIENT_FAIL";
-export const ADD_CLIENT_SUCCESS = "ADD_CLIENT_SUCCESS";
+export const ADD_CLIENT = "ADD_CLIENT";
 
 // Cars Actions types
 export const SET_CAR = "SET_CAR";

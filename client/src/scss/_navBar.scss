@@ -120,10 +120,10 @@
     div {
       color: $backGround-dark;
       font-weight: bold;
-      font-size: large;
+      font-size: 1rem;
       margin-top: 0.4rem;
-      width: 1.7rem;
-      height: 1.7rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: 50%;
       background-color: #cecccc;
       @include flex-center-center;
@@ -132,7 +132,10 @@
       cursor: pointer;
       font-size: smaller;
       color: #cecccc;
-      border-bottom: 1px solid #cecccc;
+      margin-bottom: 0.2rem;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }

@@ -126,7 +126,9 @@ export const RegisterClient = (props) => {
         {/* {error && <p className="form-error" style={{ textAlign: "center" }}>{error}</p>}
             {errorMsg && <p className="form-error" style={{ textAlign: "center" }}>{errorMsg}</p>} */}
 
-        <button type="submit">SUBMIT</button>
+        <button className="btn" type="submit">
+          SUBMIT
+        </button>
       </form>
     </motion.div>
   );

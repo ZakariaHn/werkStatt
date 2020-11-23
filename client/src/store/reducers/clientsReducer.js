@@ -4,6 +4,7 @@ import {
   EDIT_CLIENT,
   FIND_CLIENTS,
   ERROR_MSG,
+  ADD_CLIENT,
 } from "../actions/types";
 import { helpDeleteClient, helpEditClient } from "../helpers";
 
@@ -22,6 +23,12 @@ const clientsReducer = (state = initialState, action) => {
       return {
         ...state,
         clientsArray: payload,
+      };
+
+    case ADD_CLIENT:
+      return {
+        ...state,
+        clientsArray: [payload, ...state.clientsArray],
       };
 
     case FIND_CLIENTS:

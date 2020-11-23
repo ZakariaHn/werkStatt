@@ -21,7 +21,7 @@ export const ClientsList = (props) => {
   }, []);
 
   // useEffect(() => {
-    
+
   // }, [myClients]);
 
   const handleEditClient = (client) => {
@@ -46,7 +46,7 @@ export const ClientsList = (props) => {
   const renderLists = () => {
     let render;
 
-    foundClient.length > 0 ? render = foundClient : render = myClients;
+    foundClient.length > 0 ? (render = foundClient) : (render = myClients);
     return render.map((client, index) => (
       <div className="li-buttons-wrapper" key={client._id}>
         <ListItem
