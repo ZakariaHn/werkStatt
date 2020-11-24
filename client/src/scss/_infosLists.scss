@@ -20,7 +20,6 @@
 
     .lists {
       border: 2px solid #a7a7a7;
-
       @include list-wrapper-style;
 
       ul {
@@ -47,11 +46,11 @@
 
       .buttonWrapper {
         @include buttons-wrapper-style;
-        width: 30%;
-        height: 10%;
-        bottom: 12%;
+        width: 32%;
+        height: 10vh;
+        bottom: 11%;
+        border-radius: 1rem;
         position: absolute;
-
         button {
           @include buttons-style;
         }

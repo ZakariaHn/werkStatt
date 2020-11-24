@@ -1,12 +1,12 @@
 import {
-  USER_LOADED,
   USER_LOADING,
-  LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  LOGOUT_SUCCESS,
+  USER_LOADED,
   REGISTER_SUCCESS,
-  REGISTER_FAIL,
+  LOGIN_SUCCESS,
   AUTH_ERROR,
+  LOGIN_FAIL,
+  REGISTER_FAIL,
+  LOGOUT_SUCCESS,
 } from "../actions/types";
 
 const initialState = {
@@ -17,9 +17,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  const { type, payload } = action;
-
-  switch (type) {
+  switch (action.type) {
     case USER_LOADING:
       return {
         ...state,
@@ -32,18 +30,18 @@ export default function (state = initialState, action) {
         ...state,
         isAuthenticated: true,
         isLoading: false,
-        user: { ...state.user, ...payload },
+        user: { ...state.user, ...action.payload },
         errorMsg: "",
       };
       return loadedState;
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      localStorage.setItem("auth-token", payload.token);
+      localStorage.setItem("auth-token", action.payload.token);
       let loggedState = {
         ...state,
         token: localStorage.getItem("auth-token"),
-        user: { ...state.user, ...payload },
+        user: { ...state.user, ...action.payload }, // cuz payload already has user and token sent from api
         isAuthenticated: true,
         isLoading: false,
         errorMsg: "",
@@ -60,7 +58,7 @@ export default function (state = initialState, action) {
         user: null,
         isAuthenticated: false,
         isLoading: false,
-        errorMsg: payload,
+        errorMsg: action.payload,
       };
 
     case LOGOUT_SUCCESS:
@@ -71,7 +69,7 @@ export default function (state = initialState, action) {
         user: null,
         isAuthenticated: false,
         isLoading: false,
-        errorMsg: payload,
+        errorMsg: action.payload,
       };
 
     default:

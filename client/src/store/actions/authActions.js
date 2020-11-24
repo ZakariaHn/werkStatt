@@ -1,16 +1,18 @@
 import { helpRegisterUser } from "../helpers/index";
 import { helpLoginUser } from "../helpers/index";
 import { helpFetchMe } from "../helpers/index";
+import { fetchClientsAction } from "./clientsActions";
+import { fetchCarsAction } from "./carsActions";
 import {
   USER_LOADED,
-  USER_LOADING,
+  AUTH_ERROR,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
-  REGISTER_SUCCESS,
-  REGISTER_FAIL,
-  AUTH_ERROR,
-} from "../actions/types";
+  USER_LOADING,
+} from "./types";
 
 export const loadUser = () => async (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
@@ -23,6 +25,9 @@ export const loadUser = () => async (dispatch, getState) => {
         type: USER_LOADED,
         payload: response.data,
       });
+
+      dispatch(fetchClientsAction()); // is it best practice to dispatch these actions here and on login ??
+      dispatch(fetchCarsAction());
     } catch (error) {
       dispatch({
         type: AUTH_ERROR,
@@ -37,7 +42,6 @@ export const registerAction = (registerData) => async (dispatch) => {
       "Content-type": "application/json",
     },
   };
-
   const body = JSON.stringify(registerData);
 
   try {
@@ -68,6 +72,9 @@ export const loginAction = (loginData) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: response.data,
     });
+
+    dispatch(fetchClientsAction());
+    dispatch(fetchCarsAction());
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
@@ -90,6 +97,7 @@ export const tokenConfig = (token) => {
   };
 
   if (token) {
+    config.headers["auth-token"] = token; // try this on other objs
   }
   return config;
 };

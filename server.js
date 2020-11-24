@@ -12,6 +12,8 @@ dotenv.config();
 
 // Import Routes_________________________________________
 
+const authRoute = require("./routes/auth");
+// const usersRoute = require("./routes/users");
 const carsRoute = require("./routes/cars");
 const clientsRoute = require("./routes/clients");
 const operationsRoute = require("./routes/operations");
@@ -33,6 +35,7 @@ mongoose
 
 // Set Routes____________________________________________
 
+app.use("/api/auth", authRoute);
 app.use("/api/clients", clientsRoute);
 app.use("/api/cars", carsRoute);
 app.use("/api/operations", operationsRoute);

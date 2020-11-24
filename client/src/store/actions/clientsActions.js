@@ -1,5 +1,5 @@
 import { helpAddClient, helpFetchClients, helpEditClient } from "../helpers";
-import { ADD_CLIENT_SUCCESS, EDIT_CLIENT, GET_CLIENTS } from "./types";
+import { ADD_CLIENT, EDIT_CLIENT, ERROR_MSG, GET_CLIENTS } from "./types";
 
 export const fetchClientsAction = () => async (dispatch) => {
   const response = await helpFetchClients();
@@ -15,14 +15,19 @@ export const addClientAction = (newClient) => async (dispatch) => {
       "Content-type": "application/json",
     },
   };
+
   const body = JSON.stringify(newClient);
   try {
     const response = await helpAddClient(body, config);
     dispatch({
-      type: ADD_CLIENT_SUCCESS,
+      type: ADD_CLIENT,
       payload: response.data,
     });
   } catch (error) {
+    dispatch({
+      type: ERROR_MSG,
+      payload: error.response.data,
+    });
     console.log(error);
   }
 };

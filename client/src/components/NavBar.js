@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import { TAB_CLICKED } from "../store/actions/types";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch, useSelector } from "react-redux";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  TAB_CLICKED,
+  FIND_CLIENTS,
+  FIND_CARS,
+  LOGOUT_SUCCESS,
+} from "../store/actions/types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,8 +26,9 @@ export const NavBar = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
+  const [search, setSearch] = useState("client");
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [search, setSearch] = useState("");
+
   /* Functions determines the selected Tab in the navbar*/
 
   const clientsList = () => {
@@ -32,6 +37,11 @@ export const NavBar = () => {
       type: TAB_CLICKED,
       payload: "clientsList",
     });
+
+    dispatch({
+      type: FIND_CLIENTS,
+      payload: "",
+    });
   };
 
   const carsList = () => {
@@ -39,6 +49,10 @@ export const NavBar = () => {
     dispatch({
       type: TAB_CLICKED,
       payload: "carsList",
+    });
+    dispatch({
+      type: FIND_CARS,
+      payload: "",
     });
   };
 
@@ -52,20 +66,34 @@ export const NavBar = () => {
 
   // Handling search bar _______________________________________
 
-  let client = useSelector((state) => state.clients.clientsArray);
-  let car = useSelector((state) => state.cars.carsArray);
+  let myClients = useSelector((state) => state.clients.clientsArray);
+  let myCars = useSelector((state) => state.cars.carsArray);
 
   const handleInputOnChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
-    console.log(client, car);
   };
 
   if (input.length > 0) {
-    client = client.filter((i) => i.lastname.match(input));
-    car = car.filter((i) => i.carModel.match(input));
+    if (search === "client") {
+      let foundClients = myClients.filter(
+        (client) => client.lastname.toLowerCase() === input
+      );
 
-    console.log(input);
+      dispatch({
+        type: FIND_CLIENTS,
+        payload: foundClients,
+      });
+    } else {
+      let foundCars = myCars.filter((car) =>
+        car.carModel.toLowerCase().match(input)
+      );
+
+      dispatch({
+        type: FIND_CARS,
+        payload: foundCars,
+      });
+    }
   }
 
   const handleSelectOnChange = (e) => {
@@ -73,29 +101,24 @@ export const NavBar = () => {
     setSearch(e.target.value);
   };
 
-  // if (search === "client") {
-  //   dispatch({
-  //     type: TAB_CLICKED,
-  //     payload: "clientsList",
-  //   });
-  // } else if (search === "car") {
-  //   dispatch({
-  //     type: TAB_CLICKED,
-  //     payload: "carsList",
-  //   });
-  // }
-
   const placeHolder = () => {
-    if (search === "client") {
-      return "Enter Client Name";
-    } else if (search === "car") {
-      return "Enter plate Number";
-    } else if (search === "operation") {
-      return "Enter Operation Name";
-    } else {
-      return "What are you looking for?";
-    }
+    return search === "client"
+      ? "Enter Client Name"
+      : search === "car"
+      ? "Enter Car Model"
+      : "Enter Operation Name";
   };
+
+  // Set first letter of first and seconde name of registered user in the navBar
+  // const userName = useSelector((state) => state.auth.user);
+
+  // const userIcon = () => {
+  //   let matches = userName.name.match(/\b(\w)/g).join("");
+  //   let firstLetter = matches[0].toUpperCase();
+  //   let secondeLetter = matches[1].toUpperCase();
+  //   let icon = firstLetter + secondeLetter;
+  //   return;
+  // };
 
   return (
     <div className="navBar">
@@ -104,6 +127,7 @@ export const NavBar = () => {
           <FontAwesomeIcon icon={faLaravel} />
           <small>AUTOMOBUS</small>
         </div>
+
         <List className="taps">
           <ListItem
             button
@@ -143,7 +167,6 @@ export const NavBar = () => {
           />
 
           <select onChange={handleSelectOnChange}>
-            <option>I'm looking for...</option>
             <option value="client">Client</option>
             <option value="car">Car</option>
             <option value="operation">Operation</option>
@@ -151,8 +174,17 @@ export const NavBar = () => {
         </div>
       </div>
       <div className="setting">
-        <FontAwesomeIcon icon={faUserCircle} />
-        <FontAwesomeIcon icon={faCog} />
+        <div>FA</div>
+        <span
+          onClick={() =>
+            dispatch({
+              type: LOGOUT_SUCCESS,
+              payload: "",
+            })
+          }
+        >
+          Log out
+        </span>
       </div>
     </div>
   );

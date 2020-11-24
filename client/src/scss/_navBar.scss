@@ -107,14 +107,35 @@
       }
     }
   }
-}
+  .setting {
+    padding-left: 0.5rem;
+    height: 100%;
+    width: 6%;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 
-.setting {
-  margin-right: 2rem;
-  @include flex-center-center;
-
-  * {
-    margin-left: 2rem;
-    font-size: larger;
+    div {
+      color: $backGround-dark;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 0.4rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #cecccc;
+      @include flex-center-center;
+    }
+    span {
+      cursor: pointer;
+      font-size: smaller;
+      color: #cecccc;
+      margin-bottom: 0.2rem;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addClientAction } from "../../store/actions/clientsActions";
 import { CLICKED } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
 export const RegisterClient = (props) => {
   const dispatch = useDispatch();
@@ -13,9 +14,19 @@ export const RegisterClient = (props) => {
     dispatch({ type: CLICKED, payload: "" });
   };
 
-  const { icons } = props;
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
+
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Register new client</small>
         <small
@@ -26,7 +37,7 @@ export const RegisterClient = (props) => {
         </small>
       </div>
       <form onSubmit={handleSubmit(onSubmitForm)}>
-        <div className="form-control success">
+        <div className="form-control">
           <label htmlFor="firstname">First Name</label>
           <input
             type="text"
@@ -42,7 +53,7 @@ export const RegisterClient = (props) => {
           <small>At least 2 characters long!</small>
         </div>
 
-        <div className="form-control error">
+        <div className="form-control">
           <label htmlFor="lastname">Last Name</label>
           <input
             id="lastname"
@@ -115,8 +126,10 @@ export const RegisterClient = (props) => {
         {/* {error && <p className="form-error" style={{ textAlign: "center" }}>{error}</p>}
             {errorMsg && <p className="form-error" style={{ textAlign: "center" }}>{errorMsg}</p>} */}
 
-        <button type="submit">SUBMIT</button>
+        <button className="btn" type="submit">
+          SUBMIT
+        </button>
       </form>
-    </div>
+    </motion.div>
   );
 };

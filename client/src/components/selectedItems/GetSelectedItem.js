@@ -4,18 +4,18 @@ import { useDispatch } from "react-redux";
 import {
   CLICKED,
   TARGET_OPERATION,
+  SET_TARGET,
   TARGET_CAR,
 } from "../../store/actions/types";
 
-// Render data from an mongoDB in lists. Clients/ cars/ operations
+// Render data from  mongoDB in lists. Clients/ cars/ operations
 
 export const GetSelectedItem = ({ target }) => {
-  const { cars, ops, firstname, lastname, carModel } = target;
-  // delete target._id;
+  const { cars, ops, firstname, lastname, carModel, name } = target;
   const dispatch = useDispatch();
 
+  let listItems = [];
   const handleTargetObject = (target) => {
-    let listItems = [];
     for (const [key, value] of Object.entries(target)) {
       if (key !== "cars" && key !== "ops") {
         listItems.push(
@@ -42,7 +42,14 @@ export const GetSelectedItem = ({ target }) => {
               lastname[0].toUpperCase() + lastname.slice(1)
             }`}
           {ops && `${carModel[0].toUpperCase() + carModel.slice(1)}`}
+          {name && `${name[0].toUpperCase() + name.slice(1)}`}{" "}
         </small>
+        {/* <small
+          className="close"
+          onClick={() => dispatch({ type: TARGET_CAR, payload: {} })}
+        >
+          x
+        </small> */}
       </div>
     );
   };
@@ -56,8 +63,10 @@ export const GetSelectedItem = ({ target }) => {
   };
 
   const handleCars = (cars) => (
-    <select onChange={handleCarChange}>
-      <option>Operations</option>
+    <select value="1" onChange={handleCarChange}>
+      <option value="1" disabled>
+        Cars
+      </option>
       {cars.map((car) => (
         <option key={id()} value={car.carModel}>
           {car.carModel}
@@ -75,8 +84,10 @@ export const GetSelectedItem = ({ target }) => {
   };
 
   const handleOperations = (ops) => (
-    <select onChange={handleOperationChange}>
-      <option>Operations</option>
+    <select value="1" onChange={handleOperationChange}>
+      <option value="1" disabled>
+        Operations
+      </option>
       {ops.map((op) => (
         <option key={id()} value={op.name}>
           {op.name}

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { addOperationAction } from "../../store/actions/operationsAction";
 import { CLICKED } from "../../store/actions/types";
+import { motion } from "framer-motion";
 
 export const RegisterOperation = (props) => {
   const { handleSubmit, register, errors } = useForm();
@@ -15,10 +16,19 @@ export const RegisterOperation = (props) => {
     dispatch({ type: CLICKED, payload: "" });
   };
 
-  const { icons } = props;
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   return (
-    <div className="container">
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
       <div className="header">
         <small>Register new operation</small>
         <small
@@ -113,6 +123,6 @@ export const RegisterOperation = (props) => {
           <button type="submit">SUBMIT</button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };

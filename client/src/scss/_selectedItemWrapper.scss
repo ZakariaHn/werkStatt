@@ -2,8 +2,12 @@
   border: 2px solid #a7a7a7;
   @include list-wrapper-style;
   position: relative;
-  height: 90%;
-
+  .logo {
+    font-size: 20rem;
+    text-align: center;
+    margin-top: 30%;
+    color: rgba(253, 253, 253, 0.089);
+  }
   ul {
     @include ul-style;
     max-height: 80%;
@@ -21,9 +25,11 @@
 
   .buttonWrapper {
     @include buttons-wrapper-style;
-    position: absolute;
-    bottom: 0;
+    width: 100%;
+    bottom: 0.7%;
 
+    border-radius: 1rem;
+    position: absolute;
     button {
       @include buttons-style;
     }

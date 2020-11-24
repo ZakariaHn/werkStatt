@@ -13,6 +13,7 @@ export const ListsWrapper = () => {
     },
     selected: {
       color: "#e74c3c",
+      background: "#e74c3c",
     },
   }));
 

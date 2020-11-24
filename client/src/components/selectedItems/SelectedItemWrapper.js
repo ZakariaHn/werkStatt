@@ -2,6 +2,8 @@ import React from "react";
 import { GetSelectedItem } from "./GetSelectedItem";
 import { useDispatch, useSelector } from "react-redux";
 import { CLICKED } from "../../store/actions/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 
 export const SelectedItemWrapper = () => {
   const target = useSelector((state) => state.target.item);
@@ -42,6 +44,11 @@ export const SelectedItemWrapper = () => {
 
   return (
     <div className="details">
+      {Object.keys(target).length === 0 && (
+        <div className="logo">
+          <FontAwesomeIcon icon={faLaravel} />
+        </div>
+      )}
       {Object.keys(target).length > 0 && <GetSelectedItem target={target} />}
       {handleAddButton()}
     </div>

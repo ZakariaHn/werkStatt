@@ -12,7 +12,8 @@ import {
 import ListItem from "@material-ui/core/ListItem";
 
 export const OperationsList = (props) => {
-  const classes = props.styles();
+  const { styles, Transition } = props;
+  const classes = styles();
 
   const dispatch = useDispatch();
 
