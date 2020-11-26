@@ -3,10 +3,10 @@ const carSchema = require("./car-schema");
 
 const reqStrMax = {
   type: String,
-      required: true,
-      max: 30,
-      min: 2,
-}
+  required: true,
+  max: 30,
+  min: 2,
+};
 
 const clientSchema = new mongoose.Schema(
   {

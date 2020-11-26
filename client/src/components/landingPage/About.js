@@ -45,7 +45,7 @@ export const About = () => {
       <strong> What exactly do we offer? </strong>
       <p>
         With our software you can quickly and easily call up and record all
-        information about your customers and there vehicles. such as create
+        information about your customers and their vehicles. such as create
         customer with vehicle, as well as registiring operation for each
         vehicle. This data can be adopted at any time with just one click. With
         our master data management software you always know when and what has

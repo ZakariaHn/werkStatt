@@ -19,13 +19,13 @@ exports.getClient = async (req, res, next) => {
 };
 
 exports.addClient = async (req, res, next) => {
-  try {
-    const client = new ClientModel(req.body);
-    await client.save();
-    res.status(200).json(client);
-  } catch (error) {
-    console.log(error);
-  }
+  //Check if user already exists
+  const emailExists = await ClientModel.findOne({ email: req.body.email }); // how to use this inside a try catch block
+  if (emailExists) return res.status(400).send("Email already exists !");
+
+  const client = new ClientModel(req.body);
+  await client.save();
+  res.status(200).json(client);
 };
 
 exports.deleteClient = async (req, res, next) => {
@@ -39,7 +39,9 @@ exports.deleteClient = async (req, res, next) => {
 
 exports.updateClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findByIdAndUpdate(req.params._id,{
+    const client = await ClientModel.findByIdAndUpdate(
+      req.params._id,
+      {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
