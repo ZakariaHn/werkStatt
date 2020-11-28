@@ -37,9 +37,10 @@ const carsReducer = (state = initialState, action) => {
       };
 
     case TARGET_CAR:
+      // helpFetchCarOps(payload._id);
       return {
         ...state,
-        car: payload,
+        car: payload
       };
 
     default:

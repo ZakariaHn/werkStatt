@@ -7,6 +7,7 @@ import {
   SET_TARGET,
   TARGET_CAR,
 } from "../../store/actions/types";
+import { fetchCarOperationsAction } from "../../store/actions/operationsAction";
 
 // Render data from  mongoDB in lists. Clients/ cars/ operations
 
@@ -60,6 +61,8 @@ export const GetSelectedItem = ({ target }) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: TARGET_CAR, payload: targetCar });
     dispatch({ type: CLICKED, payload: "targetCar" });
+    let carId = targetCar[0]._id
+    dispatch(fetchCarOperationsAction(carId));
   };
 
   const handleCars = (cars) => (
@@ -81,6 +84,7 @@ export const GetSelectedItem = ({ target }) => {
     const targetOperation = ops.filter((op) => op.name === e.target.value);
     dispatch({ type: TARGET_OPERATION, payload: targetOperation });
     dispatch({ type: CLICKED, payload: "targetOperation" });
+    
   };
 
   const handleOperations = (ops) => (

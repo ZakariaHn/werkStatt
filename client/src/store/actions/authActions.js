@@ -78,7 +78,7 @@ export const loginAction = (loginData) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: LOGIN_FAIL,
-      payload: error.response.data,
+      payload: error,
     });
   }
 };

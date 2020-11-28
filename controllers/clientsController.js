@@ -1,4 +1,6 @@
 const ClientModel = require("../models/ClientModel");
+const CarModel = require("../models/CarModel");
+const OperationModel = require("../models/OperationModel");
 
 exports.getClients = async (req, res, next) => {
   try {
@@ -30,7 +32,14 @@ exports.addClient = async (req, res, next) => {
 
 exports.deleteClient = async (req, res, next) => {
   try {
-    const client = await ClientModel.findByIdAndDelete(req.params._id);
+    const client = await ClientModel.findById(req.params._id);
+    const clientCars = await CarModel.find({ ownerId: client._id })
+    const clientCarsIds = clientCars.map(car => car._id);
+    for (const id of clientCarsIds) {
+      await OperationModel.deleteMany({ carId: id });
+    }
+    await CarModel.deleteMany({ ownerId: client._id });
+    client.remove();
     return res.status(200).json(client);
   } catch (error) {
     res.status(404).send("Client was not found.");
