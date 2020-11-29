@@ -125,7 +125,7 @@ export const NavBar = () => {
       <div className="all">
         <div className="logo">
           <FontAwesomeIcon icon={faLaravel} />
-          <small>AUTOMOBUS</small>
+          <small>AutoMoBus</small>
         </div>
 
         <List className="taps">

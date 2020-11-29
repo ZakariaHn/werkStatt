@@ -31,7 +31,9 @@ export const ClientsList = (props) => {
 
   const handleDeleteClient = (client) => {
     if (
-      window.confirm(`Are you sure you want to delete ${client.lastname} ?`)
+      window.confirm(
+        `Are you sure you want to delete ${client.firstname} ${client.lastname}?`
+      )
     ) {
       return dispatch({ type: DELETE_CLIENT, payload: client._id });
     }

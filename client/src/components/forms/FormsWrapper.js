@@ -58,7 +58,7 @@ export const FormsWrapper = () => {
 
   return (
     <div className="registrationForms">
-      {isClicked === "" && <div className="logo">AUTOMOBUS</div>}
+      {isClicked === "" && <div className="logo">AutoMoBus</div>}
 
       {isClicked === "editCar" && <EditCar Transition={Transition} />}
 

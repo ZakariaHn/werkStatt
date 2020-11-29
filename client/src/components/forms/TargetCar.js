@@ -11,7 +11,7 @@ export const TargetCar = () => {
   const handleTargetCar = (car) => {
     let listItems = [];
     for (const [key, value] of Object.entries(car)) {
-      if (key !== "ops" && key !== "_id") {
+      if (key !== "ops" && key !== "_id" && key !== "carModel") {
         listItems.push(
           <li key={id()}>
             {key[0].toUpperCase() +

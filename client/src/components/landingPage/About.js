@@ -6,8 +6,6 @@ export const About = () => {
     pageVariants: {
       initial: {
         opacity: 0,
-        y: "-100vw",
-        scale: 0.8,
       },
       in: {
         opacity: 1,
@@ -17,7 +15,6 @@ export const About = () => {
       out: {
         opacity: 0,
         x: "100vw",
-        scale: 1.2,
       },
     },
     pageTransition: {

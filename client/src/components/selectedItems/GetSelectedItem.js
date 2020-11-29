@@ -7,12 +7,14 @@ import {
   TARGET_CAR,
 } from "../../store/actions/types";
 import { fetchCarOperationsAction } from "../../store/actions/operationsAction";
+import { motion } from "framer-motion";
 
 // Render data from  mongoDB in lists. Clients/ cars/ operations
 
-export const GetSelectedItem = ({ target }) => {
+export const GetSelectedItem = ({ target, Transition }) => {
   const { cars, ops, firstname, lastname, carModel, name } = target;
   const dispatch = useDispatch();
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   let listItems = [];
   const handleTargetObject = (target) => {
@@ -107,11 +109,22 @@ export const GetSelectedItem = ({ target }) => {
   );
 
   return (
-    <Fragment>
-      {handleHeader()}
-      <ul>{handleTargetObject(target)}</ul>
-      {cars && handleCars(cars)}
-      {ops && handleOperations(ops)}
-    </Fragment>
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
+      <Fragment>
+        {handleHeader()}
+
+        <ul>{handleTargetObject(target)}</ul>
+        {cars && handleCars(cars)}
+        {ops && handleOperations(ops)}
+      </Fragment>
+    </motion.div>
   );
 };

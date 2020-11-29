@@ -10,7 +10,7 @@ export const Footer = () => {
         <FontAwesomeIcon icon={faFacebook} />
         <FontAwesomeIcon icon={faAt} />
       </section>
-      <small>Copyright © 2020 Automobus.</small>
+      <small>Copyright © 2020 AutoMoBus.</small>
     </div>
   );
 };
