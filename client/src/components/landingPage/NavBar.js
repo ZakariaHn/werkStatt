@@ -34,7 +34,6 @@ export const NavBar = () => {
         </li>
         <li>PRICING</li>
         <li onClick={onSignUp}>SIGN UP</li>
-        <FontAwesomeIcon icon={faBars} />
       </div>
     </div>
   );
