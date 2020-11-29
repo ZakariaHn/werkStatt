@@ -34,7 +34,12 @@ export const GetSelectedItem = ({ target, Transition }) => {
                 .slice(1)
                 .split(/(?=[A-Z])/)
                 .join(" ")}
-            :<span> {value}</span>
+            :
+            <span>
+              {key === "createdAt" || key === "updatedAt"
+                ? " " + value.substring(0, 10)
+                : " " + value}
+            </span>
           </li>
         );
       }
@@ -54,12 +59,12 @@ export const GetSelectedItem = ({ target, Transition }) => {
           {ops && `${carModel[0].toUpperCase() + carModel.slice(1)}`}
           {name && `${name[0].toUpperCase() + name.slice(1)}`}{" "}
         </small>
-        {/* <small
+        <small
           className="close"
           onClick={() => dispatch({ type: TARGET_CAR, payload: {} })}
         >
           x
-        </small> */}
+        </small>
       </div>
     );
   };

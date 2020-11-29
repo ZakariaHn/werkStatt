@@ -14,12 +14,19 @@ import {
 
 const useStyles = makeStyles(() => ({
   root: {
-    maxWidth: "30%",
-    borderRadius: "1rem",
+    maxWidth: "48%",
+    borderRadius: "4px",
+    border: "1px solid #dadada",
+    color: "#dadada",
+    marginRight: "1rem",
+    "&:hover": { color: "#d8a461", border: "2px solid #d8a461" },
+    "&$selected": {
+      backgroundColor: "#303030",
+      border: "2px solid #d8a461",
+      color: "#d8a461",
+    },
   },
-  selected: {
-    color: "#d8a461",
-  },
+  selected: {},
 }));
 
 export const NavBar = () => {
@@ -56,13 +63,13 @@ export const NavBar = () => {
     });
   };
 
-  const operationsList = () => {
-    setSelectedIndex(2);
-    dispatch({
-      type: TAB_CLICKED,
-      payload: "operationsList",
-    });
-  };
+  // const operationsList = () => {
+  //   setSelectedIndex(2);
+  //   dispatch({
+  //     type: TAB_CLICKED,
+  //     payload: "operationsList",
+  //   });
+  // };
 
   // Handling search bar _______________________________________
 
@@ -147,7 +154,7 @@ export const NavBar = () => {
           >
             Cars
           </ListItem>
-          <ListItem
+          {/* <ListItem
             button
             onClick={operationsList}
             className={classes.root}
@@ -155,7 +162,7 @@ export const NavBar = () => {
             classes={{ selected: classes.selected }}
           >
             Operations
-          </ListItem>
+          </ListItem> */}
         </List>
 
         <div className="searchBarHolder">
