@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: "1rem",
   },
   selected: {
-    color: "#e74c3c",
+    color: "#d8a461",
   },
 }));
 

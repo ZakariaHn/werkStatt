@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import {
   CLICKED,
   TARGET_OPERATION,
-  SET_TARGET,
   TARGET_CAR,
 } from "../../store/actions/types";
 import { fetchCarOperationsAction } from "../../store/actions/operationsAction";
@@ -18,14 +17,22 @@ export const GetSelectedItem = ({ target }) => {
   let listItems = [];
   const handleTargetObject = (target) => {
     for (const [key, value] of Object.entries(target)) {
-      if (key !== "cars" && key !== "ops") {
+      if (
+        key !== "cars" &&
+        key !== "ops" &&
+        key !== "firstname" &&
+        key !== "lastname" &&
+        key !== "carModel" &&
+        key !== "_id"
+      ) {
         listItems.push(
           <li key={id()}>
-            {key
-              .split(/(?=[A-Z])/)
-              .join(" ")[0]
-              .toUpperCase() + key.slice(1)}
-            : {value}
+            {key[0].toUpperCase() +
+              key
+                .slice(1)
+                .split(/(?=[A-Z])/)
+                .join(" ")}
+            :<span> {value}</span>
           </li>
         );
       }
@@ -61,7 +68,7 @@ export const GetSelectedItem = ({ target }) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: TARGET_CAR, payload: targetCar });
     dispatch({ type: CLICKED, payload: "targetCar" });
-    let carId = targetCar[0]._id
+    let carId = targetCar[0]._id;
     dispatch(fetchCarOperationsAction(carId));
   };
 
@@ -84,7 +91,6 @@ export const GetSelectedItem = ({ target }) => {
     const targetOperation = ops.filter((op) => op.name === e.target.value);
     dispatch({ type: TARGET_OPERATION, payload: targetOperation });
     dispatch({ type: CLICKED, payload: "targetOperation" });
-    
   };
 
   const handleOperations = (ops) => (
