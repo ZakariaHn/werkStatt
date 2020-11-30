@@ -39,14 +39,14 @@ exports.registerUser = async (req, res) => {
     const savedUser = await user.save();
     const token = jwt.sign({ id: savedUser._id }, process.env.SECRET_TOKEN);
 
-    const srcPath = path.join(__dirname, "../public/uploads", "user_0.jpg");
-    const destPath = path.join(
-      __dirname,
-      "../public/uploads",
-      savedUser._id + ".jpg"
-    );
+    // const srcPath = path.join(__dirname, "../public/uploads", "user_0.jpg");
+    // const destPath = path.join(
+    //   __dirname,
+    //   "../public/uploads",
+    //   savedUser._id + ".jpg"
+    // );
 
-    fs.copyFileSync(srcPath, destPath);
+    // fs.copyFileSync(srcPath, destPath);
 
     res.send({ _id: savedUser._id, token: token });
   } catch (error) {
@@ -67,7 +67,7 @@ exports.loginUser = async (req, res) => {
   try {
     const token = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN);
     console.log(user);
-    res.send({ _id: user._id, token: token });
+    res.send({user: user, token: token });
   } catch (error) {
     res.status(400).send(error);
   }

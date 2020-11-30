@@ -35,7 +35,12 @@
           .icon {
             color: $gray;
             margin-left: 1rem;
+            transition: 0.5s ease-in-out;
             @include flex-center-center;
+            &:hover {
+              cursor: pointer;
+              color: #eec692;
+            }
           }
 
           &:hover {
@@ -52,7 +57,12 @@
         border-radius: 1rem;
         position: absolute;
         button {
+          transition: 0.5s ease-in-out;
           @include buttons-style;
+          &:hover {
+            cursor: pointer;
+            background-color: #eec692;
+          }
         }
       }
     }

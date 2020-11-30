@@ -6,14 +6,22 @@ import { OperationsList } from "./OperationsList";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const ListsWrapper = () => {
+  let hover = { backgroundColor: "#303030" };
+  let backgroundColor = "#303030";
   const styles = makeStyles(() => ({
     root: {
       maxWidth: "100%",
       borderRadius: "1rem",
+      "&:hover": hover,
+      "&$selected": {
+        backgroundColor: backgroundColor,
+        "&:hover": hover,
+      },
     },
     selected: {
-      color: "#e74c3c",
-      background: "#e74c3c",
+      backgroundColor: backgroundColor,
+      border: "1px solid #d8a461",
+      color: "#d8a461",
     },
   }));
 

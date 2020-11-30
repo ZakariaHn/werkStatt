@@ -10,13 +10,22 @@ exports.getOperations = async (req, res, next) => {
   }
 };
 
+exports.getCarOperations = async (req, res, next) => {
+  try {
+    const operations = await OperationModel.find({ carId: req.params._id });
+    return res.status(200).json(operations)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 exports.addOperation = async (req, res, next) => {
   try {
     const car = await CarModel.findById(req.body.carId)
     const operation = new OperationModel(req.body);
     car.ops.push(operation);
     await car.save();
-    await operation.save(); 
+    await operation.save();
     res.status(200).json(operation);
   } catch (error) {
     console.log(error);

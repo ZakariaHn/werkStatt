@@ -22,6 +22,9 @@ body,
   @include flex-center-center;
 }
 
+* {
+  letter-spacing: 2px;
+}
 .targetCarWrapper,
 .targetOperationWrapper {
   display: flex;

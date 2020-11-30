@@ -4,27 +4,42 @@ import { useDispatch } from "react-redux";
 import {
   CLICKED,
   TARGET_OPERATION,
-  SET_TARGET,
   TARGET_CAR,
 } from "../../store/actions/types";
+import { fetchCarOperationsAction } from "../../store/actions/operationsAction";
+import { motion } from "framer-motion";
 
 // Render data from  mongoDB in lists. Clients/ cars/ operations
 
-export const GetSelectedItem = ({ target }) => {
+export const GetSelectedItem = ({ target, Transition }) => {
   const { cars, ops, firstname, lastname, carModel, name } = target;
   const dispatch = useDispatch();
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   let listItems = [];
   const handleTargetObject = (target) => {
     for (const [key, value] of Object.entries(target)) {
-      if (key !== "cars" && key !== "ops") {
+      if (
+        key !== "cars" &&
+        key !== "ops" &&
+        key !== "firstname" &&
+        key !== "lastname" &&
+        key !== "carModel" &&
+        key !== "_id"
+      ) {
         listItems.push(
           <li key={id()}>
-            {key
-              .split(/(?=[A-Z])/)
-              .join(" ")[0]
-              .toUpperCase() + key.slice(1)}
-            : {value}
+            {key[0].toUpperCase() +
+              key
+                .slice(1)
+                .split(/(?=[A-Z])/)
+                .join(" ")}
+            :
+            <span>
+              {key === "createdAt" || key === "updatedAt"
+                ? " " + value.substring(0, 10)
+                : " " + value}
+            </span>
           </li>
         );
       }
@@ -44,12 +59,12 @@ export const GetSelectedItem = ({ target }) => {
           {ops && `${carModel[0].toUpperCase() + carModel.slice(1)}`}
           {name && `${name[0].toUpperCase() + name.slice(1)}`}{" "}
         </small>
-        {/* <small
+        <small
           className="close"
           onClick={() => dispatch({ type: TARGET_CAR, payload: {} })}
         >
           x
-        </small> */}
+        </small>
       </div>
     );
   };
@@ -60,6 +75,8 @@ export const GetSelectedItem = ({ target }) => {
     const targetCar = cars.filter((car) => car.carModel === e.target.value);
     dispatch({ type: TARGET_CAR, payload: targetCar });
     dispatch({ type: CLICKED, payload: "targetCar" });
+    let carId = targetCar[0]._id;
+    dispatch(fetchCarOperationsAction(carId));
   };
 
   const handleCars = (cars) => (
@@ -97,11 +114,22 @@ export const GetSelectedItem = ({ target }) => {
   );
 
   return (
-    <Fragment>
-      {handleHeader()}
-      <ul>{handleTargetObject(target)}</ul>
-      {cars && handleCars(cars)}
-      {ops && handleOperations(ops)}
-    </Fragment>
+    <motion.div
+      style={pageStyle}
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="container"
+    >
+      <Fragment>
+        {handleHeader()}
+
+        <ul>{handleTargetObject(target)}</ul>
+        {cars && handleCars(cars)}
+        {ops && handleOperations(ops)}
+      </Fragment>
+    </motion.div>
   );
 };

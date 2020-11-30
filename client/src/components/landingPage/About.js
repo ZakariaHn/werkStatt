@@ -6,8 +6,6 @@ export const About = () => {
     pageVariants: {
       initial: {
         opacity: 0,
-        y: "-100vw",
-        scale: 0.8,
       },
       in: {
         opacity: 1,
@@ -17,7 +15,6 @@ export const About = () => {
       out: {
         opacity: 0,
         x: "100vw",
-        scale: 1.2,
       },
     },
     pageTransition: {
@@ -45,7 +42,7 @@ export const About = () => {
       <strong> What exactly do we offer? </strong>
       <p>
         With our software you can quickly and easily call up and record all
-        information about your customers and there vehicles. such as create
+        information about your customers and their vehicles. such as create
         customer with vehicle, as well as registiring operation for each
         vehicle. This data can be adopted at any time with just one click. With
         our master data management software you always know when and what has

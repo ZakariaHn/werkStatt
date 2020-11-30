@@ -8,12 +8,37 @@
   @include flex-center-center;
   border: 2px solid #a7a7a7;
 
+  .targetCarList {
+    height: 80%;
+    width: 100%;
+    li {
+      color: #d8a461;
+      padding-bottom: 1.3rem;
+      width: 87%;
+      span {
+        color: $gray;
+      }
+    }
+  }
+
+  select {
+    width: 50%;
+    margin-left: 1rem;
+    color: $gray;
+  }
+
   .logo {
     font-size: 5rem;
-    transform: rotate(60deg);
     text-align: center;
-    color: rgba(253, 253, 253, 0.021);
+    color: #f1cc9a;
+    opacity: 0.3;
+    text-shadow: 0px 0px 0 #f1cc9a, 2px 2px 0 #f0c389, 4px 4px 0 #e6b270,
+      6px 6px 0 #d39e59, 8px 8px 0 #be8b49, 10px 10px 0 #ad7a37,
+      12px 12px 0 #996827, 14px 14px 0 #754c15, 21px 21px 20px #000000,
+      21px 21px 1px #00000080, 0px 0px 20px #00000033;
+    animation: example 10s linear infinite alternate;
   }
+
   * {
     padding: 0;
     margin: 0;
@@ -88,6 +113,7 @@
           font-size: 0.9rem;
           margin-bottom: 5px;
           display: inline-block;
+          color: #d8a461;
         }
 
         input {
@@ -111,17 +137,22 @@
 
       button {
         height: 3em;
-        width: 84%;
-        bottom: 2%;
+        width: 92%;
+        bottom: 2.5%;
+        left: 4%;
         color: gray;
         font-size: 1rem;
-        margin-top: 2rem;
         font-weight: bold;
         position: absolute;
         border-radius: 5px;
         letter-spacing: 3px;
+        transition: 0.5s ease-in-out;
         background-color: $light-gray;
         box-shadow: inset 3px 5px 2rem -4px #777;
+        &:hover {
+          cursor: pointer;
+          background-color: #eec692;
+        }
       }
 
       small {
@@ -132,5 +163,23 @@
         left: 0;
       }
     }
+  }
+}
+
+@keyframes example {
+  0% {
+    transform: skewY(2deg);
+  }
+
+  35% {
+    transform: skewX(-2deg) scale(1.05);
+  }
+
+  50% {
+    transform: skewX(2deg);
+  }
+
+  100% {
+    transform: skewY(-2deg);
   }
 }

@@ -25,22 +25,20 @@
 
     .taps {
       padding: 0;
-      width: 27%;
+      width: 15%;
       height: 100%;
       color: $gray;
       cursor: pointer;
       font-weight: bold;
       margin-left: 1rem;
-      @include flex-row-center-spacearound;
 
+      @include flex-row-center-spacebetween;
       li {
-        width: 33.33%;
         height: 100%;
         color: $gray;
         letter-spacing: 2px;
         @include flex-center-center;
-        transition: 0.5s ease-in-out;
-
+        transition: 01s ease-in-out;
         &:hover {
           @include gradient;
         }
@@ -120,7 +118,7 @@
     div {
       color: $backGround-dark;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin-top: 0.4rem;
       width: 2rem;
       height: 2rem;

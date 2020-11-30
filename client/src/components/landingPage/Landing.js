@@ -33,7 +33,7 @@ export const Landing = () => {
     <div className="login-header">
       <div>
         <FontAwesomeIcon icon={faLaravel} />
-        <strong>AUTOMOBUS</strong>
+        <strong>AutoMoBus</strong>
       </div>
     </div>
   );

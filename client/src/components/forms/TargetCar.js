@@ -5,23 +5,28 @@ import { useSelector } from "react-redux";
 export const TargetCar = () => {
   const car = useSelector((state) => state.cars.car);
   const client = useSelector((state) => state.target.item);
+  const carOps = useSelector((state) => state.operations.operationsArray);
   console.log("this one", client);
 
   const handleTargetCar = (car) => {
     let listItems = [];
     for (const [key, value] of Object.entries(car)) {
-      if (key !== "ops") {
+      if (key !== "ops" && key !== "_id" && key !== "carModel") {
         listItems.push(
           <li key={id()}>
-            {key
-              .split(/(?=[A-Z])/)
-              .join(" ")[0]
-              .toUpperCase() + key.slice(1)}
-            : {value}
+            {key[0].toUpperCase() +
+              key
+                .slice(1)
+                .split(/(?=[A-Z])/)
+                .join(" ")}
+            : <span>{value}</span>
           </li>
         );
       }
     }
+
+    console.log(car.ops);
+    console.log("listitems: ", listItems);
     return listItems;
   };
 
@@ -48,7 +53,7 @@ export const TargetCar = () => {
         </small>
       </div>
       <ul className="targetCarList">{handleTargetCar(car[0])}</ul>
-      {car.ops && handleOperations(car.ops)}
+      {carOps && handleOperations(carOps)}
     </div>
   );
 };

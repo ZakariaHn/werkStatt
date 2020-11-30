@@ -47,6 +47,9 @@ export const helpEditCar = async (car) =>
 export const helpFetchOperations = async () =>
   await Axios.get("http://localhost:5000/api/operations");
 
+export const helpFetchCarOperations = async (carId) =>
+  await Axios.get(`http://localhost:5000/api/operations/${carId}`);
+
 export const helpAddOperation = async (body, config) =>
   await Axios.post("http://localhost:5000/api/operations/add", body, config);
 
