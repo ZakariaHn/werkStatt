@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { CLICKED } from "../../store/actions/types";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faLaravel } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

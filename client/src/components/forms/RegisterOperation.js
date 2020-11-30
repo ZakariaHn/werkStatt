@@ -6,18 +6,17 @@ import { CLICKED } from "../../store/actions/types";
 import { motion } from "framer-motion";
 
 export const RegisterOperation = (props) => {
-  const { handleSubmit, register, errors } = useForm();
   const dispatch = useDispatch();
-
+  const { handleSubmit, register } = useForm();
   const carId = useSelector((state) => state.target.item._id);
+
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   const onSubmitForm = (data) => {
     dispatch(addOperationAction(data));
     dispatch({ type: CLICKED, payload: "" });
   };
-
-  const { icons, Transition } = props;
-  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   return (
     <motion.div
@@ -39,7 +38,7 @@ export const RegisterOperation = (props) => {
         </small>
       </div>
       <form onSubmit={handleSubmit(onSubmitForm)}>
-        <div className="form-control success">
+        <div className="form-control">
           <label htmlFor="carId">Car Id</label>
           <input
             type="text"
@@ -56,7 +55,7 @@ export const RegisterOperation = (props) => {
           <small>At least 2 characters long!</small>
         </div>
 
-        <div className="form-control error">
+        <div className="form-control">
           <label htmlFor="name">Operation Name</label>
           <input
             type="text"

@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
     borderRadius: "4px",
     border: "1px solid #dadada",
     color: "#dadada",
-    marginRight: "1rem",
     "&:hover": { color: "#d8a461", border: "2px solid #d8a461" },
     "&$selected": {
       backgroundColor: "#303030",
@@ -84,7 +83,9 @@ export const NavBar = () => {
   if (input.length > 0) {
     if (search === "client") {
       let foundClients = myClients.filter(
-        (client) => client.lastname.toLowerCase() === input
+        (client) =>
+          client.lastname.toLowerCase() === input ||
+          client.lastname.toUpperCase() === input
       );
 
       dispatch({
@@ -92,8 +93,10 @@ export const NavBar = () => {
         payload: foundClients,
       });
     } else {
-      let foundCars = myCars.filter((car) =>
-        car.carModel.toLowerCase().match(input)
+      let foundCars = myCars.filter(
+        (car) =>
+          car.carModel.toLowerCase().match(input) ||
+          car.carModel.toUpperCase().match(input)
       );
 
       dispatch({

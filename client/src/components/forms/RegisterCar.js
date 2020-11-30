@@ -6,19 +6,18 @@ import { CLICKED } from "../../store/actions/types";
 import { motion } from "framer-motion";
 
 export const RegisterCar = (props) => {
-  const { handleSubmit, register, errors } = useForm();
-
   const dispatch = useDispatch();
-
+  const { handleSubmit, register } = useForm();
   const ownerId = useSelector((state) => state.target.item._id);
+
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   const onSubmitForm = (data) => {
     dispatch(addCarAction(data));
     dispatch({ type: CLICKED, payload: "" });
   };
 
-  const { icons, Transition } = props;
-  const { pageStyle, pageVariants, pageTransition } = Transition;
   return (
     <motion.div
       style={pageStyle}

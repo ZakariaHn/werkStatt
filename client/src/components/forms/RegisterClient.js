@@ -7,15 +7,15 @@ import { motion } from "framer-motion";
 
 export const RegisterClient = (props) => {
   const dispatch = useDispatch();
-  const { handleSubmit, register, errors } = useForm();
+  const { handleSubmit, register } = useForm();
+
+  const { icons, Transition } = props;
+  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   const onSubmitForm = (data) => {
     dispatch(addClientAction(data));
     dispatch({ type: CLICKED, payload: "" });
   };
-
-  const { icons, Transition } = props;
-  const { pageStyle, pageVariants, pageTransition } = Transition;
 
   return (
     <motion.div

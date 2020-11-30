@@ -12,7 +12,7 @@ import {
 import ListItem from "@material-ui/core/ListItem";
 
 export const OperationsList = (props) => {
-  const { styles, Transition } = props;
+  const { styles } = props;
   const classes = styles();
 
   const dispatch = useDispatch();

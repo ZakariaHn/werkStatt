@@ -8,7 +8,8 @@
   @include flex-center-center;
   border: 2px solid #a7a7a7;
 
-  .targetCarList {
+  .targetCarList,
+  .targetOperationList {
     height: 80%;
     width: 100%;
     li {

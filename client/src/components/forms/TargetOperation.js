@@ -9,15 +9,22 @@ export const TargetOperation = () => {
   const handleTargetOperation = (operation) => {
     let listItems = [];
     for (const [key, value] of Object.entries(operation)) {
-      listItems.push(
-        <li key={id()}>
-          {key
-            .split(/(?=[A-Z])/)
-            .join(" ")[0]
-            .toUpperCase() + key.slice(1)}
-          : {value}
-        </li>
-      );
+      if (key !== "parts" && key !== "_id") {
+        listItems.push(
+          <li key={id()}>
+            {key
+              .split(/(?=[A-Z])/)
+              .join(" ")[0]
+              .toUpperCase() + key.slice(1)}
+            :
+            <span>
+              {key === "createdAt" || key === "updatedAt"
+                ? " " + value.substring(0, 10)
+                : " " + value}
+            </span>
+          </li>
+        );
+      }
     }
     return listItems;
   };

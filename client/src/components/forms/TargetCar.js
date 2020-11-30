@@ -19,7 +19,12 @@ export const TargetCar = () => {
                 .slice(1)
                 .split(/(?=[A-Z])/)
                 .join(" ")}
-            : <span>{value}</span>
+            :
+            <span>
+              {key === "createdAt" || key === "updatedAt"
+                ? " " + value.substring(0, 10)
+                : " " + value}
+            </span>
           </li>
         );
       }

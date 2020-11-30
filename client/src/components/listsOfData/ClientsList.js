@@ -18,11 +18,7 @@ export const ClientsList = (props) => {
 
   useEffect(() => {
     dispatch(fetchClientsAction());
-  }, []);
-
-  // useEffect(() => {
-
-  // }, [myClients]);
+  }, [dispatch]);
 
   const handleEditClient = (client) => {
     dispatch({ type: SET_TARGET, payload: client });
