@@ -80,16 +80,18 @@ export const GetSelectedItem = ({ target, Transition }) => {
   };
 
   const handleCars = (cars) => (
-    <select value="1" onChange={handleCarChange}>
-      <option value="1" disabled>
-        Cars
-      </option>
-      {cars.map((car) => (
-        <option key={id()} value={car.carModel}>
-          {car.carModel}
+    <div className="selectWrapper">
+      <select value="1" onChange={handleCarChange}>
+        <option value="1" disabled>
+          Cars
         </option>
-      ))}
-    </select>
+        {cars.map((car) => (
+          <option key={id()} value={car.carModel}>
+            {car.carModel}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 
   // Set the related operations to the selected car in a drop down list and show its data
@@ -101,16 +103,18 @@ export const GetSelectedItem = ({ target, Transition }) => {
   };
 
   const handleOperations = (ops) => (
-    <select value="1" onChange={handleOperationChange}>
-      <option value="1" disabled>
-        Operations
-      </option>
-      {ops.map((op) => (
-        <option key={id()} value={op.name}>
-          {op.name}
+    <div className="selectWrapper">
+      <select value="1" onChange={handleOperationChange}>
+        <option value="1" disabled>
+          Operations
         </option>
-      ))}
-    </select>
+        {ops.map((op) => (
+          <option key={id()} value={op.name}>
+            {op.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 
   return (

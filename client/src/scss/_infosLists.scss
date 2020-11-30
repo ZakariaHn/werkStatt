@@ -11,15 +11,11 @@
     @include flex-center-spaceEvenly;
     background-color: $backGround-light;
 
-    .description {
-      padding: 4rem;
-      line-height: 2rem;
-      font-size: larger;
-      text-align: justify;
+    .selected-item-header {
+      @include addressed-pages-headers;
     }
 
     .lists {
-      border: 2px solid #a7a7a7;
       @include list-wrapper-style;
 
       ul {
@@ -31,6 +27,7 @@
 
         .li-buttons-wrapper {
           @include li-style;
+          padding-left: 0;
 
           .icon {
             color: $gray;
@@ -39,7 +36,7 @@
             @include flex-center-center;
             &:hover {
               cursor: pointer;
-              color: #eec692;
+              color: #d8a461;
             }
           }
 
@@ -54,15 +51,9 @@
         width: 32%;
         height: 10vh;
         bottom: 11%;
-        border-radius: 1rem;
-        position: absolute;
+
         button {
-          transition: 0.5s ease-in-out;
           @include buttons-style;
-          &:hover {
-            cursor: pointer;
-            background-color: #eec692;
-          }
         }
       }
     }
@@ -70,15 +61,5 @@
     .registrationForms {
       @include list-wrapper-style;
     }
-  }
-}
-
-.targetCarList,
-.targetOperationList {
-  @include ul-style;
-  width: 100%;
-  li {
-    @include li-style;
-    height: 0.9rem;
   }
 }

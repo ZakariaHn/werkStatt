@@ -45,28 +45,32 @@
 }
 
 @mixin buttons-wrapper-style {
-  bottom: 0;
-  margin: 0;
   height: 13%;
   width: 100%;
-  background-color: $backGround-dark;
   display: flex;
   align-items: center;
+  position: absolute;
+  border-radius: 1rem;
+  background-color: $backGround-dark;
 }
 
 @mixin buttons-style {
   width: 93%;
   height: 3rem;
-  background-color: #dadada;
   color: gray;
   font-size: 1rem;
   font-weight: bold;
-  letter-spacing: 3px;
-
-  border-radius: 5px;
-  box-shadow: inset 3px 5px 2rem -4px #777;
   position: absolute;
+  border-radius: 5px;
+  letter-spacing: 3px;
   margin: 0.5em 0 0 1rem;
+  background-color: #dadada;
+  transition: 0.5s ease-in-out;
+  box-shadow: inset 3px 5px 2rem -4px #777;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffd9a7;
+  }
 }
 
 @mixin list-wrapper-style {
@@ -77,6 +81,7 @@
   max-height: 95%;
   border-radius: 0.5rem;
   background-color: $backGround-dark;
+  border: 2px solid #a7a7a7;
 
   &::-webkit-scrollbar {
     width: 0.5em;
@@ -112,4 +117,56 @@
     $backGround-dark 55%,
     $backGround-light 97%
   );
+}
+
+@mixin drop-down-list-styles {
+  &::after {
+    font-size: 1.1rem;
+    content: "\27A2";
+    position: absolute;
+    margin-left: -1.1rem;
+    margin-top: 0.05rem;
+    transform: rotate(90deg);
+    color: #d8a461;
+  }
+  select {
+    border-radius: 4px;
+    margin-left: 1rem;
+    color: $gray;
+    width: 10rem;
+    -moz-appearance: none;
+    text-indent: 4px;
+    text-overflow: "";
+    background-color: #1d1d1d;
+    border-color: #d8a461;
+    color: #d8a461;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@mixin addressed-pages-headers {
+  display: flex;
+  justify-content: space-between;
+  color: #303030;
+  background-color: #dadada;
+  padding: 5px 5px 5px 1.7rem;
+  box-shadow: inset 3px 1px 2rem -4px #777;
+
+  small {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .close {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    color: #cecece;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: $backGround-dark;
+  }
 }

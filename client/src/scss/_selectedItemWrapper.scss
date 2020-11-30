@@ -1,13 +1,22 @@
 .details {
-  border: 2px solid #a7a7a7;
   @include list-wrapper-style;
   position: relative;
+
   .logo {
-    font-size: 20rem;
+    opacity: 0.3;
+    margin-top: 38%;
+    font-size: 15rem;
     text-align: center;
-    margin-top: 30%;
-    color: #d8a4612c;
+    color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-image: url("./logoNoText.PNG");
   }
+
+  .selected-item-header {
+    @include addressed-pages-headers;
+  }
+
   ul {
     @include ul-style;
     max-height: 80%;
@@ -24,50 +33,19 @@
     }
   }
 
-  select {
-    margin-left: 1rem;
-    color: $gray;
+  .selectWrapper {
+    @include drop-down-list-styles;
   }
 
   .buttonWrapper {
     @include buttons-wrapper-style;
     width: 100%;
     bottom: 0.7%;
-
     border-radius: 1rem;
     position: absolute;
+
     button {
       @include buttons-style;
-      transition: 0.5s ease-in-out;
-      &:hover {
-        cursor: pointer;
-        background-color: #ffd9a7;
-      }
     }
-  }
-}
-
-.selected-item-header {
-  display: flex;
-  justify-content: space-between;
-  color: #303030;
-  background-color: #dadada;
-  padding: 5px 5px 5px 1.7rem;
-  box-shadow: inset 3px 1px 2rem -4px #777;
-
-  small {
-    margin: 0;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .close {
-    width: 1rem;
-    height: 1rem;
-    cursor: pointer;
-    color: #cecece;
-    font-weight: bold;
-    border-radius: 50%;
-    background-color: $backGround-dark;
   }
 }

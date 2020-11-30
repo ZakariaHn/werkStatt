@@ -11,6 +11,10 @@
     font-size: 3rem;
     margin-left: 1rem;
     @include gradient;
+    background-image: url(./logo.PNG);
+    background-size: 120%;
+    background-position: left;
+    background-repeat: no-repeat;
     @include flex-center-center;
 
     small {
@@ -113,14 +117,18 @@
       margin-top: 0.4rem;
       width: 2rem;
       height: 2rem;
+      color: #d8a461;
+      color: #d8a461;
+
       border-radius: 50%;
-      background-color: #cecccc;
+      border: 2px solid #d8a461;
+      background-color: transparent;
       @include flex-center-center;
     }
     span {
       cursor: pointer;
       font-size: smaller;
-      color: #cecccc;
+      color: #d8a461;
       margin-bottom: 0.2rem;
       &:hover {
         transform: scale(1.05);

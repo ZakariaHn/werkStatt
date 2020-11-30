@@ -6,26 +6,59 @@
   height: 100%;
   position: relative;
   @include flex-center-center;
-  border: 2px solid #a7a7a7;
 
-  .targetCarList,
-  .targetOperationList {
-    height: 80%;
+  .targetCarWrapper,
+  .targetOperationWrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    li {
-      color: #d8a461;
-      padding-bottom: 1.3rem;
-      width: 87%;
-      span {
-        color: $gray;
+    height: 100%;
+    ul {
+      width: 100%;
+      li {
+        width: 100%;
+        height: 1%;
       }
     }
+
+    .selected-item-header {
+      @include addressed-pages-headers;
+      :nth-child(2) {
+        margin-right: 0.6rem;
+      }
+    }
+
+    .targetCarList,
+    .targetOperationList {
+      @include ul-style;
+      height: 73%;
+      width: 88%;
+
+      li {
+        @include li-style;
+        color: #d8a461;
+        padding-bottom: 1.3rem;
+
+        span {
+          color: $gray;
+        }
+      }
+    }
+  }
+
+  .selectWrapper {
+    @include drop-down-list-styles;
   }
 
   select {
     width: 50%;
     margin-left: 1rem;
     color: $gray;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
   }
 
   .logo {
@@ -38,11 +71,6 @@
       12px 12px 0 #996827, 14px 14px 0 #754c15, 21px 21px 20px #000000,
       21px 21px 1px #00000080, 0px 0px 20px #00000033;
     animation: example 10s linear infinite alternate;
-  }
-
-  * {
-    padding: 0;
-    margin: 0;
   }
 
   .container {
@@ -137,23 +165,9 @@
       }
 
       button {
-        height: 3em;
-        width: 92%;
-        bottom: 2.5%;
-        left: 4%;
-        color: gray;
-        font-size: 1rem;
-        font-weight: bold;
-        position: absolute;
-        border-radius: 5px;
-        letter-spacing: 3px;
-        transition: 0.5s ease-in-out;
-        background-color: $light-gray;
-        box-shadow: inset 3px 5px 2rem -4px #777;
-        &:hover {
-          cursor: pointer;
-          background-color: #eec692;
-        }
+        bottom: 2.6%;
+        left: -0.01%;
+        @include buttons-style;
       }
 
       small {

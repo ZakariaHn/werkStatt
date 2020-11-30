@@ -3,8 +3,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
-import { faLaravel } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   TAB_CLICKED,
   FIND_CLIENTS,
@@ -12,14 +10,20 @@ import {
   LOGOUT_SUCCESS,
 } from "../store/actions/types";
 
+let hover = { backgroundColor: "#303030" };
+
 const useStyles = makeStyles(() => ({
   root: {
     maxWidth: "48%",
     borderRadius: "4px",
     border: "1px solid #dadada",
     color: "#dadada",
+    display: "flex",
+    justifyContent: "center",
     "&:hover": { color: "#d8a461", border: "2px solid #d8a461" },
     "&$selected": {
+      "&:hover": hover,
+
       backgroundColor: "#303030",
       border: "2px solid #d8a461",
       color: "#d8a461",
@@ -134,8 +138,8 @@ export const NavBar = () => {
     <div className="navBar">
       <div className="all">
         <div className="logo">
-          <FontAwesomeIcon icon={faLaravel} />
-          <small>AutoMoBus</small>
+          {/* <FontAwesomeIcon icon={faLaravel} />
+          <small>AutoMoBus</small> */}
         </div>
 
         <List className="taps">

@@ -36,13 +36,15 @@ export const TargetCar = () => {
   };
 
   const handleOperations = (ops) => (
-    <select placeholder="Operations">
-      {ops.map((op) => (
-        <option key={id()} value={op.name}>
-          {op.name}
-        </option>
-      ))}
-    </select>
+    <div className="selectWrapper">
+      <select placeholder="Operations">
+        {ops.map((op) => (
+          <option key={id()} value={op.name}>
+            {op.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 
   let firstname = client.firstname[0].toUpperCase() + client.firstname.slice(1);
