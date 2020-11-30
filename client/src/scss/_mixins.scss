@@ -1,3 +1,5 @@
+// _________________________________________________ Different flex-box variations usage __________________________________________________
+
 @mixin flex-row-center-spacebetween {
   display: flex;
   flex-direction: row;
@@ -44,6 +46,8 @@
   justify-content: flex-end;
 }
 
+//________________________________________________________________________________________________________________________________________
+
 @mixin buttons-wrapper-style {
   height: 13%;
   width: 100%;
@@ -67,11 +71,14 @@
   background-color: #dadada;
   transition: 0.5s ease-in-out;
   box-shadow: inset 3px 5px 2rem -4px #777;
+
   &:hover {
     cursor: pointer;
     background-color: #ffd9a7;
   }
 }
+
+//________________________________________________________________________________________________________________________________________
 
 @mixin list-wrapper-style {
   width: 32%;
@@ -80,8 +87,8 @@
   overflow: hidden;
   max-height: 95%;
   border-radius: 0.5rem;
-  background-color: $backGround-dark;
   border: 2px solid #a7a7a7;
+  background-color: $backGround-dark;
 
   &::-webkit-scrollbar {
     width: 0.5em;
@@ -107,8 +114,10 @@
 @mixin li-style {
   padding: 3%;
   margin: 1rem 0 1rem 0;
-  border-bottom: 1px solid rgba(199, 190, 190, 0.253);
+  border-bottom: 1px solid #c7bebe41;
 }
+
+//________________________________________________________________________________________________________________________________________
 
 @mixin gradient {
   background: linear-gradient(
@@ -119,39 +128,49 @@
   );
 }
 
+//________________________________________________________________________________________________________________________________________
+
 @mixin drop-down-list-styles {
+  margin-left: 0.8rem;
+
   &::after {
-    font-size: 1.1rem;
-    content: "\27A2";
-    position: absolute;
-    margin-left: -1.1rem;
-    margin-top: 0.05rem;
-    transform: rotate(90deg);
+    cursor: pointer;
     color: #d8a461;
+    content: "\27A2";
+    font-size: 1.1rem;
+    position: absolute;
+    margin-top: 0.05rem;
+    margin-left: -1.1rem;
+    transform: rotate(90deg);
   }
+
   select {
-    border-radius: 4px;
-    margin-left: 1rem;
     color: $gray;
     width: 10rem;
-    -moz-appearance: none;
+    cursor: pointer;
+    color: #d8a461;
     text-indent: 4px;
     text-overflow: "";
-    background-color: #1d1d1d;
+    margin-left: 1rem;
+    border-radius: 4px;
+    -moz-appearance: none;
     border-color: #d8a461;
-    color: #d8a461;
+    background-color: #1d1d1d;
+
     &:focus {
       outline: none;
     }
   }
 }
 
+//________________________________________________________________________________________________________________________________________
+
 @mixin addressed-pages-headers {
   display: flex;
-  justify-content: space-between;
   color: #303030;
   background-color: #dadada;
   padding: 5px 5px 5px 1.7rem;
+  justify-content: space-between;
   box-shadow: inset 3px 1px 2rem -4px #777;
 
   small {
@@ -167,6 +186,20 @@
     color: #cecece;
     font-weight: bold;
     border-radius: 50%;
+    background-color: $backGround-dark;
+  }
+}
+
+//________________________________________________________________________________________________________________________________________
+
+@mixin landing-page-tabs {
+  color: $backGround-dark;
+  border: 2px solid #ebebeb;
+  background-color: #ebebeb;
+
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
     background-color: $backGround-dark;
   }
 }

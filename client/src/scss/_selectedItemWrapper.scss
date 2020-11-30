@@ -10,7 +10,8 @@
     color: transparent;
     background-size: contain;
     background-position: center;
-    background-image: url("./logoNoText.PNG");
+    background-image: url("../img/logoNoText.PNG");
+    animation: example 10s linear infinite alternate;
   }
 
   .selected-item-header {
@@ -47,5 +48,23 @@
     button {
       @include buttons-style;
     }
+  }
+}
+
+@keyframes example {
+  0% {
+    transform: skewY(2deg);
+  }
+
+  35% {
+    transform: skewX(-2deg) scale(1.1);
+  }
+
+  50% {
+    transform: skewX(2deg);
+  }
+
+  100% {
+    transform: skewY(-2deg) scale(0.8);
   }
 }

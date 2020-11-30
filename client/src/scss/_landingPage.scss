@@ -23,11 +23,11 @@
     }
 
     .setting {
-      position: absolute;
       right: 0;
       list-style: none;
-      border-radius: 4px;
       font-weight: bold;
+      border-radius: 4px;
+      position: absolute;
       margin-right: 2rem;
       @include flex-center-center;
 
@@ -38,42 +38,29 @@
 
       li {
         padding: 0.5rem;
-        border-radius: 4px;
-        font-weight: bold;
         cursor: pointer;
         transition: 0.5s;
+        font-weight: bold;
         font-size: 0.8rem;
+        border-radius: 4px;
 
         &:hover {
-          background-color: #ebebeb;
           color: $backGround-dark;
+          background-color: #ebebeb;
         }
       }
 
       :nth-child(3) {
-        background-color: #ebebeb;
-        color: $backGround-dark;
-        border: 2px solid #ebebeb;
         height: 0.9rem;
-        &:hover {
-          color: rgb(255, 255, 255);
-          background-color: $backGround-dark;
-        }
+        @include landing-page-tabs;
       }
 
       :last-child {
-        margin-left: 0.3rem;
-        background-color: #ebebeb;
-        color: $backGround-dark;
-        border: 2px solid #ebebeb;
         padding: 0.3rem;
-        border-radius: 4px;
         transition: 0.5s;
-        &:hover {
-          cursor: pointer;
-          color: rgb(255, 255, 255);
-          background-color: $backGround-dark;
-        }
+        border-radius: 4px;
+        margin-left: 0.3rem;
+        @include landing-page-tabs;
       }
     }
   }
@@ -81,24 +68,19 @@
   .landing-content {
     height: 84%;
     background-color: #ffffff;
-    // background-image: linear-gradient(
-    //   360deg,
-    //   #ffffff 0%,
-    //   $backGround-light,
-    //   #e4e4e4 94%
-    // );
     background: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.699),
         rgba(0, 0, 0, 0.904)
       ),
-      url("./cars.png");
+      url("../img/cars.png");
     background-position: center;
     background-size: cover;
 
     .login-header {
       height: 30%;
       @include flex-column-center-center;
+
       div :nth-child(1) {
         font-size: 6rem;
         color: #d8a461;
@@ -106,7 +88,6 @@
 
       strong {
         color: #d8a461;
-
         letter-spacing: 1rem;
       }
     }
@@ -117,28 +98,28 @@
       @include flex-column-center-center;
 
       strong {
-        font-size: xx-large;
         color: $gray;
-        letter-spacing: 1.04rem;
+        font-size: xx-large;
         margin-left: 0.5rem;
-
         padding-bottom: 2rem;
+        letter-spacing: 1.04rem;
       }
 
       form {
-        height: 100%;
         width: 30%;
+        height: 100%;
         display: flex;
         flex-direction: column;
+
         div {
           padding-bottom: 2rem;
 
           input {
             height: 2rem;
-            border: 1px solid #9e9e9e;
             border-radius: 4px;
             letter-spacing: 1px;
             text-indent: 0.7rem;
+            border: 1px solid #9e9e9e;
 
             &:focus {
               border: 1px solid transparent;
@@ -153,14 +134,14 @@
 
         .submit-button {
           height: 2.7rem;
-          font-weight: bolder;
           font-size: 1rem;
+          transition: 0.5s;
+          border-radius: 4px;
+          font-weight: bolder;
           letter-spacing: 4px;
           color: $backGround-dark;
-          border-radius: 4px;
           background: linear-gradient();
           border: 2px solid $backGround-dark;
-          transition: 0.5s;
 
           &:hover {
             cursor: pointer;
@@ -170,43 +151,45 @@
       }
 
       .forgot-password {
-        @include flex-column-center-center;
-        color: rgb(255, 255, 255);
         margin-bottom: 4rem;
+        color: #ffffff;
+        @include flex-column-center-center;
+
         :nth-child(1) {
-          letter-spacing: 2px;
-          transition: 0.5s;
-          color: #d8a461;
-          border-bottom: 2px solid #d8a461;
           cursor: pointer;
+          color: #d8a461;
+          transition: 0.5s;
+          letter-spacing: 2px;
+          border-bottom: 2px solid #d8a461;
+
           &:hover {
-            background-color: #d8a461;
-            color: $backGround-dark;
-            border-radius: 4px;
             font-size: small;
+            border-radius: 4px;
+            color: $backGround-dark;
+            background-color: #d8a461;
             padding: 0.2rem 0.5rem 0.2rem 0.5rem;
           }
         }
       }
 
       .back {
-        margin-bottom: 1rem;
-        color: #dedede;
-        width: 1.6rem;
         height: 2rem;
-        background-color: $backGround-dark;
-        border-radius: 50%;
-        @include flex-center-center;
-        font-weight: bolder;
+        width: 1.6rem;
         cursor: pointer;
+        color: #dedede;
+        border-radius: 50%;
+        font-weight: bolder;
+        margin-bottom: 1rem;
+        @include flex-center-center;
+        background-color: $backGround-dark;
       }
     }
   }
 
   .footer {
-    position: absolute;
     bottom: 0;
     height: 8%;
+    position: absolute;
   }
 }
 
@@ -214,22 +197,22 @@
   width: 99vw;
   height: 60%;
   display: flex;
+  color: #a8a8a8dc;
   align-items: center;
   flex-direction: column;
-  color: #a8a8a8dc;
 
   strong {
     font-size: 2.5rem;
-    margin-bottom: 4rem;
     color: #c5c5c5dc;
+    margin-bottom: 4rem;
   }
 
   p {
     width: 60%;
     line-height: 2rem;
     font-size: 1.4rem;
-    font-weight: lighter;
-    text-align: justify;
     letter-spacing: 2px;
+    text-align: justify;
+    font-weight: lighter;
   }
 }

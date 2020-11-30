@@ -10,12 +10,11 @@
     color: $gray;
     font-size: 3rem;
     margin-left: 1rem;
-    @include gradient;
-    background-image: url(./logo.PNG);
     background-size: 120%;
     background-position: left;
     background-repeat: no-repeat;
     @include flex-center-center;
+    background-image: url(../img/logo.PNG);
 
     small {
       font-size: small;
@@ -33,12 +32,9 @@
       height: 70%;
       color: $gray;
       cursor: pointer;
-      font-weight: bold;
       margin-left: 1rem;
-      display: flex;
-
-      flex-direction: row;
-      justify-content: space-between;
+      font-weight: bold;
+      @include flex-row-center-spacebetween;
     }
 
     .searchBarHolder {

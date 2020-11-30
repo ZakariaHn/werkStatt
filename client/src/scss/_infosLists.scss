@@ -34,6 +34,7 @@
             margin-left: 1rem;
             transition: 0.5s ease-in-out;
             @include flex-center-center;
+
             &:hover {
               cursor: pointer;
               color: #d8a461;
@@ -41,6 +42,7 @@
           }
 
           &:hover {
+            color: #d8a461;
             cursor: pointer;
           }
         }
